@@ -1,0 +1,662 @@
+/* === Reset Básico e Estilos Globais === */
+
+/* Remove margens e preenchimentos padrão de todos os elementos e define box-sizing como border-box */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos aplicados ao corpo da página */
+body {
+    font-family: 'Roboto', sans-serif; /* Define a fonte padrão */
+    margin: 0; /* Remove margem externa */
+    padding: 0; /* Remove preenchimento interno */
+    background-color: #f4f4f4; /* Define a cor de fundo */
+    display: flex; /* Usa Flexbox para o layout principal */
+    flex-direction: column; /* Organiza os filhos diretos (header, main, footer) em coluna */
+    min-height: 100vh; /* Garante que o body ocupe pelo menos toda a altura da viewport, ajudando a fixar o footer no final */
+}
+
+/* === CABEÇALHO === */
+
+/* Estiliza o elemento header que possui a classe .cabecalho */
+header.cabecalho {
+    background-color: #D32F2F; /* Cor de fundo vermelha */
+    color: white; /* Cor do texto branca */
+    display: flex; /* Usa Flexbox para alinhar os itens internos (logo e menu) */
+    justify-content: space-between; /* Coloca o logo e o menu nas extremidades opostas */
+    align-items: center; /* Alinha verticalmente o logo e o menu ao centro */
+    padding: 10px 20px; /* Preenchimento interno (10px em cima/baixo, 20px nas laterais) */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
+    height: 100px; /* Define uma altura fixa para o cabeçalho */
+}
+
+/* --- Logo no Cabeçalho (MODIFICADO) --- */
+
+/* Estiliza a imagem dentro do elemento com classe .logo dentro do header.cabecalho */
+header.cabecalho .logo .logo-img {
+    height: 500px !important; /* Define a altura da imagem do logo (valor alto, pode precisar de ajuste). !important força a aplicação sobre outras regras */
+    width: auto !important; /* Define a largura automaticamente para manter a proporção. !important força a aplicação */
+    margin: 10px 0px !important; /* Define margens verticais (10px) e horizontais (0px). Nota: "10x" parece ser um erro de digitação, deveria ser "10px". !important força a aplicação */
+    vertical-align: middle !important; /* Alinha a imagem verticalmente com o texto ao redor, se houver. !important força a aplicação */
+    position: relative; /* Permite ajustar a posição da imagem */
+    top: -2px; /* Move a imagem 2 pixels para cima em relação à sua posição normal */
+}
+
+/* --- Menu de Navegação --- */
+
+/* Estiliza a lista não ordenada (ul) dentro do elemento com classe .menu */
+.menu ul {
+    list-style: none; /* Remove os marcadores padrão (bolinhas) da lista */
+    display: flex; /* Coloca os itens da lista (li) lado a lado */
+    margin: 0; /* Remove margens padrão da lista */
+    padding: 0; /* Remove preenchimentos padrão da lista */
+}
+
+/* Estiliza os itens da lista (li) dentro do elemento com classe .menu */
+.menu li {
+    margin-left: 20px; /* Adiciona um espaçamento à esquerda de cada item, exceto o primeiro */
+    position: relative; /* Necessário para que o submenu (.dropdown-conteudo) possa ser posicionado em relação a este item */
+}
+
+/* Estiliza os links (a) dentro do elemento com classe .menu */
+.menu a {
+    color: white; /* Define a cor do texto dos links */
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    font-size: 16px; /* Define o tamanho da fonte */
+    display: block; /* Faz o link ocupar todo o espaço horizontal do item li, melhorando a área clicável */
+    padding: 10px 0; /* Adiciona preenchimento vertical para aumentar a área clicável */
+}
+
+/* Estiliza os links (a) dentro de .menu quando o mouse passa sobre eles */
+.menu a:hover {
+    text-decoration: underline; /* Adiciona um sublinhado ao passar o mouse */
+}
+
+/* --- Dropdown do Menu --- */
+
+/* Estiliza o conteúdo do dropdown (geralmente uma ul dentro de um li com classe .dropdown) */
+.dropdown-conteudo {
+    display: none; /* Esconde o dropdown por padrão */
+    position: absolute; /* Posiciona o dropdown de forma absoluta em relação ao seu pai posicionado (.menu li) */
+    background-color: white; /* Define a cor de fundo */
+    min-width: 200px; /* Define uma largura mínima para o dropdown */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Adiciona uma sombra */
+    z-index: 10; /* Garante que o dropdown apareça sobre outros elementos da página */
+    right: 0; /* Alinha o dropdown à direita do item pai */
+    margin-top: 5px; /* Adiciona um pequeno espaço entre o link pai e o dropdown */
+}
+
+/* Estiliza os itens da lista (li) dentro do .dropdown-conteudo */
+.dropdown-conteudo li {
+    margin: 0; /* Remove margens padrão que podem vir do .menu li */
+}
+
+/* Estiliza os links (a) dentro do .dropdown-conteudo */
+.dropdown-conteudo a {
+    color: #333; /* Define a cor do texto (escura) */
+    padding: 12px 16px; /* Define o preenchimento interno */
+    text-decoration: none; /* Remove o sublinhado */
+    display: block; /* Faz o link ocupar toda a largura disponível */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+/* Estiliza os links do dropdown quando o mouse passa sobre eles */
+.dropdown-conteudo a:hover {
+    background-color: #f1f1f1; /* Muda a cor de fundo ao passar o mouse */
+}
+
+/* Mostra o .dropdown-conteudo quando o mouse passa sobre o elemento pai que tem a classe .dropdown */
+.dropdown:hover .dropdown-conteudo {
+    display: block; /* Torna o dropdown visível */
+}
+
+/* === BARRA DE PROGRESSO === */
+
+/* Estiliza o container da barra de progresso */
+.progress-bar {
+    display: flex; /* Usa Flexbox para alinhar os passos */
+    align-items: center; /* Alinha verticalmente os passos ao centro */
+    position: relative; /* Permite posicionar a linha de fundo de forma absoluta */
+    padding: 10px; /* Preenchimento interno */
+    background-color: white; /* Cor de fundo */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin: 20px auto; /* Margem vertical de 20px e centraliza horizontalmente */
+    width: 80%; /* Define a largura da barra */
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura total */
+}
+
+/* Estiliza cada passo individual na barra de progresso */
+.step {
+    display: flex; /* Usa Flexbox */
+    flex-direction: column; /* Organiza o círculo e o texto em coluna */
+    align-items: center; /* Centraliza horizontalmente o círculo e o texto */
+    position: relative; /* Permite que os círculos fiquem sobre a linha */
+    z-index: 1; /* Coloca os passos acima da linha de fundo */
+    flex-grow: 1; /* Faz com que cada passo ocupe um espaço igual horizontalmente */
+    text-align: center; /* Centraliza o texto do label */
+}
+
+/* Estiliza os círculos indicadores de passo */
+.circle {
+    width: 20px; /* Largura do círculo */
+    height: 20px; /* Altura do círculo */
+    border: 2px solid #ccc; /* Borda cinza */
+    border-radius: 50%; /* Torna o elemento um círculo perfeito */
+    background-color: white; /* Fundo branco */
+    margin-bottom: 5px; /* Espaço abaixo do círculo, antes do texto */
+    box-sizing: border-box; /* Inclui a borda na dimensão total */
+}
+
+/* Estiliza o círculo de um passo ativo (que tem a classe .active) */
+.step.active .circle {
+    border-color: #008000; /* Muda a cor da borda para verde */
+    background-color: #008000; /* Muda a cor de fundo para verde */
+}
+
+/* Estiliza o texto (label) abaixo de cada círculo */
+.label {
+    font-size: 12px; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+}
+
+/* Estiliza o label de um passo ativo */
+.step.active .label {
+    color: #008000; /* Muda a cor do texto para verde */
+    font-weight: bold; /* Torna o texto negrito */
+}
+
+/* Estiliza a linha que conecta os círculos */
+.line {
+    position: absolute; /* Posicionamento absoluto em relação ao .progress-bar */
+    width: calc(100% - 40px); /* Calcula a largura para conectar os centros dos círculos (ajuste conforme necessário) */
+    height: 2px; /* Altura (espessura) da linha */
+    background-color: #ccc; /* Cor da linha */
+    top: 19px; /* Posiciona a linha verticalmente para alinhar com o centro dos círculos (metade da altura do círculo + padding/border) */
+    left: 20px; /* Começa a linha após o espaço do primeiro círculo */
+    z-index: 0; /* Coloca a linha atrás dos círculos (que têm z-index: 1) */
+}
+
+/* === CONTEÚDO PRINCIPAL (main) === */
+
+/* Estiliza a área principal do conteúdo */
+main {
+    display: flex; /* Usa Flexbox para criar um layout de duas colunas (payment-section e right-section) */
+    flex: 1; /* Faz com que a seção main ocupe todo o espaço vertical restante entre o header e o footer */
+    width: 80%; /* Define a largura para alinhar com a barra de progresso */
+    margin: 0 auto 20px auto; /* Centraliza horizontalmente (auto nas laterais) e adiciona margem inferior de 20px */
+    gap: 40px; /* Cria um espaço de 40px entre as duas colunas (payment-section e right-section) */
+}
+
+/* === SEÇÃO DE PAGAMENTO (Esquerda) === */
+
+/* Estiliza a coluna da esquerda (seção de pagamento) */
+.payment-section {
+    flex: 2; /* Faz esta seção ocupar 2/3 do espaço horizontal disponível no main */
+    padding: 30px; /* Preenchimento interno */
+    background-color: white; /* Cor de fundo */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+/* Estiliza o título H1 dentro da seção de pagamento */
+.payment-section h1 {
+    margin-top: 0; /* Remove a margem superior padrão do h1 */
+    margin-bottom: 25px; /* Adiciona espaço abaixo do título */
+    color: #333; /* Cor do texto */
+    text-align: center; /* Centraliza o texto do título */
+    font-size: 1.6em; /* Tamanho da fonte */
+}
+
+/* Estiliza o container das opções de pagamento */
+.payment-options {
+    display: flex; /* Usa Flexbox */
+    flex-direction: column; /* Organiza as opções de pagamento em coluna */
+    gap: 15px; /* Adiciona espaço vertical entre as opções */
+}
+
+/* Estiliza cada bloco de opção de pagamento */
+.payment-option {
+    border: 1px solid #ccc; /* Borda cinza */
+    padding: 20px; /* Preenchimento interno aumentado */
+    border-radius: 5px; /* Bordas levemente arredondadas */
+    cursor: pointer; /* Mostra um cursor de ponteiro ao passar o mouse */
+    transition: border-color 0.2s, background-color 0.2s; /* Animação suave para mudanças de borda e fundo */
+    position: relative; /* Define um contexto de posicionamento para elementos filhos, se necessário */
+}
+
+/* Estiliza a opção de pagamento quando o mouse passa sobre ela */
+.payment-option:hover {
+    border-color: #4CAF50; /* Muda a cor da borda para verde */
+    background-color: #f8f8f8; /* Muda levemente a cor de fundo */
+}
+
+/* Estiliza a opção de pagamento quando o radio button dentro dela está selecionado */
+/* Usa o pseudo-seletor :has() para verificar o estado do filho */
+.payment-option:has(input[type="radio"]:checked) {
+    border-color: #4CAF50; /* Borda verde */
+    background-color: #f0fff0; /* Fundo levemente esverdeado */
+}
+
+/* Estiliza o label principal (que contém o radio e o título da opção) */
+.payment-option > label {
+    font-weight: bold; /* Texto em negrito */
+    display: flex; /* Alinha o radio button e o texto do label na mesma linha */
+    align-items: center; /* Alinha verticalmente o radio button e o texto */
+    cursor: pointer; /* Mantém o cursor de ponteiro */
+    font-size: 1.1em; /* Tamanho da fonte um pouco maior */
+    margin-bottom: 5px; /* Espaço abaixo do label, antes do valor */
+}
+
+/* Estiliza os radio buttons dentro das opções de pagamento */
+.payment-option input[type="radio"] {
+    margin-right: 12px; /* Espaço maior à direita do radio button */
+    cursor: pointer; /* Cursor de ponteiro */
+    /* Aparência customizada do radio button (remove o padrão do navegador) */
+    appearance: none; /* Remove aparência padrão */
+    -webkit-appearance: none; /* Remove aparência padrão (para Safari/Chrome) */
+    width: 18px; /* Largura customizada */
+    height: 18px; /* Altura customizada */
+    border: 2px solid #ccc; /* Borda cinza */
+    border-radius: 50%; /* Torna o controle redondo */
+    position: relative; /* Permite posicionar o ::after (bolinha interna) */
+    top: 2px; /* Pequeno ajuste vertical para alinhar melhor com o texto */
+}
+
+/* Estiliza o radio button quando está selecionado */
+.payment-option input[type="radio"]:checked {
+    border-color: #4CAF50; /* Muda a cor da borda para verde */
+    background-color: #4CAF50; /* Muda a cor de fundo para verde */
+}
+
+/* Cria a bolinha interna do radio button selecionado usando um pseudo-elemento */
+.payment-option input[type="radio"]:checked::after {
+    content: ''; /* Conteúdo vazio, necessário para ::after */
+    display: block; /* Torna o pseudo-elemento visível */
+    width: 8px; /* Largura da bolinha interna */
+    height: 8px; /* Altura da bolinha interna */
+    background: white; /* Cor da bolinha (branca) */
+    border-radius: 50%; /* Torna a bolinha redonda */
+    position: absolute; /* Posiciona a bolinha dentro do radio button */
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajuste fino para centralização perfeita */
+}
+
+/* Estiliza o parágrafo (que geralmente contém o valor ou descrição) dentro da opção de pagamento */
+.payment-option > p {
+    margin-top: 5px; /* Espaço acima do parágrafo */
+    margin-left: 30px; /* Indenta o parágrafo para alinhar com o texto do label (largura do radio + margem) */
+    font-size: 1.1em; /* Tamanho da fonte igual ao do label */
+    font-weight: bold; /* Texto em negrito */
+    color: #333; /* Cor do texto */
+}
+
+/* Cores específicas para os textos de valor de cada opção */
+.valor-pix { color: #167d3f; } /* Verde para Pix */
+.valor-credit { color: #333; } /* Cor padrão para Crédito */
+.valor-pay-later { color: #555; } /* Cinza escuro para Pagar Depois */
+
+/* Estiliza a div que contém o formulário específico de cada método de pagamento (ex: dados do cartão) */
+.payment-form {
+    display: none; /* Oculto por padrão (será mostrado via JS quando a opção for selecionada) */
+    margin-top: 15px; /* Espaço acima do formulário */
+    padding-top: 15px; /* Espaço interno acima, após a linha */
+    border-top: 1px solid #eee; /* Linha divisória sutil acima do formulário */
+    margin-left: 30px; /* Indenta o formulário para alinhar com o texto da opção */
+}
+
+/* Estilos específicos para os grupos de formulário dentro do #credit-card-form */
+#credit-card-form .form-group {
+    margin-bottom: 15px; /* Espaço abaixo de cada grupo (label + input) */
+}
+
+/* Estilos específicos para os labels dentro do #credit-card-form */
+#credit-card-form label {
+    display: block; /* Faz o label ocupar sua própria linha */
+    margin-bottom: 5px; /* Espaço abaixo do label, antes do input */
+    font-weight: normal; /* Peso da fonte normal (não negrito) */
+    font-size: 0.9em; /* Tamanho da fonte um pouco menor */
+    color: #555; /* Cor cinza escura */
+}
+
+/* Estilos específicos para os inputs de texto dentro do #credit-card-form */
+#credit-card-form input[type="text"] {
+    width: 100%; /* Ocupa toda a largura disponível */
+    padding: 10px; /* Preenchimento interno maior */
+    margin-top: 0; /* Remove margem superior padrão (já tem no label) */
+    border: 1px solid #ccc; /* Borda cinza */
+    border-radius: 4px; /* Bordas levemente arredondadas */
+    box-sizing: border-box; /* Inclui padding e border na largura total */
+    font-size: 1em; /* Tamanho da fonte padrão */
+}
+
+/* Estiliza a linha que contém campos lado a lado (Validade e CVV) */
+#credit-card-form .form-row {
+    display: flex; /* Usa Flexbox para colocar os campos lado a lado */
+    gap: 15px; /* Espaço entre os campos (Validade e CVV) */
+}
+
+/* Estiliza os grupos de formulário dentro da linha (.form-row) */
+#credit-card-form .form-row .form-group {
+    flex: 1; /* Faz cada grupo ocupar espaço igual na linha */
+    margin-bottom: 0; /* Remove a margem inferior, pois já há espaço da linha */
+}
+
+/* Estilos para o label dos Termos e Condições (aplicável a qualquer formulário) */
+.terms-label {
+    display: flex !important; /* Força display flex para alinhar checkbox e texto. !important usado para garantir a aplicação */
+    align-items: flex-start; /* Alinha o checkbox no topo do texto (útil se o texto tiver várias linhas) */
+    margin-top: 20px !important; /* Espaço acima do label dos termos. !important usado para garantir a aplicação */
+    font-weight: normal !important; /* Peso da fonte normal. !important usado para garantir a aplicação */
+    font-size: 0.9em !important; /* Tamanho da fonte. !important usado para garantir a aplicação */
+    color: #555; /* Cor do texto */
+    cursor: pointer; /* Cursor de ponteiro */
+    line-height: 1.4; /* Melhora a legibilidade do texto, especialmente se for longo */
+}
+
+/* Estiliza o checkbox dos Termos e Condições */
+.terms-label input[type="checkbox"] {
+    width: auto; /* Largura automática */
+    margin-right: 8px; /* Espaço à direita do checkbox */
+    margin-top: 3px; /* Pequeno ajuste vertical para alinhar melhor com a primeira linha do texto */
+    flex-shrink: 0; /* Impede que o checkbox encolha se o texto for longo */
+    cursor: pointer; /* Cursor de ponteiro */
+    /* Aparência customizada do checkbox */
+    appearance: none; /* Remove aparência padrão */
+    -webkit-appearance: none; /* Remove aparência padrão (Safari/Chrome) */
+    width: 15px; /* Largura customizada */
+    height: 15px; /* Altura customizada */
+    border: 1px solid #aaa; /* Borda cinza */
+    border-radius: 3px; /* Bordas levemente arredondadas */
+    position: relative; /* Permite posicionar o ::after (checkmark) */
+}
+
+/* Estiliza o checkbox dos Termos quando está marcado */
+.terms-label input[type="checkbox"]:checked {
+    background-color: #4CAF50; /* Fundo verde */
+    border-color: #4CAF50; /* Borda verde */
+}
+
+/* Cria o símbolo de "check" (✓) dentro do checkbox marcado usando um pseudo-elemento */
+.terms-label input[type="checkbox"]:checked::after {
+    content: '\2713'; /* Código Unicode para o símbolo de checkmark */
+    font-size: 12px; /* Tamanho do símbolo */
+    color: white; /* Cor do símbolo (branco) */
+    position: absolute; /* Posiciona dentro do checkbox */
+    top: 48%; /* Ajuste vertical para centralizar */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajuste fino para centralização */
+    font-weight: bold; /* Símbolo em negrito */
+}
+
+/* Estiliza o link dentro do label dos Termos */
+.terms-label a {
+    color: #D32F2F; /* Cor vermelha (mesma do cabeçalho) */
+    text-decoration: underline; /* Sublinhado */
+}
+
+/* Estiliza o link dos Termos no estado hover */
+.terms-label a:hover {
+    color: #a02424; /* Vermelho mais escuro */
+}
+
+/* Estiliza o botão final de pagamento */
+.pay-button {
+    background-color: #167d3f; /* Verde escuro */
+    color: white; /* Texto branco */
+    padding: 14px 25px; /* Preenchimento interno maior */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de ponteiro */
+    font-size: 1.1em; /* Tamanho da fonte */
+    font-weight: bold; /* Texto em negrito */
+    margin-top: 25px; /* Espaço acima do botão */
+    width: 100%; /* Ocupa toda a largura disponível */
+    text-align: center; /* Centraliza o texto */
+    transition: background-color 0.2s ease; /* Animação suave na mudança de cor de fundo */
+}
+
+/* Estiliza o botão de pagamento no estado hover */
+.pay-button:hover {
+    background-color: #115e2f; /* Verde ainda mais escuro */
+}
+
+/* Estiliza o botão de pagamento quando está desabilitado (ex: termos não aceitos) */
+.pay-button:disabled {
+    background-color: #ccc; /* Cor cinza */
+    cursor: not-allowed; /* Cursor indicando que não é permitido clicar */
+}
+
+/* === SEÇÃO DE RESUMO (Direita) === */
+
+/* Estiliza a coluna da direita (seção de resumo) */
+.right-section {
+    flex: 1; /* Faz esta seção ocupar 1/3 do espaço horizontal disponível no main */
+    position: sticky; /* Faz a seção "grudar" no topo da tela ao rolar */
+    top: 20px; /* Distância do topo da viewport onde a seção vai "grudar" */
+    align-self: flex-start; /* Alinha esta coluna ao topo do container flex (main) */
+    min-width: 0; /* Permite que a seção encolha se necessário em layouts flexíveis */
+    height: fit-content; /* A altura se ajusta ao conteúdo interno */
+}
+
+/* Estiliza o container do resumo do pedido */
+.resumo {
+    background-color: #f9f9f9; /* Cor de fundo levemente acinzentada */
+    padding: 25px; /* Preenchimento interno aumentado */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    display: grid; /* Usa Grid Layout para alinhar labels e valores */
+    grid-template-columns: auto 1fr; /* Define duas colunas: a primeira (label) com largura automática, a segunda (valor) ocupando o restante */
+    gap: 12px 15px; /* Espaçamento: 12px entre linhas, 15px entre colunas */
+    align-items: baseline; /* Alinha o texto de labels e valores pela linha de base */
+}
+
+/* Estiliza o título H2 dentro do resumo */
+.resumo h2 {
+    grid-column: 1 / -1; /* Faz o título ocupar todas as colunas (da 1 até a última) */
+    margin-top: 0; /* Remove margem superior */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+    text-align: center; /* Centraliza o texto */
+    font-size: 1.4em; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+    padding-bottom: 10px; /* Espaço interno abaixo, antes da linha */
+    border-bottom: 1px solid #eee; /* Linha divisória abaixo do título */
+}
+
+/* Estiliza a imagem do carro dentro do resumo */
+.resumo .car-image {
+    grid-column: 1 / -1; /* Ocupa todas as colunas */
+    max-width: 180px; /* Largura máxima da imagem */
+    height: auto; /* Altura automática para manter proporção */
+    display: block; /* Necessário para aplicar margin auto */
+    margin: 0 auto 15px auto; /* Centraliza a imagem horizontalmente e adiciona margem inferior */
+    border-radius: 4px; /* Bordas levemente arredondadas */
+}
+
+/* Estiliza o elemento com ID #nomeCarro (nome do carro) */
+#nomeCarro {
+    grid-column: 1 / -1; /* Ocupa todas as colunas */
+    text-align: center; /* Centraliza o texto */
+    font-weight: bold; /* Texto em negrito */
+    margin-bottom: 20px; /* Espaço abaixo do nome */
+    font-size: 1.15em; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+}
+
+/* Estiliza os labels (textos descritivos) no grid do resumo */
+.resumo-label {
+    font-weight: normal; /* Peso da fonte normal */
+    text-align: left; /* Alinha o texto à esquerda */
+    grid-column: 1 / 2; /* Ocupa a primeira coluna do grid */
+    color: #555; /* Cor cinza escura */
+    font-size: 0.95em; /* Tamanho da fonte */
+}
+
+/* Estilos específicos para o label "Total" */
+.resumo-label.total-label {
+    font-size: 1.1em; /* Fonte um pouco maior */
+    font-weight: bold; /* Negrito */
+    color: #333; /* Cor mais escura */
+}
+
+/* Estiliza os valores (números, preços) no grid do resumo */
+.resumo-valor {
+    font-weight: bold; /* Texto em negrito */
+    text-align: right; /* Alinha o texto à direita */
+    grid-column: 2 / 3; /* Ocupa a segunda coluna do grid */
+    white-space: nowrap; /* Impede que o valor quebre em várias linhas */
+    color: #333; /* Cor do texto */
+    font-size: 0.95em; /* Tamanho da fonte */
+}
+
+/* Estilos específicos para o valor final "Total" */
+.resumo-valor.total-final {
+    font-size: 1.3em; /* Fonte maior */
+    font-weight: bold; /* Negrito */
+    color: #167d3f; /* Cor verde */
+}
+
+/* Estiliza as linhas divisórias (elementos <hr> ou divs com esta classe) dentro do resumo */
+.resumo-divider {
+    grid-column: 1 / -1; /* Ocupa todas as colunas */
+    border: 0; /* Remove a borda padrão do hr */
+    border-top: 1px solid #e0e0e0; /* Cria uma linha superior fina e clara */
+    margin: 5px 0; /* Margem vertical pequena */
+}
+
+/* Estilos específicos para a linha divisória antes do total */
+.resumo-divider.total-divider {
+    border-top: 1px solid #ccc; /* Linha um pouco mais escura */
+    margin-top: 10px; /* Margem superior um pouco maior */
+}
+
+/* === RODAPÉ (footer) === */
+
+/* Estiliza o rodapé da página */
+footer {
+    background-color: #333; /* Cor de fundo escura */
+    color: white; /* Cor do texto branca */
+    text-align: center; /* Centraliza o texto */
+    padding: 15px 10px; /* Preenchimento interno */
+    margin-top: auto; /* Empurra o rodapé para o final da página (funciona com display:flex e flex-direction:column no body e flex:1 no main) */
+    width: 100%; /* Ocupa toda a largura */
+    box-sizing: border-box; /* Inclui padding na largura total */
+}
+
+/* Estiliza a informação de localização no rodapé */
+.location-info {
+    text-align: center; /* Garante centralização (já definido no footer, mas pode ser explícito) */
+    display: block; /* Garante que ocupe a linha inteira */
+    font-size: 0.9em; /* Tamanho da fonte um pouco menor */
+}
+
+/* Estiliza a temperatura no rodapé */
+#weather-temp { font-weight: bold; } /* Negrito */
+/* Estiliza a descrição do tempo no rodapé */
+#weather-desc { font-style: italic; margin-left: 5px; } /* Itálico e pequena margem à esquerda */
+
+/* === MEDIA QUERIES (Responsividade) === */
+
+/* Aplica estilos para telas com largura máxima de 992px (tablets e telas menores) */
+@media (max-width: 992px) {
+    /* Ajusta a largura do conteúdo principal */
+    main {
+        width: 90%; /* Reduz a largura para 90% */
+        gap: 25px; /* Reduz o espaço entre as colunas */
+    }
+    /* Ajusta a largura da barra de progresso */
+    .progress-bar {
+        width: 90%; /* Reduz a largura para 90% */
+    }
+    /* Ajusta o tamanho da fonte dos labels da barra de progresso */
+    .label { font-size: 10px; }
+    /* Ajusta o tamanho dos círculos da barra de progresso */
+    .circle { width: 18px; height: 18px; }
+    /* Ajusta a posição vertical da linha da barra de progresso */
+    .line { top: 18px; }
+
+    /* Reduz o padding interno das seções de pagamento e resumo */
+    .payment-section, .resumo {
+        padding: 20px;
+    }
+    /* Reduz o padding interno das opções de pagamento */
+    .payment-option {
+        padding: 15px;
+    }
+    /* Ajusta o tamanho da fonte do label da opção de pagamento */
+    .payment-option > label { font-size: 1em; }
+    /* Ajusta o tamanho da fonte e a indentação do parágrafo da opção de pagamento */
+    .payment-option > p { font-size: 1em; margin-left: 28px;}
+    /* Ajusta a indentação do formulário de pagamento */
+    .payment-form { margin-left: 28px;}
+}
+
+/* Aplica estilos para telas com largura máxima de 768px (celulares) */
+@media (max-width: 768px) {
+    /* Muda o layout do cabeçalho para empilhado */
+    .cabecalho { flex-direction: column; align-items: center; padding: 10px; height: auto; /* Altura automática */ }
+    /* Ajusta o tamanho do logo e margens */
+    .logo img { height: 50px; margin: 10px 0; position: static; /* Remove posicionamento relativo se não for mais necessário */ } /* Ajuste a altura da imagem do logo para telas pequenas */
+    /* Muda o layout do menu para empilhado */
+    .menu ul { flex-direction: column; align-items: center; width: 100%; }
+    /* Ajusta os itens do menu para ocupar a largura total e centralizar */
+    .menu li { margin-left: 0; margin-bottom: 5px; width: 100%; text-align: center; }
+    /* Ajusta o padding dos links do menu */
+    .menu a { padding: 8px 0; }
+    /* Ajusta o dropdown para telas pequenas: estático, fundo diferente, largura total */
+    .dropdown-conteudo { position: static; box-shadow: none; background-color: #c22a2a; /* Cor de fundo diferente para contraste */ display: none; /* Mantém escondido por padrão */ width: 100%; margin-top: 5px; border-radius: 0; /* Remove border-radius se houver */ }
+    /* Estiliza os links do dropdown em telas pequenas */
+    .dropdown-conteudo a { color: white; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); /* Linha divisória */ padding: 10px 16px; /* Ajusta padding se necessário */}
+    /* Remove a borda do último item do dropdown */
+    .dropdown-conteudo a:last-child { border-bottom: none; }
+    /* Mantém a lógica de exibição no hover (pode ser melhor mudar para clique via JS em mobile) */
+    .dropdown:hover .dropdown-conteudo { display: block; }
+
+    /* Esconde a barra de progresso em telas pequenas */
+    .progress-bar { display: none; }
+
+    /* Muda o layout do conteúdo principal para empilhado */
+    main {
+        flex-direction: column; /* Empilha a seção de pagamento e o resumo */
+        width: 95%; /* Aumenta um pouco a largura relativa */
+        gap: 20px; /* Espaço entre a seção de pagamento e o resumo */
+        /* padding: 0 10px 15px 10px; /* Ajusta o padding se necessário */
+    }
+    /* Faz as seções ocuparem 100% da largura e remove o sticky do resumo */
+    .payment-section, .right-section {
+        width: 100%;
+        position: static; /* Remove o comportamento sticky do resumo */
+        flex: none; /* Remove a propriedade flex definida anteriormente */
+    }
+    /* Ajusta o padding da seção de pagamento */
+    .payment-section { padding: 20px; }
+    /* Ajusta o padding da seção de resumo */
+    .resumo { padding: 20px; }
+
+    /* Ajustes no formulário de cartão de crédito para empilhar Validade e CVV */
+    #credit-card-form .form-row {
+        flex-direction: column; /* Empilha os campos */
+        gap: 0; /* Remove o espaço entre eles (a margem do form-group cuidará disso) */
+    }
+    /* Adiciona margem inferior de volta aos grupos dentro da linha empilhada */
+    #credit-card-form .form-row .form-group {
+        margin-bottom: 15px;
+    }
+    /* Remove a margem inferior do último grupo na linha empilhada */
+    #credit-card-form .form-row .form-group:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Ajustes gerais de tamanho de fonte para melhor leitura em telas pequenas */
+    body { font-size: 14px; } /* Tamanho base da fonte */
+    input, select, .btn, .pay-button { font-size: 14px; } /* Fontes de elementos de formulário */
+    label { font-size: 13px; } /* Fontes de labels */
+    .payment-section h1 { font-size: 1.4em; } /* Título da seção de pagamento */
+    .resumo h2 { font-size: 1.2em; } /* Título do resumo */
+    .resumo-valor.total-final { font-size: 1.25em; } /* Valor total final no resumo */
+    .pay-button { font-size: 1em; padding: 12px 20px;} /* Botão de pagamento */
+}

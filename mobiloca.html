@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A mobiloca</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="stylesMobiloca.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <img src="imagens/logo.png" alt="Logo da Empresa" classs="logo-img">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">INÍCIO</a></li>
+                <li><a href="ofertas.html">OFERTAS</a></li>
+                <li><a href="politica.html">POLÍTICA DE PRIVACIDADE</a></li>
+                <li><a href="mobiloca.html">A MOBILOCA</a></li>
+                <li class="dropdown">
+                    <a href="#">AJUDA &#9662;</a> <div class="dropdown-conteudo">
+                        <a href="ajuda.html">DÚVIDAS FREQUENTES</a>
+                        <a href="contato.html">FALA CONOSCO</a>
+                        <a href="sinistro.html">SINISTROS E MANUTENÇÃO</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="search-form-container">
+        <form action="reservasData.html" method="GET" class="rental-search-form" id="rental-search-form">
+            <div class="form-row">
+                <div class="input-group date-group">
+                    <i class="fas fa-calendar-alt input-icon"></i>
+                    <input type="date" name="retirada_data" id="retirada_data" required>
+                </div>
+                <div class="input-group time-group">
+                    <i class="fas fa-clock input-icon"></i>
+                    <input type="time" name="retirada_hora" id="retirada_hora" value="12:00" required>
+                </div>
+                <div class="input-group cupom-group">
+                     <input type="text" name="cupom" id="cupom" placeholder="Cupom">
+                </div>
+            </div>
+            <div class="form-row">
+                 <div class="input-group date-group">
+                    <i class="fas fa-calendar-alt input-icon"></i>
+                    <input type="date" name="devolucao_data" id="devolucao_data" required>
+                 </div>
+                 <div class="input-group time-group">
+                    <i class="fas fa-clock input-icon"></i>
+                    <input type="time" name="devolucao_hora" id="devolucao_hora" value="12:00" required>
+                 </div>
+                 <div class="input-group button-group">
+                    <button type="submit" class="search-button">PESQUISAR</button>
+                 </div>
+            </div>
+        </form>
+    </section>
+
+    <main>
+        <div class="container-conteudo">
+            <h1>A Mobiloca</h1>
+            <hr class="titulo-hr">
+            <section class="secao-sobre">
+                 <h2>Nossa História</h2>
+                 <p>A Mobiloca nasceu em 2025, em Santo Amaro para uma trabalho academico de Modelagem de Negocios do professor Diego.</p>
+                 <h2>Nossa Missão</h2>
+                 <p>A missão da Mobiloca é ser o seu parceiro de confiança em mobilidade, proporcionando a tranquilidade e a conveniência que você precisa para cada trajeto. Empenhamo-nos em oferecer uma frota moderna e segura, processos de locação transparentes e um suporte ao cliente dedicado. Queremos ir além do aluguel de carros: buscamos construir relacionamentos duradouros, garantindo que cada viagem com a Mobiloca seja uma experiência positiva e sem imprevistos..</p>
+                 <h2>Nossos Valores</h2>
+                 <ul>
+                     <li>Compromisso com o cliente</li>
+                     <li>Qualidade e segurança</li>
+                     <li>Inovação contínua</li>
+                     <li>Transparência e ética</li>
+                 </ul>  
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="location-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <span id="weather-temp">--</span>°C <span id="weather-desc">Carregando...</span> <span> - Santo Amaro, São Paulo</span>
+        </div>
+    </footer>
+    <script src="mobiloca.js"></script>
+
+</body>
+</html>

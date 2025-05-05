@@ -1,0 +1,762 @@
+/* Aplica reset básico de margem e padding e define box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos aplicados ao corpo (body) da página */
+body {
+    /* Define a família de fontes principal */
+    font-family: 'Roboto', sans-serif;
+    /* Remove margens padrão do navegador */
+    margin: 0;
+    /* Remove preenchimento padrão do navegador */
+    padding: 0;
+    /* Cor de fundo cinza clara */
+    background-color: #f4f4f4;
+    /* Habilita Flexbox */
+    display: flex;
+    /* Organiza filhos diretos (header, container, footer) em coluna */
+    flex-direction: column;
+    /* Garante altura mínima igual à da viewport (ajuda no sticky footer) */
+    min-height: 100vh;
+}
+
+/* === CABEÇALHO === */
+header.cabecalho {
+    /* Cor de fundo vermelha */
+    background-color: #D32F2F;
+    /* Cor padrão do texto */
+    color: white;
+    /* Usa Flexbox para alinhar logo e menu */
+    display: flex;
+    /* Coloca logo e menu nas extremidades */
+    justify-content: space-between;
+    /* Alinha verticalmente logo e menu */
+    align-items: center;
+    /* Preenchimento interno */
+    padding: 10px 20px;
+    /* Sombra suave */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Altura fixa */
+    height: 100px; /* Nota: Altura aumentada para 100px aqui */
+}
+
+/* Estilização da imagem do logo */
+header.cabecalho .logo .logo-img {
+    /* Define a altura da imagem do logo (valor 500px parece excessivo) */
+    height: 500px !important;
+    /* Largura automática para manter proporção */
+    width: auto !important;
+    /* Margem vertical 10px, horizontal 0px */
+    margin: 10px 0px !important; /* Corrigido de 10x */
+    /* Alinhamento vertical */
+    vertical-align: middle !important;
+    /* Posicionamento relativo para permitir ajuste fino */
+    position: relative;
+    /* Move a imagem 2 pixels para cima */
+    top: -2px;
+}
+
+/* --- Menu de Navegação --- */
+/* Estilo da lista <ul> do menu */
+.menu ul {
+    /* Remove marcadores de lista */
+    list-style: none;
+    /* Alinha itens <li> horizontalmente */
+    display: flex;
+    /* Remove margem padrão */
+    margin: 0;
+    /* Remove preenchimento padrão */
+    padding: 0;
+}
+
+/* Estilo dos itens <li> do menu */
+.menu li {
+    /* Espaçamento à esquerda entre itens */
+    margin-left: 20px;
+    /* Necessário para posicionar o dropdown */
+    position: relative;
+}
+
+/* Estilo dos links <a> do menu */
+.menu a {
+    /* Cor do texto */
+    color: white;
+    /* Remove sublinhado */
+    text-decoration: none;
+    /* Tamanho da fonte */
+    font-size: 16px;
+    /* Faz link ocupar espaço do <li> */
+    display: block;
+    /* Preenchimento vertical */
+    padding: 10px 0;
+}
+
+/* Efeito hover nos links do menu */
+.menu a:hover {
+    /* Adiciona sublinhado */
+    text-decoration: underline;
+}
+
+/* --- Dropdown do Menu --- */
+/* Container do submenu dropdown */
+.dropdown-conteudo {
+    /* Escondido por padrão */
+    display: none;
+    /* Posicionamento absoluto em relação ao <li> pai */
+    position: absolute;
+    /* Fundo branco */
+    background-color: white;
+    /* Largura mínima */
+    min-width: 200px;
+    /* Sombra */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /* Garante que fique sobre outros elementos */
+    z-index: 10;
+    /* Alinha à direita do <li> pai */
+    right: 0;
+    /* Espaço abaixo do link "AJUDA" */
+    margin-top: 5px;
+}
+
+/* Remove margem dos <li> dentro do dropdown */
+.dropdown-conteudo li {
+    margin: 0;
+}
+
+/* Estilo dos links <a> dentro do dropdown */
+.dropdown-conteudo a {
+    /* Cor do texto escura */
+    color: #333;
+    /* Preenchimento interno */
+    padding: 12px 16px;
+    /* Remove sublinhado */
+    text-decoration: none;
+    /* Ocupa largura total */
+    display: block;
+    /* Alinha texto à esquerda */
+    text-align: left;
+}
+
+/* Efeito hover nos links do dropdown */
+.dropdown-conteudo a:hover {
+    /* Fundo cinza claro */
+    background-color: #f1f1f1;
+}
+
+/* Exibe o dropdown ao passar o mouse sobre o <li> pai */
+.dropdown:hover .dropdown-conteudo {
+    display: block;
+}
+/* === FIM CABEÇALHO E MENU === */
+
+
+/* === BARRA DE PROGRESSO === */
+/* Container da barra de progresso */
+.progress-bar {
+    /* Usa Flexbox para alinhar os passos */
+    display: flex;
+    /* Alinha verticalmente os itens */
+    align-items: center;
+    /* Posicionamento relativo para a linha absoluta */
+    position: relative;
+    /* Preenchimento interno */
+    padding: 10px;
+    /* Fundo branco */
+    background-color: white;
+    /* Bordas arredondadas */
+    border-radius: 8px;
+    /* Sombra suave */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Centraliza e adiciona margem vertical */
+    margin: 20px auto;
+    /* Largura da barra */
+    width: 80%;
+    /* Inclui padding na largura */
+    box-sizing: border-box;
+}
+
+/* Estilo de cada passo individual */
+.step {
+    /* Organiza círculo e label verticalmente */
+    display: flex;
+    flex-direction: column;
+    /* Centraliza horizontalmente */
+    align-items: center;
+    /* Posicionamento relativo para z-index */
+    position: relative;
+    /* Para ficar acima da linha */
+    z-index: 1;
+    /* Ocupa espaço igualmente */
+    flex-grow: 1;
+    /* Centraliza texto */
+    text-align: center;
+}
+
+/* Círculo indicador do passo */
+.circle {
+    /* Largura e altura */
+    width: 20px;
+    height: 20px;
+    /* Borda padrão */
+    border: 2px solid #ccc;
+    /* Forma circular */
+    border-radius: 50%;
+    /* Fundo branco */
+    background-color: white;
+    /* Espaço abaixo */
+    margin-bottom: 5px;
+    /* Inclui borda no tamanho */
+    box-sizing: border-box;
+}
+
+/* Círculo do passo ativo */
+.step.active .circle {
+    /* Borda e fundo verdes */
+    border-color: #008000; /* Verde */
+    background-color: #008000;
+}
+
+/* Texto (label) abaixo do círculo */
+.label {
+    font-size: 12px;
+    color: #333;
+    /* Impede quebra de linha */
+    white-space: nowrap;
+}
+
+/* Label do passo ativo */
+.step.active .label {
+    color: #008000; /* Verde */
+    font-weight: bold; /* Negrito */
+}
+
+/* Linha conectora entre os passos */
+.line {
+    /* Posicionamento absoluto relativo à .progress-bar */
+    position: absolute;
+    /* Largura calculada para conectar centros */
+    width: calc(100% - 40px);
+    /* Altura/espessura */
+    height: 2px;
+    /* Cor da linha */
+    background-color: #ccc;
+    /* Posição vertical (alinhar com centro dos círculos) */
+    top: 19px;
+    /* Posição horizontal (inicia após o primeiro círculo) */
+    left: 20px;
+    /* Garante que fique atrás dos círculos */
+    z-index: 0;
+}
+
+/* === CONTAINER PRINCIPAL (Layout geral da página) === */
+.container {
+    /* Largura do container principal */
+    width: 80%;
+    /* Centraliza e adiciona margem inferior */
+    margin: 0 auto 20px auto;
+    /* Usa Flexbox (pode não ser necessário se 'main' for o container flex) */
+    display: flex; /* Mantido para definir gap, mas 'main' faz o layout das colunas */
+    /* Faz o container ocupar o espaço vertical restante */
+    flex: 1;
+    /* Espaço entre as colunas (se .container for o flex container) */
+    gap: 40px;
+}
+
+/* === MAIN (Contém as duas colunas: Confirmação e Resumo) === */
+main {
+    /* Usa Flexbox para criar layout de duas colunas */
+    display: flex;
+    /* Ocupa todo o espaço disponível dentro do .container (ou body se .container for removido) */
+    flex: 1;
+    /* Espaçamento entre a seção de confirmação e o resumo */
+    gap: 40px;
+    /* Fundo branco para toda a área principal */
+    background-color: white;
+    /* Cantos arredondados */
+    border-radius: 8px;
+    /* Sombra suave */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Espaçamento interno */
+    padding: 30px;
+}
+
+/* === SEÇÃO DE CONFIRMAÇÃO (Coluna Esquerda) === */
+.confirmation-section {
+    /* Faz esta seção ocupar 2 partes do espaço disponível (mais larga) */
+    flex: 2;
+    /* Usa Flexbox para organizar o conteúdo interno */
+    display: flex;
+    /* Organiza o conteúdo verticalmente */
+    flex-direction: column;
+    /* Centraliza o conteúdo horizontalmente */
+    align-items: center;
+    /* Centraliza o texto dentro da seção */
+    text-align: center;
+}
+
+/* Título principal da seção de confirmação (H1) */
+.confirmation-section h1 {
+    /* Remove margem do topo */
+    margin-top: 0;
+    /* Tamanho da fonte aumentado */
+    font-size: 1.8em;
+    /* Cor do texto */
+    color: #333;
+    /* Margem inferior aumentada */
+    margin-bottom: 30px;
+    /* Garante que o text-align funcione corretamente */
+    width: 100%;
+}
+
+/* Container para o conteúdo central da confirmação */
+.confirmation-content {
+    /* Ocupa a largura da seção pai */
+    width: 100%;
+    /* Limita a largura máxima do bloco central */
+    max-width: 500px;
+    /* Centraliza o bloco horizontalmente (se a largura for menor que a seção) */
+    margin: 0 auto;
+}
+
+/* Círculo verde com o ícone de check */
+.check-circle {
+    /* Permite centralização com margin auto (se necessário) */
+    display: inline-block;
+    /* Dimensões do círculo */
+    width: 80px;
+    height: 80px;
+    /* Forma circular */
+    border-radius: 50%;
+    /* Cor de fundo verde */
+    background-color: #4CAF50;
+    /* Cor do ícone interno */
+    color: white;
+    /* Tamanho da fonte (para o ícone Font Awesome, por exemplo) */
+    font-size: 40px;
+    /* Centraliza o ícone verticalmente (igual à altura) */
+    line-height: 80px;
+    /* Espaço abaixo do círculo */
+    margin-bottom: 20px;
+}
+
+/* Subtítulo (H2) abaixo do círculo */
+.confirmation-content h2 {
+    /* Margem inferior */
+    margin-bottom: 15px;
+    /* Cor do texto */
+    color: #333;
+    /* Tamanho da fonte */
+    font-size: 1.4em;
+}
+
+/* Estilo do código da reserva */
+.confirmation-code {
+    /* Texto em negrito */
+    font-weight: bold;
+    /* Tamanho da fonte maior */
+    font-size: 1.4em;
+    /* Cor vermelha */
+    color: #D32F2F;
+    /* Margem inferior */
+    margin-bottom: 25px;
+    /* Fundo cinza claro para destaque */
+    background-color: #eee;
+    /* Preenchimento interno */
+    padding: 8px 15px;
+    /* Bordas arredondadas */
+    border-radius: 4px;
+    /* Comportamento de bloco em linha para o padding funcionar */
+    display: inline-block;
+    /* Borda sutil */
+    border: 1px solid #ddd;
+}
+
+/* Bloco com detalhes do pagamento */
+.payment-details {
+    /* Margem inferior */
+    margin-bottom: 30px;
+    /* Cor do texto */
+    color: #555;
+    /* Tamanho da fonte */
+    font-size: 1em;
+    /* Altura da linha para melhor legibilidade */
+    line-height: 1.6;
+    /* Fundo azul claro (exemplo para destacar info de Pix) */
+    background-color: #f0f8ff;
+    /* Borda azul clara */
+    border: 1px solid #add8e6;
+    /* Preenchimento interno */
+    padding: 15px;
+    /* Bordas arredondadas */
+    border-radius: 5px;
+}
+/* Parágrafos dentro dos detalhes de pagamento */
+.payment-details p {
+    margin-bottom: 8px; /* Espaço entre parágrafos */
+}
+/* Remove margem do último parágrafo */
+.payment-details p:last-child {
+    margin-bottom: 0;
+}
+/* Destaca partes importantes com negrito */
+.payment-details strong {
+    color: #333; /* Cor mais escura para destaque */
+}
+
+/* Container dos botões de ação (Compartilhar/Imprimir) */
+.share-buttons {
+    /* Usa Flexbox para alinhar botões */
+    display: flex;
+    /* Centraliza os botões horizontalmente */
+    justify-content: center;
+    /* Espaço entre os botões */
+    gap: 15px;
+    /* Espaço acima dos botões */
+    margin-top: 20px;
+}
+
+/* Estilo base comum para os botões de ação */
+.btn-compartilhar, .btn-imprimir {
+    /* Preenchimento interno */
+    padding: 10px 20px;
+    /* Sem borda */
+    border: none;
+    /* Bordas arredondadas */
+    border-radius: 5px;
+    /* Cursor de ponteiro */
+    cursor: pointer;
+    /* Tamanho da fonte */
+    font-size: 1em;
+    /* Cor do texto */
+    color: white;
+    /* Transição suave para o hover */
+    transition: background-color 0.2s;
+    /* Usa Flexbox para alinhar ícone e texto dentro do botão */
+    display: inline-flex;
+    align-items: center;
+    /* Espaço entre ícone e texto */
+    gap: 8px;
+}
+/* Estilo para ícones dentro dos botões */
+.btn-compartilhar i, .btn-imprimir i {
+    font-size: 1.1em; /* Tamanho do ícone */
+}
+
+
+/* Botão Compartilhar */
+.btn-compartilhar {
+    background-color: #007bff; /* Azul */
+}
+/* Hover do Botão Compartilhar */
+.btn-compartilhar:hover {
+    background-color: #0056b3; /* Azul escuro */
+}
+
+/* Botão Imprimir */
+.btn-imprimir {
+    background-color: #6c757d; /* Cinza */
+}
+/* Hover do Botão Imprimir */
+.btn-imprimir:hover {
+    background-color: #5a6268; /* Cinza escuro */
+}
+
+
+/* === SEÇÃO DE RESUMO (Coluna Direita) === */
+/* Estilo da seção direita (coluna do resumo) */
+.right-section {
+    /* Ocupa 1 parte do espaço disponível */
+    flex: 1;
+    /* Posicionamento fixo (sticky) durante a rolagem */
+    position: sticky;
+    /* Distância do topo onde o resumo vai "grudar" */
+    top: 20px;
+    /* Alinha este item ao topo do container flex pai (main) */
+    align-self: flex-start;
+    /* Necessário para sticky funcionar corretamente em flex */
+    min-width: 0;
+    /* Altura baseada no conteúdo interno */
+    height: fit-content;
+}
+
+/* Card de resumo */
+.resumo {
+    /* Fundo cinza claro */
+    background-color: #f9f9f9;
+    /* Preenchimento interno aumentado */
+    padding: 25px;
+    /* Bordas arredondadas */
+    border-radius: 8px;
+    /* Sombra suave */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Usa CSS Grid para alinhar labels e valores */
+    display: grid;
+    /* Define 2 colunas: 1ª ajusta ao conteúdo (label), 2ª ocupa o resto (valor) */
+    grid-template-columns: auto 1fr;
+    /* Espaçamento entre linhas (12px) e colunas (15px) */
+    gap: 12px 15px;
+    /* Alinha o texto pela base de cada célula */
+    align-items: baseline;
+}
+
+/* Título H2 dentro do resumo */
+.resumo h2 {
+    /* Ocupa ambas as colunas do grid */
+    grid-column: 1 / -1;
+    /* Remove margem superior */
+    margin-top: 0;
+    /* Margem inferior */
+    margin-bottom: 20px;
+    /* Alinhamento centralizado */
+    text-align: center;
+    /* Tamanho da fonte */
+    font-size: 1.4em;
+    /* Cor do texto */
+    color: #333;
+    /* Espaço abaixo do texto, antes da linha */
+    padding-bottom: 10px;
+    /* Linha divisória abaixo */
+    border-bottom: 1px solid #eee;
+}
+
+/* Imagem do carro no resumo */
+.resumo .car-image {
+    /* Ocupa ambas as colunas */
+    grid-column: 1 / -1;
+    /* Largura máxima */
+    max-width: 180px;
+    /* Altura automática */
+    height: auto;
+    /* Comportamento de bloco para centralizar */
+    display: block;
+    /* Centraliza horizontalmente, margem inferior */
+    margin: 0 auto 10px auto;
+    /* Bordas arredondadas */
+    border-radius: 4px;
+}
+
+/* Nome do carro/grupo no resumo (ID do HTML) */
+.resumo #nomeCarro {
+    /* Ocupa ambas as colunas */
+    grid-column: 1 / -1;
+    /* Centraliza texto */
+    text-align: center;
+    /* Texto em negrito */
+    font-weight: bold;
+    /* Margem inferior */
+    margin-bottom: 15px;
+    /* Tamanho da fonte */
+    font-size: 1.15em;
+    /* Cor do texto */
+    color: #333;
+}
+
+/* Estilo dos labels no resumo (ex: "Retirada:") */
+.resumo-label {
+    /* Peso da fonte normal */
+    font-weight: normal;
+    /* Alinhamento à esquerda */
+    text-align: left;
+    /* Ocupa a primeira coluna do grid */
+    grid-column: 1 / 2;
+    /* Cor do texto */
+    color: #555;
+    /* Tamanho da fonte */
+    font-size: 0.95em;
+}
+/* Estilo específico para o label "Total Pago" */
+.resumo-label.total-label {
+      font-size: 1.1em; /* Maior */
+      font-weight: bold; /* Negrito */
+      color: #333; /* Mais escuro */
+}
+
+/* Estilo dos valores no resumo (ex: datas, preços) */
+.resumo-valor {
+    /* Texto em negrito */
+    font-weight: bold;
+    /* Alinhamento à direita */
+    text-align: right;
+    /* Ocupa a segunda coluna do grid */
+    grid-column: 2 / 3;
+    /* Impede quebra de linha */
+    white-space: nowrap;
+    /* Cor do texto */
+    color: #333;
+    /* Tamanho da fonte */
+    font-size: 0.95em;
+}
+/* Estilo específico para o valor Total Final */
+.resumo-valor.total-final {
+    /* Tamanho da fonte maior */
+    font-size: 1.3em;
+    /* Texto em negrito */
+    font-weight: bold;
+    /* Cor verde */
+    color: #167d3f;
+}
+
+/* Estilo para as linhas divisórias <hr> no resumo */
+.resumo hr.resumo-divider { /* Seleciona <hr> com classe específica dentro de .resumo */
+    /* Ocupa ambas as colunas */
+    grid-column: 1 / -1;
+    /* Remove borda padrão */
+    border: 0;
+    /* Cria linha com borda superior */
+    border-top: 1px solid #e0e0e0; /* Linha cinza clara */
+    /* Margem vertical */
+    margin: 5px 0;
+}
+/* Estilo para a linha divisória antes do total */
+.resumo hr.total-divider { /* Classe específica */
+    /* Linha um pouco mais escura */
+    border-top: 1px solid #ccc;
+    /* Mais espaço acima */
+    margin-top: 10px;
+}
+
+/* === RODAPÉ (footer) === */
+/* Estilização do rodapé */
+footer {
+    /* Fundo cinza escuro */
+    background-color: #333;
+    /* Texto branco */
+    color: white;
+    /* Centraliza texto */
+    text-align: center;
+    /* Preenchimento interno */
+    padding: 15px 10px;
+    /* Garante que fique no final (com flex no body) */
+    margin-top: auto;
+    /* Largura total */
+    width: 100%;
+    /* Inclui padding na largura */
+    box-sizing: border-box;
+}
+
+/* Container das informações de localização */
+.location-info {
+    text-align: center;
+    display: block; /* Garante que ocupe a linha */
+    font-size: 0.9em; /* Tamanho da fonte */
+}
+
+/* Span da temperatura */
+#weather-temp { font-weight: bold; } /* Negrito */
+/* Span da descrição do tempo */
+#weather-desc { font-style: italic; margin-left: 5px; } /* Itálico com espaço */
+
+
+/* === MEDIA QUERIES (Responsividade) === */
+
+/* Telas Médias (Ex: ~992px) */
+@media (max-width: 992px) {
+    /* Ajusta largura do container principal */
+    .container { width: 90%; gap: 25px; }
+    /* Ajusta padding e gap do <main> */
+    main { padding: 20px; gap: 25px; }
+    /* Ajusta largura da barra de progresso */
+    .progress-bar { width: 90%; }
+    /* Reduz fonte do label da barra */
+    .label { font-size: 10px; }
+    /* Reduz tamanho do círculo */
+    .circle { width: 18px; height: 18px; }
+    /* Ajusta posição da linha */
+    .line { top: 18px; }
+
+    /* Reduz padding da seção de confirmação */
+    .confirmation-section { padding: 10px 0; }
+    /* Reduz padding do resumo */
+    .resumo { padding: 20px; }
+    /* Ajusta fontes */
+    .confirmation-section h1 { font-size: 1.5em; }
+    .check-circle { width: 70px; height: 70px; font-size: 35px; line-height: 70px; }
+    .confirmation-code { font-size: 1.2em; }
+}
+
+/* Telas Pequenas (Ex: Tablets e Celulares Maiores ~768px) */
+@media (max-width: 768px) {
+    /* Ajusta Cabeçalho para mobile */
+    header.cabecalho { /* Renomeado para header.cabecalho */
+      flex-direction: column; /* Empilha logo e menu */
+      padding: 10px;
+      height: auto; /* Altura automática */
+    }
+    .logo img { /* Ajusta logo */
+      height: 50px; /* Exemplo de altura ajustada */
+      margin: 10px 0;
+    }
+    .menu ul { /* Ajusta menu */
+      flex-direction: column; /* Empilha itens */
+      align-items: center; /* Centraliza */
+      width: 100%;
+    }
+    .menu li { /* Ajusta item de menu */
+      margin: 5px 0;
+      width: 100%;
+      text-align: center;
+    }
+    .menu a { /* Ajusta link do menu */
+      padding: 8px 0;
+    }
+    /* Ajusta dropdown mobile */
+    .dropdown-conteudo {
+      position: static; /* Remove posicionamento absoluto */
+      box-shadow: none; /* Remove sombra */
+      background-color: #c22a2a; /* Fundo diferente */
+      display: none; /* Esconder por padrão (acionar via JS) */
+      width: 100%;
+      margin-top: 5px;
+    }
+    .dropdown-conteudo a { /* Links do dropdown */
+      color: white;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .dropdown-conteudo a:last-child { border-bottom: none; } /* Remove borda do último */
+    /* A regra :hover é menos útil em mobile, JS para clique é melhor */
+    .dropdown:hover .dropdown-conteudo { display: block; }
+
+    /* Esconder barra de progresso */
+    .progress-bar { display: none; }
+
+    /* Ajusta layout principal para coluna única */
+    .container { flex-direction: column; width: 95%; padding: 0; gap: 20px;} /* Container geral vira coluna */
+    main { flex-direction: column; width: 100%; padding: 0; gap: 20px; background: none; box-shadow: none; border-radius: 0;} /* Main vira coluna, sem estilo próprio */
+
+    /* Estilos individuais para as seções quando empilhadas */
+    .confirmation-section, .right-section {
+        width: 100%; /* Ocupa largura total */
+        position: static; /* Remove sticky */
+        padding: 20px; /* Adiciona padding individual */
+        background-color: white; /* Adiciona fundo individual */
+        border-radius: 8px; /* Adiciona bordas arredondadas */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona sombra individual */
+    }
+    .right-section { margin-top: 0; } /* Zera margem do topo do resumo */
+
+
+    /* Ajustes no conteúdo da confirmação */
+    .confirmation-section h1 { font-size: 1.3em; margin-bottom: 20px;}
+    .check-circle { width: 60px; height: 60px; font-size: 30px; line-height: 60px; }
+    .confirmation-content h2 { font-size: 1.2em; }
+    .confirmation-code { font-size: 1.1em; padding: 6px 12px;}
+    .payment-details { font-size: 0.9em; padding: 12px; }
+
+    /* Ajusta botões para empilhar */
+    .share-buttons { flex-direction: column; align-items: center; gap: 10px; margin-top: 15px;}
+    /* Botões ocupam largura limitada e centralizada */
+    .btn-compartilhar, .btn-imprimir { width: 100%; max-width: 300px; padding: 12px 15px; }
+
+    /* Ajustes no resumo */
+    .resumo { padding: 15px; }
+    .resumo h2 { font-size: 1.2em; }
+    .resumo-label, .resumo-valor { font-size: 0.9em; }
+    .resumo-valor.total-final { font-size: 1.2em; }
+
+    /* Reduz fonte base geral */
+    body { font-size: 14px; }
+}

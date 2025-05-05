@@ -1,0 +1,733 @@
+/* Estilos aplicados ao corpo (body) da página */
+body {
+    /* Define a família de fontes padrão para toda a página */
+    font-family: 'Roboto', sans-serif;
+    /* Remove a margem padrão do navegador */
+    margin: 0;
+    /* Remove o preenchimento padrão do navegador */
+    padding: 0;
+    /* Define uma cor de fundo cinza clara */
+    background-color: #f4f4f4;
+    /* Habilita o layout Flexbox */
+    display: flex;
+    /* Organiza os filhos diretos (header, main, footer) em coluna */
+    flex-direction: column;
+    /* Garante que o body tenha no mínimo a altura da janela de visualização (viewport) */
+    /* Ajuda a manter o rodapé no final, mesmo com pouco conteúdo */
+    min-height: 100vh;
+}
+
+/* --- ESTILOS DO CABEÇALHO --- */
+/* Seleciona o elemento header que possui a classe 'cabecalho' */
+header.cabecalho {
+    /* Cor de fundo vermelha */
+    background-color: #D32F2F;
+    /* Cor do texto padrão dentro do cabeçalho */
+    color: white;
+    /* Habilita Flexbox para alinhar itens internos (logo e menu) */
+    display: flex;
+    /* Distribui o espaço entre os itens, empurrando o logo e o menu para as extremidades */
+    justify-content: space-between;
+    /* Alinha verticalmente os itens ao centro */
+    align-items: center;
+    /* Preenchimento interno (10px topo/base, 20px laterais) */
+    padding: 10px 20px;
+    /* Adiciona uma sombra suave abaixo do cabeçalho */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Altura fixa do cabeçalho */
+    height: 80px;
+}
+
+/* Estilização da imagem do logo dentro do cabeçalho */
+/* ATENÇÃO: Uso excessivo de !important pode dificultar a manutenção e sobrescrita de estilos */
+header.cabecalho .logo .logo-img {
+    /* Define a altura da imagem do logo (sobrescreve outras regras com !important) */
+    height: 40px !important;
+    /* Define a largura como automática para manter a proporção (sobrescreve com !important) */
+    width: auto !important;
+    /* Define margens ao redor do logo (sobrescreve com !important) */
+    margin: 10px 20px !important;
+    /* Alinha verticalmente a imagem (sobrescreve com !important) */
+    vertical-align: middle !important;
+}
+
+/* --- ESTILOS DO MENU DE NAVEGAÇÃO --- */
+/* Estilização da lista não ordenada (ul) dentro do elemento com classe 'menu' */
+.menu ul {
+    /* Remove os marcadores (bolinhas) da lista */
+    list-style: none;
+    /* Habilita Flexbox para alinhar os itens 'li' horizontalmente */
+    display: flex;
+    /* Remove a margem padrão da lista 'ul' */
+    margin: 0;
+    /* Remove o preenchimento padrão da lista 'ul' */
+    padding: 0;
+}
+
+/* Estilização dos itens da lista (li) dentro do menu */
+.menu li {
+    /* Adiciona margem à esquerda de cada item, criando espaçamento entre eles */
+    margin-left: 20px;
+    /* Define o posicionamento relativo para permitir o posicionamento absoluto do submenu (dropdown) */
+    position: relative;
+}
+
+/* Estilização dos links (a) dentro do menu */
+.menu a {
+    /* Cor do texto dos links */
+    color: white;
+    /* Remove o sublinhado padrão dos links */
+    text-decoration: none;
+    /* Tamanho da fonte */
+    font-size: 16px;
+    /* Faz o link ocupar todo o espaço do 'li', melhorando a área clicável */
+    display: block;
+    /* Adiciona preenchimento vertical para aumentar a área clicável */
+    padding: 10px 0;
+}
+
+/* Estilização do link do menu quando o mouse está sobre ele */
+.menu a:hover {
+    /* Adiciona um sublinhado ao passar o mouse */
+    text-decoration: underline;
+}
+
+/* --- ESTILOS DO DROPDOWN (SUBMENU) --- */
+/* Container do conteúdo do dropdown */
+.dropdown-conteudo {
+    /* Esconde o dropdown por padrão */
+    display: none;
+    /* Posicionamento absoluto em relação ao 'li.dropdown' mais próximo que tenha position: relative */
+    position: absolute;
+    /* Cor de fundo branca */
+    background-color: white;
+    /* Largura mínima do dropdown */
+    min-width: 200px;
+    /* Adiciona uma sombra projetada */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /* Garante que o dropdown fique acima de outros elementos na página */
+    z-index: 10;
+    /* Alinha a borda direita do dropdown com a borda direita do 'li.dropdown' */
+    right: 0;
+    /* Pequeno espaço abaixo do link principal "AJUDA" */
+    margin-top: 5px;
+}
+
+/* Remove a margem padrão dos itens 'li' dentro do dropdown */
+.dropdown-conteudo li {
+    margin: 0;
+}
+
+/* Estilos dos links (a) dentro do dropdown */
+.dropdown-conteudo a {
+    /* Cor do texto escura (cinza) */
+    color: #333;
+    /* Preenchimento interno dos links */
+    padding: 12px 16px;
+    /* Remove sublinhado */
+    text-decoration: none;
+    /* Faz cada link ocupar a largura total do dropdown */
+    display: block;
+    /* Alinha o texto à esquerda */
+    text-align: left;
+}
+
+/* Efeito hover (mouse sobre) nos links do dropdown */
+.dropdown-conteudo a:hover {
+    /* Muda a cor de fundo para um cinza claro */
+    background-color: #f1f1f1;
+}
+
+/* Regra que torna o dropdown visível */
+/* Quando o mouse passa sobre o elemento com classe 'dropdown' (o 'li' pai)... */
+.dropdown:hover .dropdown-conteudo {
+    /* ...o elemento filho com classe 'dropdown-conteudo' se torna visível */
+    display: block;
+}
+
+/* --- ESTILOS DO CONTEÚDO PRINCIPAL (MAIN) --- */
+/* Estilização da tag 'main' */
+main {
+    /* Faz com que o 'main' ocupe o espaço vertical disponível entre header e footer (requer display:flex e flex-direction:column no body) */
+    flex-grow: 1;
+    /* Habilita Flexbox para centralizar o conteúdo filho (.container) */
+    display: flex;
+    /* Centraliza o .container horizontalmente */
+    justify-content: center;
+    /* Centraliza o .container verticalmente */
+    align-items: center;
+    /* Espaçamento interno no 'main', ao redor do .container */
+    padding: 30px 20px;
+    /* Garante que 'main' use 100% da largura disponível */
+    width: 100%;
+    /* Faz com que o padding seja incluído na largura total do elemento */
+    box-sizing: border-box;
+}
+
+/* Estilização do Container Principal (onde fica o formulário) */
+.container {
+    /* Cor de fundo branca */
+    background-color: #fff;
+    /* Preenchimento interno */
+    padding: 30px 40px;
+    /* Bordas arredondadas */
+    border-radius: 8px;
+    /* Sombra suave */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Ocupa a largura disponível dentro do 'main' */
+    width: 100%;
+    /* Define uma largura máxima para o container */
+    max-width: 900px;
+    /* Garante que padding e borda sejam incluídos na largura/altura total */
+    box-sizing: border-box;
+}
+
+/* Estilização de Títulos e Textos dentro do Container */
+/* Estilo para o título principal (H1) */
+h1 {
+    /* Centraliza o texto */
+    text-align: center;
+    /* Cor vermelha */
+    color: #e74c3c;
+    /* Remove margem superior padrão */
+    margin-top: 0;
+    /* Margem inferior */
+    margin-bottom: 15px;
+    /* Tamanho da fonte */
+    font-size: 1.8em;
+}
+
+/* Estilo para o subtítulo */
+.subtitle {
+    /* Centraliza o texto */
+    text-align: center;
+    /* Cor cinza */
+    color: #666;
+    /* Margem inferior */
+    margin-bottom: 30px;
+    /* Tamanho da fonte */
+    font-size: 0.9em;
+}
+
+/* Estilo para subtítulos de seção (H2) */
+h2 {
+    /* Cor cinza escuro */
+    color: #333;
+    /* Margem inferior */
+    margin-bottom: 10px;
+    /* Tamanho da fonte */
+    font-size: 1.3em;
+    /* Linha separadora abaixo */
+    border-bottom: 1px solid #eee;
+    /* Espaço entre o texto e a linha */
+    padding-bottom: 8px;
+    /* Margem superior */
+    margin-top: 25px;
+}
+
+/* Estilo para a nota de campos obrigatórios */
+.required-note {
+    /* Tamanho da fonte */
+    font-size: 0.8em;
+    /* Cor cinza claro */
+    color: #888;
+    /* Margem inferior */
+    margin-bottom: 20px;
+    /* Estilo itálico */
+    font-style: italic;
+}
+
+/* --- ESTILOS DOS ELEMENTOS DO FORMULÁRIO --- */
+/* Container para um grupo de formulário (label + input) */
+.form-group {
+    /* Margem inferior, separando os grupos */
+    margin-bottom: 20px;
+}
+
+/* Estilo para as labels (rótulos) dos campos */
+.form-group label {
+    /* Faz a label ocupar sua própria linha */
+    display: block;
+    /* Tamanho da fonte */
+    font-size: 0.85em;
+    /* Cor do texto */
+    color: #555;
+    /* Espaço abaixo da label, antes do input */
+    margin-bottom: 6px;
+    /* Texto em negrito */
+    font-weight: bold;
+}
+
+/* Estilos gerais para campos de input (texto, email, tel), select e textarea */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    /* Ocupa 100% da largura do container pai */
+    width: 100%;
+    /* Preenchimento interno */
+    padding: 10px 12px;
+    /* Borda cinza clara */
+    border: 1px solid #ccc;
+    /* Bordas arredondadas */
+    border-radius: 4px;
+    /* Tamanho da fonte */
+    font-size: 0.9em;
+    /* Cor de fundo branca */
+    background-color: #fff;
+    /* Inclui padding e borda na largura total */
+    box-sizing: border-box;
+    /* Animação suave da cor da borda ao focar/desfocar */
+    transition: border-color 0.3s ease;
+}
+
+/* Estilos aplicados aos campos quando estão em foco (selecionados pelo usuário) */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus {
+    /* Muda a cor da borda para vermelho */
+    border-color: #e74c3c;
+    /* Remove a linha de contorno (outline) padrão do navegador */
+    outline: none;
+}
+
+
+/* Estilos específicos para textarea */
+textarea {
+    /* Permite redimensionamento apenas vertical */
+    resize: vertical;
+    /* Altura mínima inicial */
+    min-height: 100px;
+}
+
+/* Estilos específicos para select (caixa de seleção) */
+select {
+    /* Remove a aparência padrão do navegador/SO */
+    -webkit-appearance: none; /* Para Webkit (Chrome, Safari) */
+    -moz-appearance: none;    /* Para Firefox */
+    appearance: none;         /* Padrão */
+    /* Adiciona uma seta personalizada usando SVG embutido como imagem de fundo */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23555%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    /* Impede a repetição da imagem de fundo */
+    background-repeat: no-repeat;
+    /* Posiciona a seta à direita e centralizada verticalmente */
+    background-position: right 12px center;
+    /* Tamanho da seta */
+    background-size: 10px 10px;
+    /* Adiciona espaço à direita no texto para não ficar sobre a seta */
+    padding-right: 35px;
+    /* Cor do texto */
+    color: #555;
+    /* Cursor de ponteiro */
+    cursor: pointer;
+}
+
+/* Layout de Linhas do Formulário usando CSS Grid */
+/* Classe para organizar campos em 3 colunas */
+.form-row {
+    /* Habilita CSS Grid */
+    display: grid;
+    /* Define 3 colunas de largura igual (1fr = 1 fração do espaço) */
+    grid-template-columns: repeat(3, 1fr);
+    /* Espaçamento entre as colunas do grid */
+    gap: 20px;
+}
+
+/* Classe para organizar campos em 2 colunas */
+.half-width-row {
+      /* Habilita CSS Grid */
+      display: grid;
+      /* Define 2 colunas de largura igual */
+      grid-template-columns: repeat(2, 1fr);
+      /* Espaçamento entre as colunas */
+      gap: 20px;
+}
+
+/* Classe para fazer um .form-group ocupar todas as colunas disponíveis no grid pai */
+.form-group.full-width {
+      /* O item ocupará desde a linha de grid 1 até a última (-1) */
+      grid-column: 1 / -1;
+}
+
+/* --- ESTILOS PARA INPUT DE ARQUIVO PERSONALIZADO --- */
+/* Container do grupo de input de arquivo */
+.file-input-group {
+    /* Posicionamento relativo para conter o input absoluto */
+    position: relative;
+    /* Usa flexbox para alinhamento (útil se houver mais elementos) */
+    display: flex;
+    /* Alinha itens na base */
+    align-items: flex-end;
+}
+
+/* Estilo do label que simula o botão de escolher arquivo */
+.file-label {
+    /* Comportamento de bloco em linha */
+    display: inline-block;
+    /* Preenchimento interno */
+    padding: 10px 15px;
+    /* Cor de fundo */
+    background-color: #f0f0f0;
+    /* Cor do texto */
+    color: #555;
+    /* Borda */
+    border: 1px solid #ccc;
+    /* Bordas arredondadas */
+    border-radius: 4px;
+    /* Cursor de ponteiro */
+    cursor: pointer;
+    /* Alinhamento do texto */
+    text-align: center;
+    /* Peso da fonte normal */
+    font-weight: normal;
+    /* Tamanho da fonte */
+    font-size: 0.9em;
+    /* Ocupa toda a largura disponível */
+    width: 100%;
+    /* Remove margem inferior padrão de label */
+    margin-bottom: 0;
+    /* Transição suave para cor de fundo, borda e cor do texto */
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    /* Impede quebra de linha do nome do arquivo */
+    white-space: nowrap;
+    /* Esconde o texto que transborda */
+    overflow: hidden;
+    /* Adiciona "..." se o texto transbordar */
+    text-overflow: ellipsis;
+    /* Garante que padding esteja dentro da largura */
+    box-sizing: border-box;
+}
+
+/* Efeito hover no label do arquivo */
+.file-label:hover {
+    background-color: #e0e0e0;
+}
+
+/* Esconde o input[type="file"] real */
+.file-input {
+    /* Posicionamento absoluto para removê-lo do fluxo normal */
+    position: absolute;
+    /* Dimensões mínimas para torná-lo inacessível visualmente */
+    width: 0.1px;
+    height: 0.1px;
+    /* Torna-o transparente */
+    opacity: 0;
+    /* Esconde qualquer overflow */
+    overflow: hidden;
+    /* Coloca-o atrás de outros elementos */
+    z-index: -1;
+}
+
+/* --- ESTILOS PARA CHECKBOX --- */
+/* Container do grupo de checkbox (checkbox + label) */
+.checkbox-group {
+    /* Usa Flexbox para alinhar checkbox e label */
+    display: flex;
+    /* Alinha verticalmente ao centro */
+    align-items: center;
+    /* Margem superior */
+    margin-top: 15px;
+    /* Margem inferior */
+    margin-bottom: 25px;
+}
+
+/* Estilo do input checkbox */
+.checkbox-group input[type="checkbox"] {
+    /* Largura automática */
+    width: auto;
+    /* Espaço à direita, separando do label */
+    margin-right: 10px;
+    /* Define a cor da marca de seleção (check) */
+    accent-color: #e74c3c;
+    /* Cursor de ponteiro */
+    cursor: pointer;
+    /* Aumenta ligeiramente o tamanho do checkbox */
+    transform: scale(1.1);
+}
+
+/* Estilo do label associado ao checkbox */
+.checkbox-group label {
+    /* Remove margem inferior padrão */
+    margin-bottom: 0;
+    /* Peso da fonte normal */
+    font-weight: normal;
+    /* Tamanho da fonte */
+    font-size: 0.9em;
+    /* Cor do texto */
+    color: #555;
+    /* Cursor de ponteiro (clicar no label também marca/desmarca) */
+    cursor: pointer;
+}
+
+/* --- ESTILOS DAS AÇÕES DO FORMULÁRIO (BOTÃO ENVIAR) --- */
+/* Container para o botão de envio */
+.form-actions {
+    /* Alinha o botão à direita */
+    text-align: right;
+    /* Margem acima do botão */
+    margin-top: 25px;
+}
+
+/* Estilo do botão de envio */
+.submit-btn {
+    /* Cor de fundo vermelha */
+    background-color: #e74c3c;
+    /* Cor do texto branca */
+    color: #fff;
+    /* Sem borda */
+    border: none;
+    /* Preenchimento interno (12px topo/base, 35px laterais) */
+    padding: 12px 35px;
+    /* Bordas arredondadas */
+    border-radius: 4px;
+    /* Cursor de ponteiro */
+    cursor: pointer;
+    /* Tamanho da fonte */
+    font-size: 1.05em;
+    /* Texto em negrito */
+    font-weight: bold;
+    /* Transição suave para cor de fundo e transformação (hover) */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efeito hover no botão de envio */
+.submit-btn:hover {
+    /* Cor de fundo vermelha mais escura */
+    background-color: #c0392b;
+    /* Efeito sutil de levantar o botão */
+    transform: translateY(-2px);
+}
+
+/* Efeito ao clicar (pressionar) o botão */
+.submit-btn:active {
+    /* Remove o efeito de levantar */
+    transform: translateY(0);
+}
+
+/* --- AJUSTES RESPONSIVOS (MEDIA QUERIES) --- */
+/* Estilos aplicados quando a largura da tela é 768px ou menor */
+@media (max-width: 768px) {
+    /* Ajustes no cabeçalho */
+    header.cabecalho { /* Re-selecionando para clareza */
+        /* Empilha logo e menu verticalmente */
+        flex-direction: column;
+        /* Alinha os itens à esquerda */
+        align-items: flex-start;
+        /* Ajusta padding */
+        padding: 15px;
+        /* Altura automática para acomodar conteúdo */
+        height: auto; /* Adicionado para garantir que a altura se ajuste */
+    }
+    /* Ajustes no menu */
+    .menu ul {
+        /* Adiciona espaço acima do menu quando empilhado */
+        margin-top: 10px;
+        /* Empilha os itens do menu */
+        flex-direction: column;
+        /* Ocupa toda a largura */
+        width: 100%;
+    }
+    .menu li {
+        /* Remove margem esquerda */
+        margin-left: 0;
+        /* Ocupa toda a largura */
+        width: 100%;
+    }
+    .menu a {
+        /* Ajusta padding */
+        padding: 10px;
+        /* Adiciona linha divisória entre itens */
+        border-bottom: 1px solid #b71c1c; /* Vermelho mais escuro */
+    }
+    /* Remove a linha do último item */
+    .menu li:last-child a {
+        border-bottom: none;
+    }
+    /* Ajustes no dropdown */
+    .dropdown:hover .dropdown-conteudo {
+        /* Posição estática, aparece no fluxo normal */
+        position: static;
+        /* Remove sombra */
+        box-shadow: none;
+        /* Adiciona borda superior para separar */
+        border-top: 1px solid #eee;
+    }
+    .dropdown-conteudo {
+        /* Largura total */
+        min-width: 100%;
+        /* Remove margem superior */
+        margin-top: 0;
+    }
+
+    /* Ajustes no conteúdo principal */
+    main {
+        /* Reduz padding */
+        padding: 20px 15px;
+        /* Alinha o container no topo em vez de centralizar verticalmente */
+        align-items: flex-start;
+    }
+
+    /* Ajustes no container do formulário */
+    .container {
+        /* Reduz padding */
+        padding: 20px;
+    }
+
+    /* Ajustes no layout de grid do formulário */
+    .form-row,
+    .half-width-row {
+        /* Muda para layout de coluna única */
+        grid-template-columns: 1fr;
+        /* Remove o espaçamento entre colunas (agora linhas) */
+        gap: 0;
+    }
+
+    /* Ajustes nos grupos de formulário */
+    .form-group {
+        /* Reduz a margem inferior entre os campos empilhados */
+        margin-bottom: 15px;
+    }
+
+    /* Ajustes nos tamanhos de fonte dos títulos */
+    h1 { font-size: 1.6em; }
+    h2 { font-size: 1.2em; }
+
+    /* Ajustes no botão de envio */
+    .submit-btn {
+        /* Botão ocupa toda a largura */
+        width: 100%;
+        /* Aumenta o padding */
+        padding: 15px;
+    }
+    /* Centraliza o botão (que agora ocupa 100% da largura) */
+    .form-actions {
+        text-align: center;
+    }
+}
+
+/* Estilos aplicados quando a largura da tela é 480px ou menor */
+@media (max-width: 480px) {
+    /* Ajustes no container do formulário */
+    .container {
+        /* Reduz ainda mais o padding */
+        padding: 15px;
+    }
+    /* Ajustes no título principal */
+    h1 {
+        font-size: 1.4em;
+    }
+    /* Outros ajustes finos podem ser adicionados aqui */
+}
+
+/* --- ESTILOS DO RODAPÉ REAL --- */
+footer {
+    /* Cor de fundo cinza escuro */
+    background-color: #333;
+    /* Cor do texto branca */
+    color: white;
+    /* Centraliza o texto */
+    text-align: center;
+    /* Preenchimento interno */
+    padding: 15px 10px;
+    /* Empurra o rodapé para baixo (funciona com flex no body) */
+    margin-top: auto;
+    /* Garante largura total */
+    width: 100%;
+    /* Inclui padding na largura total */
+    box-sizing: border-box; /* Adicionado para consistência */
+}
+
+/* Container das informações de localização */
+.location-info {
+    /* Centraliza (redundante, mas garante) */
+    text-align: center;
+    /* Reseta margem esquerda */
+    margin-left: 0;
+    /* Garante que ocupe a linha */
+    display: block;
+}
+/* Span da temperatura */
+#weather-temp { font-weight: bold; }
+/* Span da descrição do tempo */
+#weather-desc { font-style: italic; margin-left: 5px; }
+
+/* --- ESTILOS DE VALIDAÇÃO E FEEDBACK (Versão consolidada) --- */
+/* Estilo para input/select/textarea inválido */
+input.input-invalid,
+select.input-invalid,
+textarea.input-invalid {
+    /* Borda vermelha (!important força a regra se houver conflitos) */
+    border-color: #D32F2F !important;
+    /* Sombra vermelha suave */
+    box-shadow: 0 0 3px rgba(211, 47, 47, 0.5);
+}
+
+/* Estilo opcional para input/select/textarea válido */
+input.input-valid,
+select.input-valid,
+textarea.input-valid {
+    /* Borda verde (!important força a regra se houver conflitos) */
+    border-color: #388E3C !important;
+    /* Sombra verde suave */
+    box-shadow: 0 0 3px rgba(56, 142, 60, 0.5);
+}
+
+/* Estilo para a mensagem de status geral de erro do formulário */
+#form-status.error {
+    /* Cor vermelha */
+    color: #D32F2F;
+    /* Texto em negrito */
+    font-weight: bold;
+}
+
+/* Estilo para a mensagem de status geral de sucesso do formulário */
+#form-status.success {
+    /* Cor verde */
+    color: #388E3C;
+    /* Texto em negrito */
+    font-weight: bold;
+}
+
+/* Estilo para a mensagem de erro específica do CPF */
+#cpf-error-message {
+    /* Cor vermelha */
+    color: #D32F2F;
+    /* Tamanho da fonte pequeno */
+    font-size: 0.8em;
+    /* Espaço acima da mensagem */
+    margin-top: 4px;
+    /* A visibilidade (display: none/block) é controlada pelo JavaScript */
+}
+
+/* Estilo para a mensagem de erro específica da confirmação de e-mail */
+#confirmar-email-error-message {
+    /* Cor vermelha */
+    color: #D32F2F;
+    /* Tamanho da fonte pequeno */
+    font-size: 0.8em;
+    /* Espaço acima da mensagem */
+    margin-top: 4px;
+    /* A visibilidade (display: none/block) é controlada pelo JavaScript */
+}
+
+
+/* --- ESTILOS DO LABEL DE ARQUIVO QUANDO SELECIONADO --- */
+/* Estilo opcional para o label quando um arquivo é selecionado (classe adicionada via JS) */
+.file-label.file-selected {
+    /* Fundo azul claro */
+    background-color: #e0f2f7;
+    /* Borda azul */
+    border-color: #4fc3f7;
+    /* Texto azul */
+    color: #0277bd;
+}
+
+/* Efeito hover quando o arquivo está selecionado */
+.file-label.file-selected:hover {
+    background-color: #b3e5fc; /* Tom de azul mais escuro */
+}
+
+/* FIM DOS ESTILOS CSS */

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha seu veículo - Foco</title>
+
+    <link rel="stylesheet" href="stylesCarro.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> </head>
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <img src="imagens/logo.png" alt="Logo da Empresa" class="logo-img">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">INÍCIO</a></li>
+                <li><a href="ofertas.html">OFERTAS</a></li>
+                <li><a href="politica.html">POLÍTICA DE PRIVACIDADE</a></li>
+                <li><a href="mobiloca.html">A MOBILOCA</a></li>
+                <li class="dropdown">
+                    <a href="#">AJUDA &#9662;</a> <div class="dropdown-conteudo">
+                        <a href="ajuda.html">DÚVIDAS FREQUENTES</a>
+                        <a href="contato.html">FALA CONOSCO</a>
+                        <a href="sinistro.html">SINISTROS E MANUTENÇÃO</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="progress-bar">
+            <div class="step"> <span class="circle"></span> <span class="label">Data</span> </div>
+            <div class="step active"> <span class="circle"></span> <span class="label">Veículo</span> </div> <div class="step"> <span class="circle"></span> <span class="label">Proteção e Opcionais</span> </div>
+            <div class="step"> <span class="circle"></span> <span class="label">Condutor</span> </div>
+            <div class="step"> <span class="circle"></span> <span class="label">Pagamento</span> </div>
+            <div class="step"> <span class="circle"></span> <span class="label">Confirmação</span> </div>
+            <div class="line"></div> </div>
+
+        <h2>Escolha seu veículo</h2>
+
+        <div class="vehicle-options">
+
+            <div class="vehicle-card"
+                 data-group-name="Carros Sedan"
+                 data-group-price="170.31"
+                 data-group-image="https://www.kovi.com.br/hubfs/Fotos%20Sedan%20Premium/Cronos.png"
+                 data-group-model="Fiat Cronos ou Similar">
+                <h3>Carros Sedan</h3>
+                <p>Fiat Cronos ou Similar</p>
+                <img src="https://www.kovi.com.br/hubfs/Fotos%20Sedan%20Premium/Cronos.png" alt="Fiat Cronos">
+                <div class="features">
+                    <div><i class="fas fa-door-open"></i><span>4 Portas</span></div>
+                    <div><i class="fas fa-users"></i><span>5 Passageiros</span></div>
+                    <div><i class="fas fa-suitcase"></i><span>2 Grandes</span></div>
+                    <div><i class="fas fa-cog"></i><span>Automático</span></div>
+                    <div><i class="fas fa-snowflake"></i><span>Ar Condicionado</span></div>
+                </div>
+                <div class="price-container">
+                    <p class="price">Por: R$ 170,31 <span class="disclaimer">(diária)</span></p>
+                    <p class="disclaimer">*Valor referente ao grupo</p>
+                </div>
+                <button class="continue-button">CONTINUAR</button>
+            </div>
+
+            <div class="vehicle-card"
+                 data-group-name="SUV Luxo"
+                 data-group-price="350.00"
+                 data-group-image="https://production.autoforce.com/uploads/version/profile_image/9083/model_main_webp_comprar-xr_9c4b21a12e.png.webp"
+                 data-group-model="Corolla Cross / Jeep Compass ou Similar">
+                <h3>SUV Luxo</h3>
+                <p>Corolla Cross / Jeep Compass ou Similar</p>
+                <img src="https://production.autoforce.com/uploads/version/profile_image/9083/model_main_webp_comprar-xr_9c4b21a12e.png.webp" alt="SUV Luxo">
+                <div class="features">
+                    <div><i class="fas fa-door-open"></i><span>4 Portas</span></div>
+                    <div><i class="fas fa-users"></i><span>5 Passageiros</span></div>
+                    <div><i class="fas fa-suitcase"></i><span>2 Grandes</span></div>
+                    <div><i class="fas fa-cog"></i><span>Automático</span></div>
+                    <div><i class="fas fa-snowflake"></i><span>Ar Condicionado</span></div>
+                </div>
+                <div class="price-container">
+                    <p class="price">Por: R$ 350,00 <span class="disclaimer">(diária)</span></p>
+                    <p class="disclaimer">*Valor referente ao grupo</p>
+                </div>
+                <button class="continue-button">CONTINUAR</button>
+            </div>
+
+            <div class="vehicle-card"
+                 data-group-name="Hatch Compacto"
+                 data-group-price="101.00"
+                 data-group-image="https://www.webmotors.com.br/imagens/prod/379452/HYUNDAI_HB20_1.0_TGDI_FLEX_COMFORT_PLUS_AUTOMATICO_37945216442560131.webp?s=fill&w=170&h=125&t=true"
+                 data-group-model="Hyundai HB20 ou Similar">
+                <h3>Hatch Compacto</h3>
+                <p>Hyundai HB20 ou Similar</p>
+                <img src="https://www.webmotors.com.br/imagens/prod/379452/HYUNDAI_HB20_1.0_TGDI_FLEX_COMFORT_PLUS_AUTOMATICO_37945216442560131.webp?s=fill&w=170&h=125&t=true" alt="Hyundai HB20">
+                <div class="features">
+                    <div><i class="fas fa-door-open"></i><span>4 Portas</span></div>
+                    <div><i class="fas fa-users"></i><span>5 Passageiros</span></div>
+                    <div><i class="fas fa-suitcase"></i><span>1 Grande</span></div>
+                    <div><i class="fas fa-cog"></i><span>Manual</span></div>
+                    <div><i class="fas fa-snowflake"></i><span>Ar Condicionado</span></div>
+                </div>
+                <div class="price-container">
+                    <p class="price">Por: R$ 101,00 <span class="disclaimer">(diária)</span></p>
+                    <p class="disclaimer">*Valor referente ao grupo</p>
+                </div>
+                <button class="continue-button">CONTINUAR</button>
+            </div>
+
+            <div class="vehicle-card"
+                 data-group-name="Pequeno"
+                 data-group-price="86.00"
+                 data-group-image="https://content.r9cdn.net/rimg/car-images/generic/40_hatchback_blue.png?width=286&height=180"
+                 data-group-model="Volkswagen Polo ou Similar">
+                <h3>Pequeno</h3>
+                <p>Volkswagen Polo ou Similar</p>
+                <img src="https://content.r9cdn.net/rimg/car-images/generic/40_hatchback_blue.png?width=286&height=180" alt="Volkswagen Polo">
+                <div class="features">
+                    <div><i class="fas fa-door-open"></i><span>4 Portas</span></div>
+                    <div><i class="fas fa-users"></i><span>5 Passageiros</span></div>
+                    <div><i class="fas fa-suitcase"></i><span>1 Grande</span></div>
+                    <div><i class="fas fa-cog"></i><span>Manual</span></div>
+                    <div><i class="fas fa-snowflake"></i><span>Ar Condicionado</span></div>
+                </div>
+                <div class="price-container">
+                    <p class="price">Por: R$ 86,00 <span class="disclaimer">(diária)</span></p>
+                    <p class="disclaimer">*Valor referente ao grupo</p>
+                </div>
+                <button class="continue-button">CONTINUAR</button>
+            </div>
+
+            <div class="vehicle-card"
+                 data-group-name="SUV Compacto"
+                 data-group-price="144.00"
+                 data-group-image="https://content.r9cdn.net/rimg/car-images/generic/05_suv-small_white.png?width=286&height=180"
+                 data-group-model="Volkswagen Nivus ou Similar">
+                 <h3>SUV Compacto</h3>
+                 <p>Volkswagen Nivus ou Similar</p>
+                 <img src="https://content.r9cdn.net/rimg/car-images/generic/05_suv-small_white.png?width=286&height=180" alt="Volkswagen Nivus">
+                 <div class="features">
+                     <div><i class="fas fa-door-open"></i><span>4 Portas</span></div>
+                     <div><i class="fas fa-users"></i><span>5 Passageiros</span></div>
+                     <div><i class="fas fa-suitcase"></i><span>2 Grandes</span></div>
+                     <div><i class="fas fa-cog"></i><span>Automático</span></div>
+                     <div><i class="fas fa-snowflake"></i><span>Ar Condicionado</span></div>
+                 </div>
+                 <div class="price-container">
+                     <p class="price">Por: R$ 144,00 <span class="disclaimer">(diária)</span></p>
+                     <p class="disclaimer">*Valor referente ao grupo</p>
+                 </div>
+                 <button class="continue-button">CONTINUAR</button>
+            </div>
+
+            <div class="vehicle-card"
+                 data-group-name="Caminhonete"
+                 data-group-price="255.00"
+                 data-group-image="https://content.r9cdn.net/rimg/car-images/generic/12_truck_white.png?width=286&height=180"
+                 data-group-model="Fiat Toro ou Similar">
+                 <h3>Caminhonete</h3>
+                 <p>Fiat Toro ou Similar</p>
+                 <img src="https://content.r9cdn.net/rimg/car-images/generic/12_truck_white.png?width=286&height=180" alt="Fiat Toro">
+                 <div class="features">
+                      <div><i class="fas fa-door-open"></i><span>4 Portas</span></div>
+                      <div><i class="fas fa-users"></i><span>5 Passageiros</span></div>
+                      <div><i class="fas fa-box-open"></i><span>Caçamba</span></div>
+                      <div><i class="fas fa-cog"></i><span>Automático</span></div>
+                      <div><i class="fas fa-snowflake"></i><span>Ar Condicionado</span></div>
+                 </div>
+                 <div class="price-container">
+                     <p class="price">Por: R$ 255,00 <span class="disclaimer">(diária)</span></p>
+                     <p class="disclaimer">*Valor referente ao grupo</p>
+                 </div>
+                 <button class="continue-button">CONTINUAR</button>
+            </div>
+
+            <div class="resume-card">
+                <h3>Resumo</h3>
+                <div class="resume-section">
+                    <p class="label">Retirada</p>
+                    <p id="retirada-info">--/--/---- --:--</p> <a href="reservasData.html">Editar</a>
+                </div>
+                <div class="resume-section">
+                    <p class="label">Devolução</p>
+                    <p id="devolucao-info">--/--/---- --:--</p> <a href="reservasData.html">Editar</a>
+                </div>
+                <div class="resume-section resume-advantages">
+                    <h4>Vantagens Foco</h4>
+                    <p><i class="fas fa-percent"></i> Até 30% off no pagto antecipado</p>
+                    <p><i class="fas fa-clock"></i> 3h extras na devolução</p>
+                    <p><i class="fas fa-road"></i> KM livre até 28 dias</p>
+                    <p><i class="fas fa-shield-alt"></i> Proteção Básica inclusa</p>
+                </div>
+            </div>
+        </div> </main>
+
+    <footer>
+        <div class="location-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <span id="weather-temp">--</span>°C <span id="weather-desc">Carregando...</span> <span> - Santo Amaro, São Paulo</span> </div>
+    </footer>
+
+    <script src="script3.js" defer></script> </body>
+</html>

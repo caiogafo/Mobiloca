@@ -1,0 +1,554 @@
+/* Estilos globais aplicados ao elemento <body> */
+body {
+    /* Define a família de fontes principal para toda a página */
+    font-family: 'Roboto', sans-serif;
+    /* Remove a margem padrão aplicada pelos navegadores */
+    margin: 0;
+    /* Remove o preenchimento padrão aplicado pelos navegadores */
+    padding: 0;
+    /* Define uma cor de fundo cinza clara para a página */
+    background-color: #f4f4f4;
+    /* Habilita o layout Flexbox para o body */
+    display: flex;
+    /* Organiza os filhos diretos (header, main, footer) em uma coluna vertical */
+    flex-direction: column;
+    /* Garante que o body tenha no mínimo a altura total da janela de visualização (viewport) */
+    /* Isso ajuda a manter o rodapé no final da página, mesmo com pouco conteúdo */
+    min-height: 100vh;
+}
+
+/* --- ESTILOS DO CABEÇALHO --- */
+/* Seleciona o elemento <header> que possui a classe "cabecalho" */
+header.cabecalho {
+    /* Define a cor de fundo vermelha para o cabeçalho */
+    background-color: #D32F2F;
+    /* Define a cor padrão do texto dentro do cabeçalho como branco */
+    color: white;
+    /* Habilita Flexbox para alinhar os itens internos (logo e menu) */
+    display: flex;
+    /* Distribui o espaço entre os itens: logo à esquerda, menu à direita */
+    justify-content: space-between;
+    /* Alinha verticalmente os itens (logo e menu) ao centro */
+    align-items: center;
+    /* Adiciona preenchimento interno: 10px no topo/base, 20px nas laterais */
+    padding: 10px 20px;
+    /* Adiciona uma sombra sutil abaixo do cabeçalho */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Define uma altura fixa para o cabeçalho */
+    height: 80px;
+}
+
+/* Estilização específica para a imagem do logo dentro do cabeçalho */
+/* ATENÇÃO: Uso excessivo de !important pode dificultar a manutenção. Usar com cautela. */
+header.cabecalho .logo .logo-img {
+    /* Define a altura da imagem do logo (!important força a aplicação desta regra) */
+    height: 40px !important;
+    /* Define a largura como automática para manter a proporção (!important força) */
+    width: auto !important;
+    /* Define margens ao redor do logo (!important força) */
+    margin: 10px 20px !important;
+    /* Alinha verticalmente a imagem (!important força) */
+    vertical-align: middle !important;
+}
+
+/* --- ESTILOS DO MENU DE NAVEGAÇÃO --- */
+/* Estilização da lista não ordenada (ul) dentro do elemento com classe 'menu' */
+.menu ul {
+    /* Remove os marcadores (bolinhas) padrão da lista */
+    list-style: none;
+    /* Habilita Flexbox para alinhar os itens 'li' horizontalmente */
+    display: flex;
+    /* Remove a margem padrão da lista 'ul' */
+    margin: 0;
+    /* Remove o preenchimento padrão da lista 'ul' */
+    padding: 0;
+}
+
+/* Estilização dos itens da lista (li) dentro do menu */
+.menu li {
+    /* Adiciona margem à esquerda de cada item, criando espaçamento entre eles */
+    margin-left: 20px;
+    /* Define o posicionamento relativo, necessário para posicionar o submenu (dropdown) */
+    position: relative;
+}
+
+/* Estilização dos links (a) dentro do menu */
+.menu a {
+    /* Cor do texto dos links como branco */
+    color: white;
+    /* Remove o sublinhado padrão dos links */
+    text-decoration: none;
+    /* Tamanho da fonte */
+    font-size: 16px;
+    /* Faz o link ocupar todo o espaço do 'li', melhorando a área clicável */
+    display: block;
+    /* Adiciona preenchimento vertical para aumentar a área clicável */
+    padding: 10px 0;
+}
+
+/* Estilização do link do menu quando o mouse passa sobre ele (hover) */
+.menu a:hover {
+    /* Adiciona um sublinhado ao link */
+    text-decoration: underline;
+}
+
+/* --- ESTILOS DO DROPDOWN (SUBMENU) --- */
+/* Container do conteúdo do dropdown */
+.dropdown-conteudo {
+    /* Esconde o dropdown por padrão */
+    display: none;
+    /* Posicionamento absoluto em relação ao 'li.dropdown' mais próximo com position: relative */
+    position: absolute;
+    /* Cor de fundo branca */
+    background-color: white;
+    /* Largura mínima do dropdown */
+    min-width: 200px;
+    /* Adiciona uma sombra projetada */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /* Garante que o dropdown fique acima de outros elementos (sobreposição) */
+    z-index: 10;
+    /* Alinha a borda direita do dropdown com a borda direita do 'li.dropdown' pai */
+    right: 0;
+    /* Pequeno espaço entre o link principal "AJUDA" e o início do dropdown */
+    margin-top: 5px;
+}
+
+/* Remove a margem padrão dos itens 'li' dentro do dropdown */
+.dropdown-conteudo li {
+    margin: 0;
+}
+
+/* Estilos dos links (a) dentro do dropdown */
+.dropdown-conteudo a {
+    /* Cor do texto escura (cinza) */
+    color: #333;
+    /* Preenchimento interno dos links */
+    padding: 12px 16px;
+    /* Remove sublinhado */
+    text-decoration: none;
+    /* Faz cada link ocupar a largura total do dropdown */
+    display: block;
+    /* Alinha o texto à esquerda */
+    text-align: left;
+}
+
+/* Efeito hover (mouse sobre) nos links do dropdown */
+.dropdown-conteudo a:hover {
+    /* Muda a cor de fundo para um cinza claro */
+    background-color: #f1f1f1;
+}
+
+/* Regra que torna o dropdown visível */
+/* Quando o mouse passa sobre o elemento com classe 'dropdown' (o 'li' pai)... */
+.dropdown:hover .dropdown-conteudo {
+    /* ...o elemento filho com classe 'dropdown-conteudo' se torna visível */
+    display: block;
+}
+/* --- FIM DOS ESTILOS DO CABEÇALHO E MENU --- */
+
+
+/* ===== ESTILOS PARA O FORMULÁRIO DE PESQUISA DE ALUGUEL ===== */
+/* Container que envolve todo o formulário de pesquisa */
+.search-form-container {
+    /* Cor de fundo branca */
+    background-color: #ffffff;
+    /* Preenchimento interno */
+    padding: 25px 20px;
+    /* Sombra suave abaixo do container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    /* Linha separadora na parte inferior */
+    border-bottom: 1px solid #eee;
+}
+
+/* Estilização do próprio formulário <form> */
+.rental-search-form {
+    /* Largura máxima do formulário */
+    max-width: 900px;
+    /* Centraliza o formulário na página */
+    margin: 0 auto;
+    /* Usa Flexbox para organizar as linhas de inputs */
+    display: flex;
+    /* Organiza as linhas (<div class="form-row">) verticalmente */
+    flex-direction: column;
+    /* Espaçamento entre as linhas */
+    gap: 15px;
+}
+
+/* Estilização de uma linha de inputs dentro do formulário */
+.form-row {
+    /* Usa Flexbox para organizar os grupos de input (.input-group) */
+    display: flex;
+    /* Permite que os grupos quebrem para a próxima linha se não couberem */
+    flex-wrap: wrap;
+    /* Espaçamento entre os grupos de input na mesma linha */
+    gap: 15px;
+    /* Garante que todos os .input-group na mesma linha tenham a mesma altura */
+    align-items: stretch;
+}
+
+/* Estilização de um grupo de input (geralmente ícone + input/label) */
+.input-group {
+    /* Fundo branco */
+    background-color: #fff;
+    /* Borda cinza clara */
+    border: 1px solid #ccc;
+    /* Bordas arredondadas */
+    border-radius: 5px;
+    /* Usa Flexbox para alinhar ícone e input */
+    display: flex;
+    /* Alinha verticalmente ícone e input */
+    align-items: center;
+    /* Preenchimento horizontal interno */
+    padding: 0 10px;
+    /* Permite que o grupo cresça para ocupar espaço disponível */
+    flex-grow: 1;
+    /* Define uma base de largura inicial antes da distribuição do espaço extra */
+    flex-basis: 120px;
+    /* Altura mínima para alinhar com o botão */
+    min-height: 45px;
+    /* Esconde conteúdo interno que possa vazar (ex: borda de foco do input) */
+    overflow: hidden;
+}
+
+/* Ajustes específicos de tamanho para grupos de data */
+.date-group {
+    flex-grow: 2; /* Ocupa mais espaço que outros grupos */
+    flex-basis: 150px; /* Base de largura maior */
+}
+/* Ajustes específicos de tamanho para grupos de hora */
+.time-group {
+    flex-grow: 1;
+    flex-basis: 120px;
+}
+/* Ajustes específicos de tamanho para grupo de cupom */
+.cupom-group {
+   flex-grow: 1;
+   flex-basis: 150px;
+}
+/* Grupo que contém apenas o botão de pesquisa */
+.button-group {
+    border: none; /* Remove borda herdada do .input-group */
+    background: none; /* Remove fundo herdado */
+    padding: 0; /* Remove padding herdado */
+    flex-grow: 1;
+    flex-basis: 150px;
+}
+
+/* Estilização do ícone dentro de um .input-group */
+.input-icon {
+    /* Cor do ícone */
+    color: #777;
+    /* Margem à direita, separando do input */
+    margin-right: 8px;
+    /* Largura mínima para garantir alinhamento */
+    min-width: 16px;
+    /* Centraliza o ícone (se for de fonte) */
+    text-align: center;
+    /* Impede que o ícone seja espremido se o espaço for limitado */
+    flex-shrink: 0;
+}
+
+/* --- ESTILOS para inputs nativos DENTRO do .input-group --- */
+/* Tenta resetar estilos padrão de inputs para integrá-los ao .input-group */
+.input-group input[type="date"],
+.input-group input[type="time"],
+.input-group input[type="text"] {
+    border: none !important; /* Remove borda do input */
+    outline: none !important; /* Remove contorno de foco */
+    padding: 10px 5px !important; /* Ajusta padding interno */
+    font-size: 1em !important; /* Tamanho da fonte */
+    font-family: 'Roboto', sans-serif !important; /* Garante a fonte */
+    width: 100% !important; /* Ocupa espaço disponível */
+    background: none !important; /* Remove fundo padrão */
+    color: #333 !important; /* Cor do texto */
+    flex-grow: 1 !important; /* Permite crescer */
+    box-shadow: none !important; /* Remove sombra interna */
+    height: auto !important; /* Altura automática */
+    line-height: normal !important; /* Altura da linha normal para alinhar texto */
+    cursor: pointer; /* Cursor de ponteiro (especialmente para date/time) */
+    min-width: 50px; /* Largura mínima */
+    appearance: none; /* Tenta remover aparência nativa */
+    -webkit-appearance: none;
+    -moz-appearance: textfield; /* Pode ajudar em alguns navegadores */
+}
+
+/* Estiliza o texto placeholder (apenas para input de texto, como cupom) */
+.input-group input[type="text"]::placeholder { color: #999; opacity: 1; } /* Padrão */
+.input-group input[type="text"]:-ms-input-placeholder { color: #999; } /* Internet Explorer 10-11 */
+.input-group input[type="text"]::-ms-input-placeholder { color: #999; } /* Microsoft Edge */
+
+/* Tenta controlar a aparência do ícone de calendário/relógio nativo (suporte varia) */
+.input-group input[type="date"]::-webkit-calendar-picker-indicator,
+.input-group input[type="time"]::-webkit-calendar-picker-indicator {
+      opacity: 0.6; /* Torna o ícone semi-transparente */
+      margin-left: 5px; /* Espaço à esquerda */
+      cursor: pointer; /* Cursor de ponteiro */
+}
+/* Fim dos estilos para inputs nativos */
+
+/* Estilização do botão de pesquisa */
+.search-button {
+    /* Cor de fundo verde escuro */
+    background-color: #00695C;
+    /* Cor do texto branca */
+    color: white;
+    /* Sem borda */
+    border: none;
+    /* Preenchimento interno */
+    padding: 12px 15px;
+    /* Tamanho da fonte */
+    font-size: 1em;
+    /* Texto em negrito */
+    font-weight: bold;
+    /* Bordas arredondadas */
+    border-radius: 5px;
+    /* Cursor de ponteiro */
+    cursor: pointer;
+    /* Ocupa 100% da largura do .button-group */
+    width: 100%;
+    /* Ocupa 100% da altura do .button-group */
+    height: 100%;
+    /* Transição suave para a cor de fundo no hover */
+    transition: background-color 0.2s;
+}
+/* Efeito hover no botão de pesquisa */
+.search-button:hover {
+    /* Cor de fundo verde mais escura */
+    background-color: #004D40;
+}
+/* ===== FIM DOS ESTILOS DO FORMULÁRIO DE PESQUISA ===== */
+
+
+/* --- ESTILOS DO CONTEÚDO PRINCIPAL (MAIN) --- */
+/* Estilização da tag <main> (complementa a regra anterior) */
+main {
+    /* Garante largura total */
+    width: 100%;
+    /* Preenchimento interno (complementa padding da regra anterior) */
+    padding: 30px 20px;
+    /* Ocupa espaço vertical restante (sticky footer) */
+    flex-grow: 1;
+    /* Fundo branco para a área de conteúdo principal */
+    background-color: #ffffff;
+}
+
+/* Container para o conteúdo textual (ex: página "Sobre Nós") */
+.container-conteudo {
+    /* Largura máxima */
+    max-width: 900px;
+    /* Centraliza horizontalmente */
+    margin: 0 auto;
+}
+
+/* Estilo do título principal dentro do conteúdo */
+.container-conteudo h1 {
+    /* Tamanho da fonte */
+    font-size: 2.5em;
+    /* Cor vermelha */
+    color: #D32F2F;
+    /* Alinhamento centralizado */
+    text-align: center;
+    /* Remove margem do topo */
+    margin-top: 0;
+    /* Margem inferior */
+    margin-bottom: 10px;
+}
+
+/* Linha horizontal decorativa abaixo do título */
+hr.titulo-hr {
+    /* Remove borda padrão */
+    border: 0;
+    /* Altura da linha */
+    height: 2px;
+    /* Cor da linha */
+    background-color: #e0e0e0;
+    /* Largura da linha */
+    width: 100px;
+    /* Centraliza a linha horizontalmente e adiciona margem inferior */
+    margin: 0 auto 30px auto;
+}
+
+/* Estilo para subtítulos de seção (H2) dentro da seção "Sobre" */
+.secao-sobre h2 {
+    /* Tamanho da fonte */
+    font-size: 1.8em;
+    /* Cor cinza escuro */
+    color: #333;
+    /* Margem superior */
+    margin-top: 40px;
+    /* Margem inferior */
+    margin-bottom: 15px;
+    /* Linha separadora abaixo */
+    border-bottom: 1px solid #eee;
+    /* Espaço entre texto e linha */
+    padding-bottom: 5px;
+}
+
+/* Estilo para parágrafos (p) dentro da seção "Sobre" */
+.secao-sobre p {
+    /* Tamanho da fonte */
+    font-size: 1em;
+    /* Cor do texto cinza */
+    color: #444;
+    /* Margem inferior */
+    margin-bottom: 20px;
+    /* Alinha o texto justificadamente (bordas retas em ambos os lados) */
+    text-align: justify;
+}
+
+/* Estilo para listas não ordenadas (ul) dentro da seção "Sobre" */
+.secao-sobre ul {
+    /* Define o marcador como disco (bolinha) */
+    list-style: disc;
+    /* Adiciona margem à esquerda para afastar da borda */
+    margin-left: 20px;
+    /* Margem inferior */
+    margin-bottom: 20px;
+    /* Adiciona preenchimento à esquerda para alinhar texto com marcadores */
+    padding-left: 20px;
+}
+
+/* Estilo para itens de lista (li) dentro da seção "Sobre" */
+.secao-sobre li {
+    /* Margem inferior entre itens */
+    margin-bottom: 8px;
+    /* Cor do texto */
+    color: #444;
+}
+
+/* Estilo para imagens de destaque ou secundárias na página */
+.imagem-destaque, .imagem-secundaria {
+    /* Largura máxima de 100% do container pai */
+    max-width: 100%;
+    /* Altura automática para manter proporção */
+    height: auto;
+    /* Comportamento de bloco para permitir margem auto */
+    display: block;
+    /* Centraliza a imagem horizontalmente e adiciona margem vertical */
+    margin: 20px auto 30px auto;
+    /* Bordas arredondadas */
+    border-radius: 8px;
+    /* Sombra suave */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* --- ESTILOS DO RODAPÉ --- */
+/* Estilização do rodapé */
+footer {
+    /* Fundo cinza escuro */
+    background-color: #333;
+    /* Cor do texto clara */
+    color: #eee;
+    /* Centraliza o texto */
+    text-align: center;
+    /* Preenchimento interno */
+    padding: 15px 10px;
+    /* Empurra o rodapé para o fim da página (funciona com flex no body) */
+    margin-top: auto;
+    /* Garante largura total */
+    width: 100%;
+    /* Tamanho de fonte um pouco menor */
+    font-size: 0.9em;
+    /* Inclui padding na largura total */
+    box-sizing: border-box;
+}
+
+/* Container das informações de localização no rodapé */
+.location-info {
+    /* Centraliza (redundante com footer, mas garante) */
+    text-align: center;
+}
+
+/* Estilo para o ícone de localização */
+.location-info i {
+    /* Espaço à direita do ícone */
+    margin-right: 8px;
+    /* Cor do ícone */
+    color: #ccc;
+}
+
+/* Span da temperatura */
+#weather-temp { font-weight: bold; } /* Texto em negrito */
+/* Span da descrição do tempo */
+#weather-desc { font-style: italic; margin-left: 5px; } /* Texto em itálico, com margem */
+/* --- FIM DOS ESTILOS DO RODAPÉ --- */
+
+
+/* --- MEDIA QUERIES (Ajustes Responsivos) --- */
+/* Estilos aplicados quando a largura da tela é 992px ou menor */
+@media (max-width: 992px) {
+      /* Ajusta a base de largura e crescimento dos grupos no formulário */
+      .date-group, .time-group, .cupom-group, .button-group {
+          flex-basis: auto; /* Base automática */
+          min-width: 180px; /* Largura mínima para cada grupo */
+      }
+      /* Mantém proporções relativas de crescimento */
+      .date-group { flex-grow: 2; }
+      .time-group { flex-grow: 1; }
+      .cupom-group { flex-grow: 1; }
+      .button-group { flex-grow: 1; }
+}
+
+/* Estilos aplicados quando a largura da tela é 768px ou menor */
+@media (max-width: 768px) {
+    /* Ajustes no Cabeçalho e Menu para layout mobile */
+    header.cabecalho { flex-direction: column; padding-bottom: 0; height: auto; } /* Empilha, sem padding inferior, altura auto */
+    .logo { width: 100%; text-align: center; margin-bottom: 0; } /* Logo centralizado */
+    .logo img { margin: 10px auto; } /* Margem no logo */
+    .menu { width: 100%; } /* Menu ocupa largura total */
+    .menu ul { flex-direction: column; align-items: stretch; width: 100%; margin-top: 0; } /* Itens do menu empilhados */
+    .menu li { margin: 0; width: 100%; text-align: center; border-top: 1px solid rgba(255,255,255,0.2); } /* Itens centralizados com borda */
+    .menu li:first-child { border-top: none; } /* Remove borda do primeiro item */
+    .menu a { padding: 12px 10px; } /* Ajusta padding dos links */
+    /* Ajustes no Dropdown mobile */
+    .dropdown-conteudo { position: static; box-shadow: none; width: 100%; background-color: #c22a2a; border-radius: 0; margin-top: 0; } /* Aparece no fluxo normal */
+    .dropdown-conteudo a { text-align: center; color: white; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 15px; } /* Links centralizados */
+    .dropdown-conteudo li:last-child a { border-bottom: none; } /* Remove borda do último link do dropdown */
+    .dropdown-conteudo a:hover { background-color: #b02626; } /* Cor de fundo no hover */
+    .dropdown:hover .dropdown-conteudo { display: block; } /* Garante exibição no hover */
+
+    /* Ajustes no Formulário de Pesquisa */
+    .search-form-container { padding: 15px; } /* Reduz padding */
+    .rental-search-form { gap: 10px; } /* Reduz espaçamento entre linhas */
+    .form-row { gap: 10px; } /* Reduz espaçamento entre grupos */
+    .input-group {
+        flex-basis: calc(50% - 5px) !important; /* Tenta fazer caber 2 grupos por linha (50% menos metade do gap) */
+        flex-grow: 1 !important; /* Permite crescer */
+        padding: 0 10px; /* Mantém padding horizontal */
+    }
+    .cupom-group { flex-basis: calc(50% - 5px) !important; } /* Cupom também tenta caber 2 por linha */
+    .button-group { flex-basis: 100% !important; height: 45px; margin-top: 5px; } /* Botão ocupa linha inteira */
+
+    .search-button { padding: 10px 15px; } /* Ajusta padding do botão */
+
+    /* Ajustes no Conteúdo Principal */
+    main { padding: 20px 15px; } /* Reduz padding */
+    .container-conteudo h1 { font-size: 2em; } /* Reduz tamanho do título */
+    .secao-sobre h2 { font-size: 1.5em; } /* Reduz tamanho do subtítulo */
+    .secao-sobre p, .secao-sobre li { font-size: 0.95em; } /* Reduz tamanho do texto */
+}
+
+/* Estilos aplicados quando a largura da tela é 480px ou menor */
+@media (max-width: 480px) {
+    /* Ajustes no Menu */
+    .menu a { font-size: 16px; padding: 15px 10px; } /* Aumenta padding vertical dos links */
+    /* Ajustes no Formulário de Pesquisa */
+    .input-group {
+        flex-basis: 100% !important; /* Garante que cada grupo ocupe uma linha inteira */
+    }
+    .button-group { margin-top: 10px; } /* Aumenta margem acima do botão */
+    /* Reduz tamanho da fonte dentro dos inputs */
+    .input-group input[type="date"],
+    .input-group input[type="time"],
+    .input-group input[type="text"] {
+        font-size: 0.95em !important;
+    }
+
+    /* Ajustes no Conteúdo Principal */
+    .container-conteudo h1 { font-size: 1.8em; } /* Reduz mais o título */
+    hr.titulo-hr { width: 80px; margin-bottom: 20px; } /* Ajusta linha decorativa */
+    .secao-sobre h2 { font-size: 1.3em; } /* Reduz mais o subtítulo */
+    .secao-sobre p, .secao-sobre li { font-size: 0.9em; } /* Reduz mais o texto */
+    /* Ajustes no Rodapé */
+    footer { font-size: 0.8em; } /* Reduz tamanho da fonte */
+}

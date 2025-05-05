@@ -1,0 +1,997 @@
+body {
+    /* Define a família de fontes principal */
+    font-family: 'Roboto', sans-serif;
+    /* Remove margens padrão */
+    margin: 0;
+    /* Remove preenchimento padrão */
+    padding: 0;
+    /* Cor de fundo cinza clara */
+    background-color: #f4f4f4;
+    /* Habilita Flexbox */
+    display: flex;
+    /* Organiza filhos diretos (header, .main-content, footer) em coluna */
+    flex-direction: column;
+    /* Garante altura mínima total da página */
+    min-height: 100vh;
+}
+
+/* === CABEÇALHO === */
+/* Estilos do cabeçalho principal */
+header.cabecalho {
+    /* Cor de fundo vermelha */
+    background-color: #D32F2F;
+    /* Cor do texto branca */
+    color: white;
+    /* Alinhamento interno com Flexbox */
+    display: flex;
+    /* Logo na esquerda, menu na direita */
+    justify-content: space-between;
+    /* Alinha verticalmente ao centro */
+    align-items: center;
+    /* Preenchimento interno */
+    padding: 10px 20px;
+    /* Sombra suave */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Altura fixa */
+    height: 80px;
+}
+
+/* --- Logo no Cabeçalho --- */
+header.cabecalho .logo .logo-img {
+    /* Altura definida (40px parece mais razoável que 500px) */
+    height: 40px !important;
+    /* Largura automática para manter proporção */
+    width: auto !important;
+    /* Margens (vertical 10px, horizontal 20px) */
+    margin: 10px 20px !important;
+    /* Alinhamento vertical */
+    vertical-align: middle !important;
+}
+
+/* --- Menu de Navegação --- */
+/* Estilos da lista <ul> do menu */
+.menu ul {
+    /* Remove marcadores */
+    list-style: none;
+    /* Itens <li> lado a lado */
+    display: flex;
+    /* Remove margem e preenchimento */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos dos itens <li> do menu */
+.menu li {
+    /* Espaçamento à esquerda */
+    margin-left: 20px;
+    /* Necessário para posicionar o dropdown */
+    position: relative;
+}
+
+/* Estilos dos links <a> do menu */
+.menu a {
+    /* Cor do texto */
+    color: white;
+    /* Sem sublinhado */
+    text-decoration: none;
+    /* Tamanho da fonte */
+    font-size: 16px;
+    /* Para ocupar espaço do <li> */
+    display: block;
+    /* Preenchimento vertical */
+    padding: 10px 0;
+}
+
+/* Efeito hover nos links do menu */
+.menu a:hover {
+    /* Adiciona sublinhado */
+    text-decoration: underline;
+}
+
+/* --- Dropdown do Menu --- */
+/* Container do submenu */
+.dropdown-conteudo {
+    /* Escondido por padrão */
+    display: none;
+    /* Posicionamento absoluto relativo ao <li> pai */
+    position: absolute;
+    /* Fundo branco */
+    background-color: white;
+    /* Largura mínima */
+    min-width: 200px;
+    /* Sombra */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /* Sobreposição */
+    z-index: 10;
+    /* Alinhado à direita */
+    right: 0;
+    /* Espaço abaixo do link "AJUDA" */
+    margin-top: 5px;
+}
+
+/* Remove margem dos <li> dentro do dropdown */
+.dropdown-conteudo li {
+    margin: 0;
+}
+
+/* Estilos dos links <a> dentro do dropdown */
+.dropdown-conteudo a {
+    /* Cor do texto escura */
+    color: #333;
+    /* Preenchimento interno */
+    padding: 12px 16px;
+    /* Sem sublinhado */
+    text-decoration: none;
+    /* Ocupa largura total */
+    display: block;
+    /* Alinha texto à esquerda */
+    text-align: left;
+}
+
+/* Efeito hover nos links do dropdown */
+.dropdown-conteudo a:hover {
+    /* Fundo cinza claro */
+    background-color: #f1f1f1;
+}
+
+/* Exibe dropdown no hover do <li> pai */
+.dropdown:hover .dropdown-conteudo {
+    display: block;
+}
+/* === FIM CABEÇALHO E MENU === */
+
+
+/* === BARRA DE PROGRESSO === */
+/* Container principal da barra de progresso */
+main { /* Este 'main' parece ser APENAS para a barra de progresso neste CSS */
+    /* Margem abaixo da barra */
+    margin-bottom: 20px;
+    /* Centraliza a barra se 'main' tiver largura definida, mas aqui não tem. */
+    /* Melhor aplicar width/margin na própria .progress-bar se necessário centralizar */
+}
+
+/* Estilo da barra de progresso */
+.progress-bar {
+    /* Alinha passos horizontalmente */
+    display: flex;
+    /* Alinha verticalmente */
+    align-items: center;
+    /* Posição relativa para a linha */
+    position: relative;
+    /* Preenchimento interno */
+    padding: 10px;
+    /* Fundo branco */
+    background-color: white;
+    /* Bordas arredondadas */
+    border-radius: 8px;
+    /* Sombra suave */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Largura total (do container 'main' acima) */
+    width: 100%;
+    /* Inclui padding na largura */
+    box-sizing: border-box;
+}
+
+/* Estilo de cada passo */
+.step {
+    /* Organiza círculo e label verticalmente */
+    display: flex;
+    flex-direction: column;
+    /* Centraliza horizontalmente */
+    align-items: center;
+    /* Posição relativa para z-index */
+    position: relative;
+    /* Acima da linha */
+    z-index: 1;
+    /* Ocupa espaço igual */
+    flex-grow: 1;
+    /* Centraliza texto */
+    text-align: center;
+}
+
+/* Círculo indicador */
+.circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc; /* Borda cinza padrão */
+    border-radius: 50%; /* Forma circular */
+    background-color: white; /* Fundo branco */
+    margin-bottom: 5px; /* Espaço abaixo */
+    box-sizing: border-box; /* Borda dentro do tamanho */
+}
+
+/* Círculo do passo ativo */
+.step.active .circle {
+    border-color: #008000; /* Borda verde */
+    background-color: #008000; /* Fundo verde */
+}
+
+/* Texto (label) abaixo do círculo */
+.label {
+    font-size: 12px;
+    color: #333;
+    white-space: nowrap; /* Impede quebra de linha */
+}
+
+/* Label do passo ativo */
+.step.active .label {
+    color: #008000; /* Verde */
+    font-weight: bold; /* Negrito */
+}
+
+/* Linha conectora */
+.line {
+    position: absolute; /* Relativo a .progress-bar */
+    width: calc(100% - 40px); /* Comprimento ajustado */
+    height: 2px; /* Espessura */
+    background-color: #ccc; /* Cor */
+    top: 19px; /* Posição vertical */
+    left: 20px; /* Posição horizontal */
+    z-index: 0; /* Atrás dos círculos */
+}
+
+
+/* === LAYOUT DO CONTEÚDO PRINCIPAL (Duas Colunas) === */
+/* Container que envolve as duas colunas principais */
+.main-content {
+    /* Usa Flexbox para layout lado a lado */
+    display: flex;
+    /* Espaçamento entre a coluna esquerda e direita */
+    gap: 30px;
+    /* Alinha as colunas pelo topo */
+    align-items: flex-start;
+    /* Ocupa o espaço vertical restante (requer flex no pai - body) */
+    flex-grow: 1;
+     /* Adiciona padding ao redor das colunas (substitui padding do 'main' anterior) */
+    padding: 20px;
+    max-width: 1600px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza */
+    width: 100%; /* Garante largura */
+    box-sizing: border-box; /* Inclui padding */
+}
+
+/* === COLUNA ESQUERDA (Proteções e Opcionais) === */
+/* Container da coluna esquerda */
+.left-section {
+    /* Faz esta coluna ocupar 2 partes do espaço flexível */
+    flex: 2;
+    /* Organiza as seções (proteções, opcionais) verticalmente */
+    display: flex;
+    flex-direction: column;
+    /* Espaço entre a seção de proteções e a de opcionais */
+    gap: 30px;
+}
+
+/* Títulos H2 dentro da coluna esquerda */
+.left-section h2 {
+    /* Tamanho da fonte */
+    font-size: 1.4em;
+    /* Cor do texto */
+    color: #333;
+    /* Remove margem superior */
+    margin-top: 0;
+    /* Margem inferior */
+    margin-bottom: 15px;
+    /* Linha divisória abaixo */
+    border-bottom: 1px solid #ddd;
+    /* Espaço entre texto e linha */
+    padding-bottom: 8px;
+}
+
+/* Seção de Proteções */
+/* Container dos cards de proteção */
+.protecoes-cards {
+    /* Alinha cards lado a lado */
+    display: flex;
+    /* Espaço entre os cards */
+    gap: 20px;
+}
+
+/* Card individual de proteção */
+.protecao-card {
+    /* Borda padrão */
+    border: 1px solid #ccc;
+    /* Cantos arredondados */
+    border-radius: 8px;
+    /* Preenchimento interno */
+    padding: 20px;
+    /* Ocupa espaço igual entre os cards */
+    flex: 1;
+    /* Fundo branco */
+    background-color: #fff;
+    /* Organiza conteúdo interno verticalmente */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Card de proteção especial (Recomendado) */
+.protecao-card-especial {
+    /* Borda verde para destaque */
+    border-color: #4CAF50;
+    /* Posição relativa para o selo absoluto */
+    position: relative;
+}
+
+/* Cabeçalho dentro do card de proteção */
+.protecao-header {
+    /* Alinha ícone e título horizontalmente */
+    display: flex;
+    /* Alinha verticalmente */
+    align-items: center;
+    /* Espaço abaixo */
+    margin-bottom: 15px;
+}
+
+/* Ícone no cabeçalho do card */
+.protecao-header .icon {
+    /* Tamanho do ícone */
+    font-size: 1.5em;
+    /* Largura fixa para alinhamento */
+    width: 25px;
+    /* Centraliza ícone */
+    text-align: center;
+    /* Cor do ícone */
+    color: #555;
+}
+
+/* Título H3 no cabeçalho do card */
+.protecao-header h3 {
+    /* Remove margens padrão, adiciona margem lateral */
+    margin: 0 10px;
+    /* Tamanho da fonte */
+    font-size: 1.1em;
+    /* Negrito */
+    font-weight: bold;
+}
+
+/* Selo "Recomendado" */
+.recomendado {
+    /* Posicionamento absoluto relativo ao card especial */
+    position: absolute;
+    /* Posição no canto superior direito */
+    top: 10px;
+    right: 10px;
+    /* Fundo verde */
+    background-color: #4CAF50;
+    /* Texto branco */
+    color: white;
+    /* Preenchimento interno */
+    padding: 3px 8px;
+    /* Formato de pílula */
+    border-radius: 12px;
+    /* Tamanho da fonte pequeno */
+    font-size: 0.7em;
+    /* Sem borda */
+    border: none;
+}
+
+/* Lista de itens inclusos/exclusos na proteção */
+.protecao-lista {
+    /* Remove marcadores de lista */
+    list-style: none;
+    /* Remove preenchimento */
+    padding: 0;
+    /* Remove margem superior, define inferior */
+    margin: 0 0 15px 0;
+    /* Tamanho da fonte */
+    font-size: 0.85em;
+    /* Cor do texto */
+    color: #555;
+    /* Faz a lista crescer para ocupar espaço vertical disponível no card */
+    flex-grow: 1;
+}
+
+/* Item da lista de proteção */
+.protecao-lista li {
+    /* Espaço abaixo de cada item */
+    margin-bottom: 6px;
+    /* Alinha ícone e texto */
+    display: flex;
+    /* Alinha pela base do texto */
+    align-items: baseline;
+}
+
+/* Ícone (primeiro span dentro do li) */
+.protecao-lista li span:first-child {
+    /* Comportamento de bloco em linha */
+    display: inline-block;
+    /* Largura fixa para alinhamento */
+    width: 20px;
+    /* Centraliza o ícone */
+    text-align: center;
+    /* Espaço à direita */
+    margin-right: 5px;
+    /* Negrito */
+    font-weight: bold;
+    /* Cor padrão (verde para check ✓) */
+    color: #4CAF50;
+}
+
+/* Estilo para ícone não incluso (se usar classe específica) */
+.protecao-lista li span.nao-incluso {
+    color: #cc0000; /* Vermelho para '✘' */
+}
+
+/* Container do preço e desconto */
+.protecao-preco {
+    /* Alinha itens horizontalmente */
+    display: flex;
+    /* Alinha verticalmente */
+    align-items: center;
+    /* Espaço entre itens */
+    gap: 10px;
+    /* Espaço acima */
+    margin-top: 10px;
+    /* Alinha à direita do card */
+    justify-content: flex-end;
+}
+
+/* Etiqueta de desconto */
+.desconto {
+    /* Fundo vermelho */
+    background-color: #E53935;
+    /* Texto branco */
+    color: white;
+    /* Preenchimento */
+    padding: 2px 5px;
+    /* Bordas arredondadas */
+    border-radius: 3px;
+    /* Tamanho da fonte */
+    font-size: 0.8em;
+}
+
+/* Preço da proteção */
+.preco {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+/* Seção de seleção (radio button) */
+.protecao-selecao {
+    /* Espaço acima */
+    margin-top: 15px;
+    /* Linha divisória acima */
+    border-top: 1px solid #eee;
+    /* Espaço acima da linha */
+    padding-top: 15px;
+    /* Alinha radio e label */
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo do radio button */
+.protecao-selecao input[type="radio"] {
+    /* Espaço à direita */
+    margin-right: 8px;
+    /* Tamanho */
+    width: 16px;
+    height: 16px;
+    /* Cursor */
+    cursor: pointer;
+}
+
+/* Estilo do label do radio button */
+.protecao-selecao label {
+    /* Espaço à esquerda (separando do radio) */
+    margin-left: 5px; /* Ajustado, pode remover se gap for suficiente */
+    /* Tamanho da fonte */
+    font-size: 0.9em;
+    /* Altura da linha */
+    line-height: 1.3;
+    /* Cursor */
+    cursor: pointer;
+}
+
+/* Seção de Itens Opcionais */
+/* Lista <ul> dos opcionais */
+.opcionais ul {
+    list-style: none; /* Remove marcadores */
+    padding: 0;
+    margin: 0; /* Remove margens */
+}
+
+/* Item <li> de um opcional */
+.opcionais li {
+    margin-bottom: 15px; /* Espaço entre os itens */
+}
+
+/* Container de um item opcional */
+.opcao {
+    /* Alinha itens horizontalmente */
+    display: flex;
+    /* Alinha verticalmente */
+    align-items: center;
+    /* Borda */
+    border: 1px solid #ccc;
+    /* Preenchimento */
+    padding: 15px;
+    /* Cantos arredondados */
+    border-radius: 5px;
+    /* Fundo branco */
+    background-color: #fff;
+    /* Espaço entre imagem, info e preço/contador */
+    gap: 15px;
+}
+
+/* Imagem do opcional */
+.opcao img {
+    /* Tamanho fixo */
+    width: 50px;
+    height: 50px;
+    /* Mantém proporção e encaixa */
+    object-fit: contain;
+    /* Impede que encolha */
+    flex-shrink: 0;
+}
+
+/* Container das informações (título, descrição) */
+.opcao-info {
+    /* Ocupa espaço restante */
+    flex-grow: 1;
+}
+
+/* Título H3 do opcional */
+.opcao-info h3 {
+    /* Remove margens, define inferior */
+    margin: 0 0 3px 0;
+    font-size: 1em;
+}
+
+/* Descrição <p> do opcional */
+.opcao-info p {
+    /* Tamanho da fonte */
+    font-size: 0.85em;
+    /* Cor */
+    color: #666;
+    /* Remove margens */
+    margin: 0;
+}
+
+/* Container do preço e contador */
+.opcao-preco {
+    /* Alinha texto e contador à direita */
+    text-align: right;
+    /* Impede quebra de linha */
+    white-space: nowrap;
+    /* Tamanho da fonte */
+    font-size: 0.9em;
+}
+
+/* Span com o preço por dia */
+.opcao-preco > span {
+    /* Fica em linha própria */
+    display: block;
+    /* Espaço abaixo */
+    margin-bottom: 5px;
+    /* Cor */
+    color: #444;
+}
+
+/* Contador de Quantidade (+ / -) */
+/* Container do contador */
+.contador {
+    /* Alinha botões e input lado a lado */
+    display: inline-flex;
+    /* Alinha verticalmente */
+    align-items: center;
+    /* Borda ao redor */
+    border: 1px solid #ccc;
+    /* Cantos arredondados */
+    border-radius: 5px;
+    /* Garante que cantos funcionem */
+    overflow: hidden;
+}
+
+/* Botões +/- do contador */
+.contador button {
+    /* Fundo cinza claro */
+    background-color: #eee;
+    /* Sem borda */
+    border: none;
+    /* Preenchimento */
+    padding: 5px 10px;
+    /* Cursor */
+    cursor: pointer;
+    /* Tamanho da fonte */
+    font-size: 1rem;
+    /* Altura da linha */
+    line-height: 1;
+    /* Cor do texto */
+    color: #333;
+}
+
+/* Efeito hover nos botões */
+.contador button:hover {
+    background-color: #ddd;
+}
+
+/* Efeito ao clicar nos botões */
+.contador button:active {
+    background-color: #ccc;
+}
+
+/* Input numérico do contador */
+.contador input {
+    /* Largura */
+    width: 35px;
+    /* Alinhamento central */
+    text-align: center;
+    /* Sem borda */
+    border: none;
+    /* Borda vertical esquerda */
+    border-left: 1px solid #ccc;
+    /* Borda vertical direita */
+    border-right: 1px solid #ccc;
+    /* Tamanho da fonte */
+    font-size: 1em;
+    /* Preenchimento vertical */
+    padding: 5px 0;
+    /* Fundo transparente */
+    background-color: transparent;
+
+    /* Remove setas padrão do input number */
+    appearance: none;
+    -moz-appearance: textfield; /* Firefox */
+    -webkit-appearance: none; /* Webkit */
+    margin: 0; /* Necessário para -webkit-appearance */
+}
+
+/* Remove setas internas (Webkit) */
+.contador input::-webkit-outer-spin-button,
+.contador input::-webkit-inner-spin-button {
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* === COLUNA DIREITA (Resumo) === */
+/* Container da coluna direita */
+.right-section {
+    /* Ocupa 1 parte do espaço flexível */
+    flex: 1;
+    /* Permite empilhar resumo e ações */
+    display: flex;
+    flex-direction: column;
+    /* Posicionamento fixo (sticky) ao rolar */
+    position: sticky;
+    /* Distância do topo onde vai "grudar" */
+    top: 20px;
+    /* Alinha ao topo do container pai (.main-content) */
+    align-self: flex-start;
+    /* Altura máxima antes de habilitar scroll interno */
+    max-height: calc(100vh - 40px);
+    /* Necessário para sticky em flex */
+    min-width: 0;
+}
+
+/* Card de Resumo */
+.resumo {
+    /* Borda */
+    border: 1px solid #e0e0e0;
+    /* Preenchimento */
+    padding: 20px;
+    /* Fundo */
+    background-color: #f9f9f9;
+    /* Layout em Grid para alinhar labels e valores */
+    display: grid;
+    grid-template-columns: auto 1fr; /* Label auto, Valor resto */
+    /* Espaçamento vertical e horizontal */
+    gap: 10px 15px;
+    /* Cantos arredondados (apenas superiores) */
+    border-radius: 8px 8px 0 0; /* Topo arredondado, base reta */
+    /* Sombra sutil */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    /* Remove margem inferior */
+    margin-bottom: 0;
+    /* Remove borda inferior (será da seção de ações) */
+    border-bottom: none;
+    /* O scroll vertical será aplicado ao .right-section se necessário */
+}
+
+/* Título H2 no resumo */
+.resumo h2 {
+    /* Ocupa as duas colunas */
+    grid-column: 1 / -1;
+    /* Margens */
+    margin: 0 0 15px 0;
+    /* Alinhamento */
+    text-align: center;
+    /* Tamanho da fonte */
+    font-size: 1.4em;
+    /* Cor */
+    color: #333;
+    /* Espaço antes da borda */
+    padding-bottom: 10px;
+    /* Borda inferior */
+    border-bottom: 1px solid #eee;
+}
+
+/* Imagem do carro no resumo */
+.resumo .car-image {
+    /* Ocupa as duas colunas */
+    grid-column: 1 / -1;
+    /* Largura máxima */
+    max-width: 160px;
+    /* Altura automática */
+    height: auto;
+    /* Para centralizar com margin */
+    display: block;
+    /* Centraliza, margem inferior */
+    margin: 0 auto 10px auto;
+}
+
+/* Nome do carro (ID) */
+#nomeCarro {
+    font-weight: bold;
+    text-align: center;
+    grid-column: 1 / -1; /* Ocupa as duas colunas */
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+/* Labels no resumo (ex: "Diárias:") */
+.resumo-label {
+    font-weight: normal;
+    color: #555;
+    text-align: left; /* Alinhado à esquerda */
+    font-size: 0.9em;
+}
+
+/* Valores no resumo (ex: "R$ 150,00") */
+.resumo-valor {
+    font-weight: bold;
+    color: #333;
+    text-align: right; /* Alinhado à direita */
+    font-size: 0.95em;
+}
+
+/* Permite quebra de linha para datas com local */
+#dataEntrega, #dataDevolucao {
+    white-space: normal;
+}
+
+/* Linhas divisórias <hr> no resumo */
+.resumo hr {
+    grid-column: 1 / -1; /* Ocupa as duas colunas */
+    border: 0; /* Remove borda padrão */
+    border-top: 1px solid #eee; /* Linha sutil */
+    margin: 8px 0; /* Espaçamento vertical */
+}
+
+/* Linha divisória antes do total (pode ser diferente) */
+.resumo hr:nth-of-type(2) { /* Assume ser a segunda HR */
+    border-top-color: #ccc; /* Linha mais escura */
+}
+
+/* Estilos específicos para Total (se aplicados inline via JS) */
+/* Garante que o estilo JS seja aplicado */
+.resumo .resumo-label[style*="font-size: 1.1em;"] {
+    font-size: 1.1em !important;
+}
+.resumo .resumo-valor[style*="font-size: 1.2em;"] {
+    font-size: 1.2em !important;
+    font-weight: bold;
+    color: #167d3f; /* Verde */
+}
+
+
+/* Container dos Botões Abaixo do Resumo */
+.resumo-actions {
+    /* Remove espaço entre resumo e ações */
+    margin-top: 0;
+    /* Alinha botões horizontalmente */
+    display: flex;
+    /* Alinha botões à direita */
+    justify-content: flex-end;
+    /* Espaço entre botões */
+    gap: 10px;
+    /* Mesmo fundo do resumo */
+    background-color: #f9f9f9;
+    /* Preenchimento */
+    padding: 15px 20px;
+    /* Arredonda apenas cantos inferiores */
+    border-radius: 0 0 8px 8px;
+    /* Mesma sombra */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    /* Mesma borda */
+    border: 1px solid #e0e0e0;
+    /* Remove borda superior (já existe no resumo) */
+    border-top: none;
+}
+
+/* Estilos dos Botões Voltar e Continuar */
+.resumo-actions button {
+    /* Preenchimento */
+    padding: 10px 20px;
+    /* Cursor */
+    cursor: pointer;
+    /* Tamanho da fonte */
+    font-size: 1em;
+    /* Negrito */
+    font-weight: bold;
+    /* Cantos arredondados */
+    border-radius: 4px;
+    /* Sem borda padrão */
+    border: none;
+    /* Transição suave */
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Botão Cancelar/Voltar */
+.resumo-actions button.cancelar {
+    background-color: transparent; /* Fundo transparente */
+    color: #D32F2F; /* Texto vermelho */
+    border: 1px solid #D32F2F; /* Borda vermelha */
+}
+
+.resumo-actions button.cancelar:hover {
+    background-color: #D32F2F; /* Fundo vermelho */
+    color: white; /* Texto branco */
+}
+
+/* Botão Continuar */
+.resumo-actions button.continuar {
+    background-color: #4CAF50; /* Fundo verde */
+    color: white; /* Texto branco */
+    border: 1px solid #4CAF50; /* Borda verde */
+}
+
+.resumo-actions button.continuar:hover {
+    background-color: #45a049; /* Verde mais escuro */
+    border-color: #45a049;
+}
+
+
+/* === RODAPÉ (footer) === */
+/* Estilos reutilizados */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    margin-top: auto; /* Empurra para o fim */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.location-info {
+    text-align: center;
+    display: block;
+    font-size: 0.9em;
+}
+
+#weather-temp {
+    font-weight: bold;
+}
+
+#weather-desc {
+    font-style: italic;
+    margin-left: 5px;
+}
+
+/* === MEDIA QUERIES (Responsividade) === */
+
+/* Telas Médias (Tablets) */
+@media (max-width: 992px) {
+    /* Ajusta largura do container principal */
+    .container {
+        width: 95%;
+    }
+    /* Empilha as colunas principais */
+    .main-content {
+        flex-direction: column;
+    }
+    /* Colunas ocupam largura total */
+    .left-section, .right-section {
+        flex-basis: auto; /* Reseta base flex */
+        width: 100%;
+    }
+    /* Remove sticky do resumo */
+    .right-section {
+        position: static;
+        max-height: none;
+    }
+    /* Empilha cards de proteção */
+    .protecoes-cards {
+        flex-direction: column;
+    }
+    /* Centraliza botões de ação do resumo */
+    .resumo-actions {
+        justify-content: center;
+    }
+}
+
+/* Telas Pequenas (Celulares) */
+@media (max-width: 600px) { /* Ponto de quebra ajustado para 600px */
+    /* Ajustes gerais herdados de 992px */
+
+    /* Ajusta Cabeçalho para mobile */
+    header.cabecalho {
+        flex-direction: column; /* Empilha logo e menu */
+        height: auto; /* Altura automática */
+        padding: 10px; /* Ajusta padding */
+    }
+    /* Ajusta Menu para mobile */
+    nav.menu ul {
+        flex-direction: column; /* Empilha itens */
+        align-items: center; /* Centraliza */
+        width: 100%;
+        margin-top: 10px; /* Espaço acima */
+    }
+    nav.menu li {
+        margin: 5px 0; /* Espaçamento vertical */
+        width: 100%; /* Largura total */
+        text-align: center; /* Centraliza texto */
+    }
+    /* Ajusta Dropdown para mobile */
+    .dropdown-conteudo {
+        position: static; /* Posicionamento normal */
+        box-shadow: none; /* Remove sombra */
+        width: 100%;
+        background-color: #c22a2a; /* Fundo diferente */
+    }
+    .dropdown-conteudo a {
+        text-align: center; /* Centraliza */
+        color: white; /* Texto branco */
+        border-bottom: 1px solid rgba(255,255,255,0.1); /* Linha sutil */
+    }
+    .dropdown-conteudo a:last-child { border-bottom: none; } /* Remove borda do último */
+    .dropdown-conteudo a:hover { background-color: #b02626; } /* Hover */
+
+    /* Esconde barra de progresso */
+    .progress-bar {
+        display: none;
+    }
+
+    /* Ajustes nos cards e opções */
+    /* Reduz padding dos cards de proteção */
+    .protecao-card {
+        padding: 15px;
+    }
+    /* Reduz título H3 dentro do card */
+    .protecao-header h3 {
+        font-size: 1em;
+    }
+    /* Reduz fonte da lista de itens */
+    .protecao-lista {
+        font-size: 0.8em;
+    }
+
+    /* Empilha conteúdo dos itens opcionais */
+    .opcao {
+        flex-direction: column; /* Empilha imagem, info, preço/contador */
+        text-align: center; /* Centraliza conteúdo */
+        padding: 10px; /* Reduz padding */
+    }
+    .opcao img {
+        margin: 0 0 10px 0; /* Margem abaixo da imagem */
+    }
+    .opcao-info {
+        margin-bottom: 10px; /* Margem abaixo das infos */
+    }
+    /* Preço e contador ocupam largura total e centralizam */
+    .opcao-preco {
+        width: 100%;
+        text-align: center;
+    }
+    /* Ajusta margem do preço */
+    .opcao-preco > span {
+        margin-bottom: 8px;
+    }
+    /* Centraliza o contador (já deve estar pelo text-align do pai) */
+    .contador {
+         display: inline-flex; /* Mantém layout interno */
+         /* Não precisa de margin auto se o pai já centraliza */
+    }
+
+    /* Empilha botões de ação abaixo do resumo */
+    .resumo-actions {
+        flex-direction: column; /* Empilha botões */
+        gap: 10px; /* Espaço entre botões */
+    }
+    /* Botões ocupam largura total */
+    .resumo-actions button {
+        width: 100%;
+    }
+}

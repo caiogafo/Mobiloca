@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento - Mobiloca</title> <link rel="stylesheet" href="stylesPagamento.css"> <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> </head>
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <img src="imagens/logo.png" alt="Logo da Empresa" classs="logo-img">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">INÍCIO</a></li>
+                <li><a href="ofertas.html">OFERTAS</a></li>
+                <li><a href="politica.html">POLÍTICA DE PRIVACIDADE</a></li>
+                <li><a href="mobiloca.html">A MOBILOCA</a></li>
+                <li class="dropdown">
+                    <a href="#">AJUDA &#9662;</a>
+                    <div class="dropdown-conteudo">
+                        <a href="ajuda.html">DÚVIDAS FREQUENTES</a>
+                        <a href="contato.html">FALA CONOSCO</a>
+                        <a href="sinistro.html">SINISTROS E MANUTENÇÃO</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="progress-bar">
+        <div class="step"> <span class="circle"></span> <span class="label">Data</span> </div>
+        <div class="step"> <span class="circle"></span> <span class="label">Veículo</span> </div>
+        <div class="step"> <span class="circle"></span> <span class="label">Proteção e Opcionais</span> </div>
+        <div class="step"> <span class="circle"></span> <span class="label">Condutor</span> </div>
+        <div class="step active"> <span class="circle"></span> <span class="label">Pagamento</span> </div> <div class="step"> <span class="circle"></span> <span class="label">Confirmação</span> </div>
+        <div class="line"></div>
+    </div>
+
+    <main>
+        <section class="payment-section">
+            <h1>Pagamento</h1>
+            <div class="payment-options">
+
+                <div class="payment-option">
+                    <input type="radio" id="pix" name="payment-method" value="pix" checked> <label for="pix">Pagar agora - Pix</label>
+                    <p class="valor-pix">R$ 0,00</p>
+                    <div id="pix-form" class="payment-form">
+                        <form>
+                            <label class="terms-label">
+                                <input type="checkbox" name="terms-pix" required>
+                                Declaro que li e aceito integralmente os <a href="contrato.pdf" target="_blank">Termos e Condições Gerais</a> do contrato de locação.
+                            </label>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="payment-option">
+                    <input type="radio" id="credit-card" name="payment-method" value="cartao_credito"> <label for="credit-card">Pagar agora - Cartão de Crédito à vista</label>
+                    <p class="valor-credit">R$ 0,00</p>
+                    <div id="credit-card-form" class="payment-form">
+                        <form>
+                            <div class="form-group">
+                                <label for="card-name">Nome impresso no cartão</label>
+                                <input type="text" id="card-name" name="card-name" required placeholder="Como aparece no cartão">
+                                <span class="error-message" id="card-name-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="card-number">Número do cartão</label>
+                                <input type="text" id="card-number" name="card-number" required placeholder="xxxx xxxx xxxx xxxx">
+                                <span class="error-message" id="card-number-error"></span>
+                            </div>
+                            <div class="form-row"> <div class="form-group">
+                                    <label for="expiry-date">Data de validade</label>
+                                    <input type="text" id="expiry-date" name="expiry-date" required placeholder="MM/AA">
+                                    <span class="error-message" id="expiry-date-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="security-code">Código de segurança (CVV)</label>
+                                    <input type="text" id="security-code" name="security-code" required placeholder="xxx">
+                                    <span class="error-message" id="security-code-error"></span>
+                                </div>
+                            </div>
+                             <label class="terms-label">
+                                <input type="checkbox" name="terms-credit" required>
+                                Declaro que li e aceito integralmente os <a href="contrato.pdf" target="_blank">Termos e Condições Gerais</a> do contrato de locação.
+                            </label>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="payment-option">
+                    <input type="radio" id="pay-later" name="payment-method" value="balcao"> <label for="pay-later">Pagar depois - No balcão da locadora</label>
+                    <p class="valor-pay-later">R$ 0,00</p>
+                     <div id="pay-later-form" class="payment-form">
+                        <form>
+                            <label class="terms-label">
+                                <input type="checkbox" name="terms-pay-later" required>
+                                Declaro que li e aceito integralmente os <a href="contrato.pdf" target="_blank">Termos e Condições Gerais</a> do contrato de locação.
+                            </label>
+                        </form>
+                    </div>
+                </div>
+            </div> <button class="pay-button" type="button">Pagar e Reservar</button> </section> <aside class="right-section">
+            <div class="resumo">
+                <h2>Resumo</h2>
+                <img src="placeholder_car.png" alt="Carro Selecionado" class="car-image" id="resumoImagemCarro">
+                <div id="nomeCarro" class="resumo-valor" style="grid-column: 1 / -1; text-align: center; font-weight: bold; margin-bottom: 20px; font-size: 1.15em; color: #333;">Carregando...</div>
+
+                <div class="resumo-label">Entrega:</div>
+                <div class="resumo-valor" id="dataEntrega">--/--/----</div>
+                <div class="resumo-label">Devolução:</div>
+                <div class="resumo-valor" id="dataDevolucao">--/--/----</div>
+
+                <hr class="resumo-divider">
+
+                <div class="resumo-label">Subtotal (Diárias):</div>
+                <div class="resumo-valor">R$ <span id="subtotal">0,00</span></div>
+                <div class="resumo-label">Proteção:</div>
+                <div class="resumo-valor">R$ <span id="valorProtecao">0,00</span></div>
+                <div class="resumo-label">Opcionais:</div>
+                <div class="resumo-valor">R$ <span id="valorOpcionais">0,00</span></div>
+                <div class="resumo-label">Taxa de Conveniência:</div>
+                <div class="resumo-valor">R$ <span id="taxaConveniencia">0,00</span></div>
+                <div class="resumo-label">Descontos:</div>
+                <div class="resumo-valor">R$ <span id="descontos">0,00</span></div>
+
+                <hr class="resumo-divider total-divider">
+
+                <div class="resumo-label total-label">Total:</div>
+                <div class="resumo-valor total-final">R$ <span id="total">0,00</span></div>
+            </div>
+        </aside> </main> <footer>
+        <div class="location-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <span id="weather-temp">--</span>°C <span id="weather-desc">Carregando...</span> <span> - Santo Amaro, São Paulo</span>
+        </div>
+    </footer>
+
+    <script src="script6.js"></script>
+    </body>
+</html>

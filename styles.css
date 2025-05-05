@@ -1,0 +1,353 @@
+/* === ESTILOS GERAIS === */
+body {
+    font-family: 'Roboto', sans-serif; /* Define a fonte principal */
+    margin: 0;                         /* Remove margens padrão */
+    padding: 0;                        /* Remove preenchimentos padrão */
+    background-color: #f4f4f4;       /* Cor de fundo leve */
+    display: flex;                     /* Usa Flexbox para layout */
+    flex-direction: column;            /* Organiza itens em coluna (header, section, footer) */
+    min-height: 100vh;                 /* Garante que o body ocupe pelo menos a altura da tela */
+}
+
+/* === CABEÇALHO === */
+header.cabecalho { /* Seleciona o header com a classe .cabecalho */
+    background-color: #D32F2F;         /* Cor de fundo vermelha */
+    color: white;                      /* Cor do texto branca */
+    display: flex;                     /* Usa Flexbox para alinhar logo e menu */
+    justify-content: space-between;    /* Espaça logo e menu nas extremidades */
+    align-items: center;               /* Alinha verticalmente logo e menu */
+    padding: 10px 20px;                /* Preenchimento interno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    height: 80px;
+} 
+
+/* --- Logo no Cabeçalho (MODIFICADO) --- */
+header.cabecalho .logo .logo-img {
+    height: 40px !important;         /* Diminui a altura para 40 pixels e dá prioridade */
+    width: auto !important;          /* Mantém a proporção e dá prioridade */
+    /* width: 80px !important;      /* Se quiser definir largura fixa, use isso */
+    margin: 10px 20px !important;    /* Ajusta margens e dá prioridade */
+    vertical-align: middle !important; /* Mantém alinhamento vertical e dá prioridade */
+}
+
+/* --- Menu de Navegação --- */
+.menu ul {
+    list-style: none;                  /* Remove marcadores da lista */
+    display: flex;                     /* Coloca itens do menu lado a lado */
+    margin: 0;                         /* Remove margens padrão da lista */
+    padding: 0;                        /* Remove preenchimentos padrão da lista */
+}
+
+.menu li {
+    margin-left: 20px;                 /* Espaçamento entre os itens do menu */
+    position: relative;                /* Necessário para posicionar o dropdown */
+}
+
+.menu a {
+    color: white;                      /* Cor do texto dos links */
+    text-decoration: none;             /* Remove sublinhado dos links */
+    font-size: 16px;                   /* Tamanho da fonte */
+    display: block;                    /* Faz o link ocupar o espaço do item li */
+    padding: 10px 0;                   /* Preenchimento vertical para área de clique maior */
+}
+
+.menu a:hover {
+    text-decoration: underline;        /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* --- Dropdown do Menu --- */
+.dropdown-conteudo {
+    display: none;                     /* Escondido por padrão */
+    position: absolute;                /* Posicionamento relativo ao item li pai (.dropdown) */
+    background-color: white;           /* Fundo branco */
+    min-width: 200px;                  /* Largura mínima */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Sombra */
+    z-index: 10;                       /* Garante que fique acima de outros elementos */
+    right: 0;                          /* Alinha à direita do item pai */
+    margin-top: 5px;                   /* Pequeno espaço abaixo do link "AJUDA" */
+}
+
+/* Remove margem padrão dos itens de lista dentro do dropdown */
+.dropdown-conteudo li {
+    margin: 0;
+}
+
+/* Estilos dos links dentro do dropdown */
+.dropdown-conteudo a {
+    color: #333;                       /* Cor do texto escura */
+    padding: 12px 16px;                /* Preenchimento interno */
+    text-decoration: none;             /* Remove sublinhado */
+    display: block;                    /* Faz o link ocupar a largura total */
+    text-align: left;                  /* Alinha o texto à esquerda */
+}
+
+/* Efeito hover nos links do dropdown */
+.dropdown-conteudo a:hover {
+    background-color: #f1f1f1;         /* Muda a cor de fundo ao passar o mouse */
+}
+
+/* Exibe o dropdown quando o mouse passa sobre o item pai (.dropdown) */
+.dropdown:hover .dropdown-conteudo {
+    display: block;
+}
+
+/* === SEÇÃO DE BUSCA (Estilos presentes, mas elemento não está no HTML fornecido) === */
+/* Estilos para uma possível seção de busca */
+#busca {
+    display: flex;                     /* Layout Flexbox */
+    justify-content: center;           /* Centraliza horizontalmente */
+    align-items: center;               /* Centraliza verticalmente */
+    gap: 10px;                         /* Espaço entre os elementos (input e botão) */
+    max-width: 800px;                  /* Largura máxima */
+    margin: 20px auto;                 /* Margem superior/inferior e centralização horizontal */
+    padding: 0 20px;                   /* Preenchimento lateral */
+}
+
+/* Estilo específico para o input de filtro dentro da seção de busca */
+#busca input#filtro {
+    padding: 10px;                     /* Preenchimento interno */
+    border: 1px solid #ccc;            /* Borda cinza claro */
+    border-radius: 5px;                /* Bordas arredondadas */
+    font-size: 1rem;                   /* Tamanho da fonte (relativo ao padrão) */
+    flex-grow: 1;                      /* Permite que o input cresça para preencher espaço */
+    min-width: 150px;                  /* Largura mínima */
+}
+
+/* === BOTÃO PRINCIPAL (Estilo reutilizável) === */
+.botao-principal {
+    padding: 10px 15px;                /* Preenchimento interno */
+    background-color: #4CAF50;         /* Cor de fundo verde */
+    color: white;                      /* Cor do texto branca */
+    border: none;                      /* Remove borda padrão */
+    cursor: pointer;                   /* Cursor de mãozinha */
+    border-radius: 5px;                /* Bordas arredondadas */
+    text-decoration: none;             /* Remove sublinhado (se for um link <a>) */
+    display: inline-block;             /* Comportamento de bloco, mas na linha */
+    transition: background-color 0.2s; /* Transição suave na cor de fundo */
+    font-size: 1rem;                   /* Tamanho da fonte */
+    flex-shrink: 0;                    /* Impede que o botão encolha em layouts flex */
+}
+
+.botao-principal:hover {
+    background-color: #45a049;         /* Cor de fundo mais escura no hover */
+}
+
+/* === SEÇÃO DE VEÍCULOS === */
+#veiculos {
+    display: grid;                     /* Usa Grid Layout */
+    grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas de largura igual */
+    gap: 20px;                         /* Espaçamento entre os cards de veículo */
+    padding: 20px;                     /* Preenchimento interno da seção */
+    max-width: 1200px;                 /* Largura máxima da seção */
+    margin: 0 auto;                    /* Centraliza a seção na página */
+}
+
+/* --- Card Individual de Veículo --- */
+.veiculo {
+    background: white;                 /* Fundo branco */
+    padding: 15px;                     /* Preenchimento interno */
+    border-radius: 8px;                /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: center;                /* Centraliza o texto */
+    font-family: 'Roboto', sans-serif; /* Garante a fonte Roboto */
+    display: flex;                     /* Usa Flexbox para organizar o conteúdo interno */
+    flex-direction: column;            /* Organiza o conteúdo em coluna */
+    justify-content: space-between;    /* Distribui espaço entre os elementos internos */
+    min-height: 380px;                 /* Altura mínima para alinhar cards na mesma linha */
+    border: 1px solid #eee;            /* Borda muito sutil */
+}
+
+/* --- Imagem do Veículo --- */
+.veiculo img.dynamic-image {
+    border: 0 none;                    /* Remove qualquer borda da imagem */
+    max-width: 100%;                   /* Garante que a imagem não ultrapasse a largura do card */
+    height: 150px;                     /* Altura fixa para a imagem */
+    object-fit: contain;               /* Redimensiona mantendo proporção, sem cortar */
+    margin-bottom: 10px;               /* Espaço abaixo da imagem */
+    vertical-align: middle;            /* Alinhamento vertical */
+}
+
+/* --- Nome do Veículo (H1 ou H2) --- */
+.veiculo h1, .veiculo h2 {
+    margin-top: 10px;                  /* Espaço acima do título */
+    margin-bottom: 10px;               /* Espaço abaixo do título */
+    font-size: 1.1em;                  /* Tamanho da fonte (um pouco maior que o padrão) */
+    color: #333;                       /* Cor do texto escura */
+    flex-grow: 1;                      /* Permite que o título cresça se houver espaço */
+    line-height: 1.3;                  /* Espaçamento entre linhas */
+}
+
+/* --- Texto "A partir de:" --- */
+.veiculo p {
+    font-size: 0.9em;                  /* Tamanho da fonte (um pouco menor) */
+    color: #555;                       /* Cor do texto cinza escuro */
+    margin-bottom: 2px;                /* Pequeno espaço abaixo */
+}
+
+/* --- Preço do Veículo (H4) --- */
+.veiculo h4 {
+    font-size: 1.2em;                  /* Tamanho da fonte (maior que o título) */
+    color: #167d3f;                    /* Cor verde para o preço */
+    margin-top: 0;                     /* Remove margem superior */
+    margin-bottom: 15px;               /* Espaço abaixo do preço */
+    font-weight: bold;                 /* Texto em negrito */
+}
+
+/* --- Texto "/dia" dentro do Preço --- */
+.veiculo h4 small {
+    font-size: 0.7em;                  /* Tamanho da fonte bem menor */
+    font-weight: normal;               /* Peso da fonte normal */
+    color: #555;                       /* Cor cinza escuro */
+}
+
+/* --- Botão Reservar dentro do Card --- */
+.veiculo .botao-principal {
+    width: 80%;                        /* Largura relativa ao card */
+    margin: 0 auto;                    /* Centraliza o botão horizontalmente */
+    padding: 12px 15px;                /* Aumenta o preenchimento vertical */
+}
+
+
+/* === RODAPÉ === */
+footer {
+    background-color: #333;            /* Fundo cinza escuro */
+    color: white;                      /* Texto branco */
+    text-align: center;                /* Centraliza o conteúdo */
+    padding: 15px 10px;                /* Preenchimento interno */
+    margin-top: auto;                  /* Empurra o rodapé para o fim da página (funciona com body flex) */
+    width: 100%;                       /* Garante que ocupe toda a largura */
+    box-sizing: border-box;            /* Faz o padding ser incluído na largura total */
+}
+
+/* --- Informações de Localização no Rodapé --- */
+.location-info {
+    text-align: center;                /* Centraliza explicitamente (embora o footer já faça) */
+    margin-left: 0;                    /* Reseta margem esquerda (caso haja algum padrão) */
+    display: block;                    /* Garante que ocupe a linha inteira */
+}
+
+/* --- Temperatura no Rodapé --- */
+#weather-temp {
+    font-weight: bold;                 /* Temperatura em negrito */
+}
+
+/* --- Descrição do Clima no Rodapé --- */
+#weather-desc {
+    font-style: italic;                /* Descrição em itálico */
+    margin-left: 5px;                  /* Pequeno espaço antes da descrição */
+}
+
+
+/* === MEDIA QUERIES PARA RESPONSIVIDADE === */
+
+/* --- Telas Médias (ex: Tablets, ~769px a 992px) --- */
+@media (max-width: 992px) {
+    /* Ajusta a seção de busca (se existir) */
+    #busca {
+        max-width: 90%;                /* Reduz a largura máxima */
+    }
+
+    /* Ajusta a seção de veículos */
+    #veiculos {
+        grid-template-columns: repeat(2, 1fr); /* Muda para 2 colunas */
+        max-width: 700px;              /* Reduz a largura máxima */
+    }
+
+    /* Ajusta altura mínima dos cards de veículo */
+    .veiculo {
+        min-height: 360px;             /* Reduz ligeiramente a altura mínima */
+    }
+}
+
+/* --- Telas Pequenas (ex: Celulares, <= 600px) --- */
+@media (max-width: 600px) {
+    /* Ajusta o cabeçalho para layout de coluna */
+    header.cabecalho {
+        flex-direction: column;        /* Empilha logo e menu */
+    }
+
+    /* Centraliza o logo */
+    .logo img {
+        margin: 10px 0;                /* Margem vertical, sem margem horizontal */
+    }
+
+    /* Ajusta o menu para layout de coluna */
+    .menu ul {
+        margin-top: 10px;              /* Espaço acima do menu */
+        flex-direction: column;        /* Empilha os itens do menu */
+        align-items: center;           /* Centraliza os itens */
+        width: 100%;                   /* Ocupa toda a largura do header */
+    }
+
+    /* Ajusta os itens do menu */
+    .menu li {
+        margin: 5px 0;                 /* Margem vertical entre itens, sem margem lateral */
+        width: 100%;                   /* Ocupa toda a largura */
+        text-align: center;            /* Centraliza o texto do link */
+    }
+
+    /* Ajusta o dropdown para mobile */
+    .dropdown-conteudo {
+        position: static;              /* Remove posicionamento absoluto */
+        box-shadow: none;              /* Remove sombra */
+        width: 100%;                   /* Ocupa toda a largura */
+        background-color: #c22a2a;     /* Fundo vermelho mais escuro para contraste */
+        margin-top: 0;                 /* Remove margem superior */
+    }
+
+    /* Estiliza links do dropdown mobile */
+    .dropdown-conteudo a {
+        text-align: center;            /* Centraliza texto */
+        color: white;                  /* Texto branco */
+        border-bottom: 1px solid rgba(255,255,255,0.1); /* Linha divisória sutil */
+        padding: 10px 16px;            /* Ajusta padding */
+    }
+    .dropdown-conteudo a:last-child {
+        border-bottom: none;           /* Remove borda do último item */
+    }
+    .dropdown-conteudo a:hover {
+        background-color: #b02626;     /* Cor de fundo hover um pouco mais escura */
+    }
+
+    /* Ajusta a seção de busca (se existir) para layout de coluna */
+    #busca {
+        flex-direction: column;        /* Empilha input e botão */
+        align-items: stretch;          /* Estica itens para ocupar a largura */
+        gap: 10px;                     /* Espaço entre input e botão */
+        padding: 0 15px;               /* Reduz padding lateral */
+    }
+
+    /* Ajusta o input de filtro */
+    #busca input#filtro {
+        width: 100%;                   /* Ocupa largura total */
+        margin-right: 0;               /* Remove margem direita */
+        margin-bottom: 0;              /* Remove margem inferior (gap já faz isso) */
+        min-width: auto;               /* Reseta largura mínima */
+        box-sizing: border-box;        /* Inclui padding na largura total */
+    }
+
+    /* Ajusta o botão principal na busca */
+    #busca .botao-principal {
+        width: 100%;                   /* Ocupa largura total */
+        margin-bottom: 0;              /* Remove margem inferior */
+        box-sizing: border-box;        /* Inclui padding na largura total */
+    }
+
+    /* Ajusta a seção de veículos para 1 coluna */
+    #veiculos {
+        grid-template-columns: 1fr;    /* Muda para 1 coluna */
+        padding: 15px;                 /* Reduz padding */
+        gap: 15px;                     /* Reduz espaçamento */
+        max-width: 350px;              /* Reduz largura máxima */
+    }
+
+    /* Ajusta os cards de veículo */
+    .veiculo {
+        min-height: auto;              /* Remove altura mínima fixa */
+    }
+
+    /* Ajusta o botão reservar dentro do card */
+    .veiculo .botao-principal {
+        width: 90%;                    /* Aumenta um pouco a largura relativa */
+    }
+}

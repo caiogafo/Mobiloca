@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação da Reserva - Mobiloca</title> <link rel="stylesheet" href="stylesConfirmacao.css"> <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> </head>
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <img src="imagens/logo.png" alt="Logo da Empresa" classs="logo-img">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">INÍCIO</a></li>
+                <li><a href="ofertas.html">OFERTAS</a></li>
+                <li><a href="politica.html">POLÍTICA DE PRIVACIDADE</a></li>
+                <li><a href="mobiloca.html">A MOBILOCA</a></li>
+                <li class="dropdown">
+                    <a href="#">AJUDA &#9662;</a>
+                    <div class="dropdown-conteudo">
+                        <a href="ajuda.html">DÚVIDAS FREQUENTES</a>
+                        <a href="contato.html">FALA CONOSCO</a>
+                        <a href="sinistro.html">SINISTROS E MANUTENÇÃO</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="progress-bar">
+        <div class="step"> <span class="circle"></span> <span class="label">Data</span> </div>
+        <div class="step"> <span class="circle"></span> <span class="label">Veículo</span> </div>
+        <div class="step"> <span class="circle"></span> <span class="label">Proteção e Opcionais</span> </div>
+        <div class="step"> <span class="circle"></span> <span class="label">Condutor</span> </div>
+        <div class="step"> <span class="circle"></span> <span class="label">Pagamento</span> </div>
+        <div class="step active"> <span class="circle"></span> <span class="label">Confirmação</span> </div> <div class="line"></div>
+    </div>
+
+    <div class="container">
+        <main>
+            <section class="confirmation-section">
+                <h1>Confirmação</h1>
+                <div class="confirmation-content">
+                    <div class="check-circle">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h2>Reserva Confirmada</h2>
+                    <p>Seu código de reserva é:</p>
+                    <p class="confirmation-code" id="codigoReserva">Carregando...</p> <div class="payment-details" id="metodoPagamentoInfo"> <p>Carregando detalhes do pagamento...</p>
+                    </div>
+
+                    <div class="share-buttons">
+                        <button class="btn-compartilhar"><i class="fas fa-share-alt"></i> Compartilhar</button>
+                        <button class="btn-imprimir"><i class="fas fa-print"></i> Imprimir esta reserva</button> </div>
+                </div>
+            </section>
+
+            <aside class="right-section">
+                <div class="resumo">
+                    <h2>Resumo da Reserva</h2> <img src="placeholder_car.png" alt="Carro Selecionado" class="car-image" id="resumoImagemCarro">
+                    <div id="nomeCarro" class="resumo-valor" style="grid-column: 1 / -1; text-align: center; font-weight: bold; margin-bottom: 15px;">Carregando...</div>
+
+                    <div class="resumo-label">Entrega:</div>
+                    <div class="resumo-valor" id="dataEntrega">--/--/----</div>
+                    <div class="resumo-label">Devolução:</div>
+                    <div class="resumo-valor" id="dataDevolucao">--/--/----</div>
+
+                    <hr class="resumo-divider">
+
+                    <div class="resumo-label">Subtotal (Diárias):</div>
+                    <div class="resumo-valor">R$&nbsp;<span id="subtotal">0,00</span></div> <div class="resumo-label">Proteção:</div>
+                    <div class="resumo-valor">R$&nbsp;<span id="valorProtecao">0,00</span></div>
+                    <div class="resumo-label">Opcionais:</div>
+                    <div class="resumo-valor">R$&nbsp;<span id="valorOpcionais">0,00</span></div>
+                    <div class="resumo-label">Taxa:</div> <div class="resumo-valor">R$&nbsp;<span id="taxaConveniencia">0,00</span></div>
+                    <div class="resumo-label">Descontos:</div>
+                    <div class="resumo-valor">R$&nbsp;<span id="descontos">0,00</span></div>
+
+                    <hr class="resumo-divider total-divider">
+
+                    <div class="resumo-label total-label">Total Pago:</div> <div class="resumo-valor total-final">R$&nbsp;<span id="total">0,00</span></div> </div>
+            </aside>
+        </main> </div> <footer>
+        <div class="location-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <span id="weather-temp">--</span>°C <span id="weather-desc">Carregando...</span> <span> - Santo Amaro, São Paulo</span>
+        </div>
+    </footer>
+
+    <script src="script7.js"></script>
+    </body>
+</html>

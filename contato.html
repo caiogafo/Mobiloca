@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale Conosco</title>
+    <link rel="stylesheet" href="contato.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <img src="imagens/logo.png" alt="Logo da Empresa" classs="logo-img">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">INÍCIO</a></li>
+                <li><a href="ofertas.html">OFERTAS</a></li>
+                <li><a href="politica.html">POLÍTICA DE PRIVACIDADE</a></li>
+                <li><a href="mobiloca.html">A MOBILOCA</a></li>
+                <li class="dropdown">
+                    <a href="#">AJUDA &#9662;</a> <div class="dropdown-conteudo">
+                        <a href="ajuda.html">DÚVIDAS FREQUENTES</a>
+                        <a href="contato.html">FALA CONOSCO</a>
+                        <a href="sinistro.html">SINISTROS E MANUTENÇÃO</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>FALE CONOSCO</h1>
+            <p class="subtitle">Dúvidas ou Sugestões? Estamos aqui para ajudar você. Conte conosco!</p>
+
+            <form id="contatoForm" action="#" method="post">
+                <h2>DADOS PESSOAIS</h2>
+                <p class="required-note">*Campos de preenchimento obrigatório</p>
+
+                <div class="form-group full-width">
+                    <label for="nome">NOME*</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cpf">CPF*</label>
+                        <input type="text" id="cpf" name="cpf" required maxlength="14" inputmode="numeric">
+                        <span id="cpf-error-message" style="color: #D32F2F; font-size: 0.8em; display: none; margin-top: 4px;">CPF inválido</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-MAIL*</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmar-email">CONFIRMAR E-MAIL*</label>
+                        <input type="email" id="confirmar-email" name="confirmar-email" required>
+                        <span id="confirmar-email-error-message" style="color: #D32F2F; font-size: 0.8em; display: none; margin-top: 4px;">Os e-mails não coincidem</span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telefone">TELEFONE CELULAR*</label>
+                        <input type="tel" id="telefone" name="telefone" required maxlength="15" inputmode="tel">
+                    </div>
+                    <div class="form-group">
+                        <label for="contrato-reserva">CONTRATO OU RESERVA</label>
+                        <input type="text" id="contrato-reserva" name="contrato-reserva">
+                    </div>
+                    <div class="form-group file-input-group">
+                         <label for="anexo" class="file-label" id="anexo-label">ANEXAR ARQUIVO</label>
+                         <input type="file" id="anexo" name="anexo" class="file-input">
+                    </div>
+                </div>
+
+                 <div class="form-row half-width-row">
+                      <div class="form-group">
+                         <label for="area-contato">ÁREA PARA CONTATO*</label>
+                         <select id="area-contato" name="area-contato" required>
+                             <option value="" disabled selected>Selecione...</option>
+                             <option value="vendas">Vendas</option>
+                             <option value="suporte">Suporte</option>
+                             <option value="financeiro">Financeiro</option>
+                             <option value="outros">Outros</option>
+                         </select>
+                     </div>
+                      <div class="form-group">
+                         <label for="assunto">ASSUNTO*</label>
+                         <select id="assunto" name="assunto" required>
+                              <option value="" disabled selected>Selecione...</option>
+                             <option value="duvida">Dúvida</option>
+                             <option value="sugestao">Sugestão</option>
+                             <option value="reclamacao">Reclamação</option>
+                             <option value="elogio">Elogio</option>
+                         </select>
+                     </div>
+                 </div>
+
+                <div class="form-group full-width">
+                    <label for="mensagem">COMO PODEMOS AJUDAR VOCÊ?*</label>
+                    <textarea id="mensagem" name="mensagem" rows="6" required></textarea>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="politica" name="politica" value="sim" required>
+                    <label for="politica">LI E CONCORDO COM A POLÍTICA DE PRIVACIDADE</label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">ENVIAR</button>
+                </div>
+
+                 <div id="form-status" style="margin-top: 15px; text-align: center; font-weight: bold;"></div>
+
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="location-info">
+            <span id="weather-temp">--</span>°C <span id="weather-desc">Carregando...</span> <span> - Santo Amaro, São Paulo</span>
+        </div>
+    </footer>
+
+    <script src="contato.js" defer></script>
+
+</body>
+</html>

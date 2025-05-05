@@ -1,0 +1,840 @@
+/* stylesCondutor.css */
+
+/* === ESTILOS GLOBAIS === */
+/* Estilos aplicados ao corpo (body) da página */
+body {
+    /* Define a família de fontes principal */
+    font-family: 'Roboto', sans-serif;
+    /* Remove margens padrão do navegador */
+    margin: 0;
+    /* Remove preenchimento padrão do navegador */
+    padding: 0;
+    /* Cor de fundo cinza clara */
+    background-color: #f4f4f4;
+    /* Habilita Flexbox para layout */
+    display: flex;
+    /* Organiza os filhos diretos (header, main/container, footer) em coluna */
+    flex-direction: column;
+    /* Garante que o body tenha no mínimo a altura da viewport */
+    min-height: 100vh; /* Ajuda a manter o rodapé no final */
+}
+
+/* === CABEÇALHO === */
+/* Estilização do elemento <header> com classe "cabecalho" */
+header.cabecalho {
+    /* Cor de fundo vermelha */
+    background-color: #D32F2F;
+    /* Cor padrão do texto */
+    color: white;
+    /* Usa Flexbox para alinhar logo e menu */
+    display: flex;
+    /* Coloca logo e menu nas extremidades */
+    justify-content: space-between;
+    /* Alinha logo e menu verticalmente ao centro */
+    align-items: center;
+    /* Preenchimento interno */
+    padding: 10px 20px;
+    /* Sombra suave */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Altura fixa */
+    height: 80px;
+}
+
+/* Estilização da imagem do logo */
+header.cabecalho .logo .logo-img {
+    /* Altura do logo (valor 40px parece mais adequado que 500px) */
+    height: 40px !important;
+    /* Largura automática para manter proporção */
+    width: auto !important;
+    /* Margens (10px vertical, 20px horizontal) */
+    margin: 10px 20px !important;
+    /* Alinhamento vertical */
+    vertical-align: middle !important;
+}
+
+/* --- Menu de Navegação --- */
+/* Estilo da lista <ul> do menu */
+.menu ul {
+    /* Remove marcadores de lista */
+    list-style: none;
+    /* Alinha itens <li> horizontalmente */
+    display: flex;
+    /* Remove margem padrão */
+    margin: 0;
+    /* Remove preenchimento padrão */
+    padding: 0;
+}
+
+/* Estilo dos itens <li> do menu */
+.menu li {
+    /* Espaçamento à esquerda entre itens */
+    margin-left: 20px;
+    /* Necessário para posicionar o dropdown */
+    position: relative;
+}
+
+/* Estilo dos links <a> do menu */
+.menu a {
+    /* Cor do texto */
+    color: white;
+    /* Remove sublinhado */
+    text-decoration: none;
+    /* Tamanho da fonte */
+    font-size: 16px;
+    /* Faz link ocupar espaço do <li> */
+    display: block;
+    /* Preenchimento vertical */
+    padding: 10px 0;
+}
+
+/* Efeito hover nos links do menu */
+.menu a:hover {
+    /* Adiciona sublinhado */
+    text-decoration: underline;
+}
+
+/* --- Dropdown do Menu --- */
+/* Container do submenu dropdown */
+.dropdown-conteudo {
+    /* Escondido por padrão */
+    display: none;
+    /* Posicionamento absoluto em relação ao <li> pai */
+    position: absolute;
+    /* Fundo branco */
+    background-color: white;
+    /* Largura mínima */
+    min-width: 200px;
+    /* Sombra */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /* Garante que fique sobre outros elementos */
+    z-index: 10;
+    /* Alinha à direita do <li> pai */
+    right: 0;
+    /* Espaço abaixo do link "AJUDA" */
+    margin-top: 5px;
+}
+
+/* Remove margem dos <li> dentro do dropdown */
+.dropdown-conteudo li {
+    margin: 0;
+}
+
+/* Estilo dos links <a> dentro do dropdown */
+.dropdown-conteudo a {
+    /* Cor do texto escura */
+    color: #333;
+    /* Preenchimento interno */
+    padding: 12px 16px;
+    /* Remove sublinhado */
+    text-decoration: none;
+    /* Ocupa largura total */
+    display: block;
+    /* Alinha texto à esquerda */
+    text-align: left;
+}
+
+/* Efeito hover nos links do dropdown */
+.dropdown-conteudo a:hover {
+    /* Fundo cinza claro */
+    background-color: #f1f1f1;
+}
+
+/* Exibe o dropdown ao passar o mouse sobre o <li> pai */
+.dropdown:hover .dropdown-conteudo {
+    display: block;
+}
+
+/* === BARRA DE PROGRESSO === */
+/* Container da barra de progresso */
+.progress-bar {
+    /* Usa Flexbox para alinhar os passos */
+    display: flex;
+    /* Alinha verticalmente os itens (círculos, labels) */
+    align-items: center;
+    /* Posicionamento relativo para a linha absoluta interna */
+    position: relative;
+    /* Preenchimento interno */
+    padding: 10px;
+    /* Fundo branco */
+    background-color: white;
+    /* Bordas arredondadas */
+    border-radius: 8px;
+    /* Sombra suave */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Centraliza a barra e adiciona margem vertical */
+    margin: 20px auto;
+    /* Define a largura da barra */
+    width: 80%;
+    /* Inclui padding na largura total */
+    box-sizing: border-box;
+}
+
+/* Estilo de cada passo individual na barra */
+.step {
+    /* Usa Flexbox para organizar círculo e label verticalmente */
+    display: flex;
+    flex-direction: column;
+    /* Centraliza círculo e label horizontalmente */
+    align-items: center;
+    /* Posicionamento relativo para controle de z-index */
+    position: relative;
+    /* Garante que o passo fique acima da linha */
+    z-index: 1;
+    /* Permite que cada passo ocupe espaço igual na barra */
+    flex-grow: 1;
+    /* Centraliza o texto do label */
+    text-align: center;
+}
+
+/* Estilo do círculo indicador de passo */
+.circle {
+    /* Largura e altura */
+    width: 20px;
+    height: 20px;
+    /* Borda padrão cinza */
+    border: 2px solid #ccc;
+    /* Forma circular */
+    border-radius: 50%;
+    /* Fundo branco */
+    background-color: white;
+    /* Espaço abaixo do círculo */
+    margin-bottom: 5px;
+    /* Inclui borda no tamanho total */
+    box-sizing: border-box;
+}
+
+/* Estilo do círculo do passo ativo */
+.step.active .circle {
+    /* Borda verde */
+    border-color: #008000;
+    /* Fundo verde */
+    background-color: #008000;
+}
+
+/* Estilo do texto (label) abaixo do círculo */
+.label {
+    /* Tamanho da fonte */
+    font-size: 12px;
+    /* Cor padrão */
+    color: #333;
+    /* Impede quebra de linha */
+    white-space: nowrap;
+}
+
+/* Estilo do label do passo ativo */
+.step.active .label {
+    /* Cor verde */
+    color: #008000;
+    /* Texto em negrito */
+    font-weight: bold;
+}
+
+/* Estilo da linha que conecta os passos */
+.line {
+    /* Posicionamento absoluto em relação à .progress-bar */
+    position: absolute;
+    /* Largura calculada para não ultrapassar os círculos das pontas */
+    width: calc(100% - 40px);
+    /* Espessura da linha */
+    height: 2px;
+    /* Cor da linha */
+    background-color: #ccc;
+    /* Posição vertical (aproximadamente no centro dos círculos) */
+    top: 19px;
+    /* Posição horizontal (inicia após o primeiro círculo) */
+    left: 20px;
+    /* Garante que a linha fique atrás dos círculos */
+    z-index: 0;
+}
+
+/* === CONTAINER PRINCIPAL E LAYOUT DE COLUNAS === */
+/* Container principal que envolve o formulário e o resumo */
+.container {
+    /* Largura do container */
+    width: 80%;
+    /* Centraliza horizontalmente, margem inferior */
+    margin: 0 auto 20px auto;
+    /* Usa Flexbox para criar as colunas (formulário e resumo) */
+    display: flex;
+    /* Distribui o espaço entre as colunas */
+    justify-content: space-between;
+    /* Espaçamento entre as colunas */
+    gap: 40px;
+    /* Faz o container ocupar o espaço vertical restante */
+    flex: 1;
+}
+
+/* Coluna Esquerda: Wrapper do Formulário */
+.form-wrapper {
+    /* Faz esta coluna ocupar 2 partes do espaço disponível (comparado a 1 do resumo) */
+    flex: 2;
+    /* Preenchimento interno aumentado */
+    padding: 30px;
+    /* Fundo branco */
+    background-color: white;
+    /* Bordas arredondadas */
+    border-radius: 8px;
+    /* Sombra suave */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* === ESTILOS DO FORMULÁRIO DO CONDUTOR === */
+/* Título dentro do formulário */
+#rental-form h2 {
+    /* Remove margem superior */
+    margin-top: 0;
+    /* Margem inferior aumentada */
+    margin-bottom: 25px;
+    /* Cor do texto */
+    color: #333;
+    /* Alinhamento centralizado */
+    text-align: center;
+    /* Tamanho da fonte aumentado */
+    font-size: 1.6em;
+}
+
+/* Estilo para uma linha de campos no formulário */
+.form-row {
+    /* Usa Flexbox para alinhar campos lado a lado */
+    display: flex;
+    /* Espaçamento entre os campos na linha */
+    gap: 20px;
+    /* Permite que os campos quebrem para a linha de baixo se não couberem */
+    flex-wrap: wrap;
+    /* Espaço abaixo de cada linha de campos */
+    margin-bottom: 15px;
+}
+
+/* Remove margem inferior da última linha antes dos botões */
+.form-row:last-of-type {
+     margin-bottom: 0;
+}
+
+/* Grupo de um campo de formulário (label + input) */
+.form-group {
+    /* Tenta ocupar 50% da largura da linha (- metade do gap), com base mínima */
+    flex: 1 1 calc(50% - 10px);
+    /* Largura mínima antes de quebrar para a próxima linha */
+    min-width: 200px;
+}
+
+/* Modificador para um grupo ocupar a linha inteira */
+.form-group.full-width {
+    /* Ocupa 100% da largura da linha */
+    flex-basis: 100%;
+    /* Garante 100% mesmo com flex-grow/shrink */
+    min-width: 100%;
+}
+
+/* Estilo das labels (rótulos) dos campos */
+label {
+    /* Faz a label ocupar sua própria linha */
+    display: block;
+    /* Espaço abaixo da label */
+    margin-bottom: 5px;
+    /* Texto em negrito */
+    font-weight: bold;
+    /* Tamanho da fonte */
+    font-size: 14px;
+    /* Cor do texto */
+    color: #333;
+}
+
+/* Estilo geral para campos de texto, email, telefone e select */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+    /* Ocupa 100% da largura do .form-group */
+    width: 100%;
+    /* Preenchimento interno */
+    padding: 10px;
+    /* Borda cinza clara */
+    border: 1px solid #ccc;
+    /* Bordas arredondadas */
+    border-radius: 4px;
+    /* Garante que padding e borda não aumentem a largura total */
+    box-sizing: border-box;
+    /* Tamanho da fonte */
+    font-size: 16px;
+    /* Transição suave da cor da borda ao focar */
+    transition: border-color 0.3s ease;
+}
+
+/* Estilo dos campos quando em foco */
+input:focus,
+select:focus {
+    /* Muda a cor da borda para verde */
+    border-color: #4CAF50;
+    /* Remove a linha de contorno (outline) padrão do navegador */
+    outline: none;
+}
+
+/* Classe adicionada via JS para indicar erro de validação */
+.input-error {
+    /* Borda vermelha (!important para sobrescrever o estilo de foco) */
+    border-color: red !important;
+}
+
+/* Estilo para as mensagens de erro abaixo dos campos */
+.error-message {
+    /* Cor do texto vermelha */
+    color: red;
+    /* Tamanho da fonte pequeno */
+    font-size: 12px;
+    /* Escondido por padrão (visibilidade controlada por JS) */
+    display: none;
+    /* Espaço acima da mensagem */
+    margin-top: 4px;
+}
+
+/* Estilo específico para o grupo do checkbox */
+.form-group-checkbox {
+    /* Espaço acima */
+    margin-top: 15px;
+    /* Usa Flexbox para alinhar checkbox e label */
+    display: flex;
+    /* Alinha verticalmente */
+    align-items: center;
+    /* Ocupa largura total (se dentro de .form-row, já herda) */
+    width: 100%;
+}
+
+/* Estilo do input checkbox */
+.form-group-checkbox input[type="checkbox"] {
+    /* Espaço à direita do checkbox */
+    margin-right: 8px;
+    /* Largura e altura automáticas */
+    width: auto;
+    height: auto; /* Adicionado para consistência */
+    /* Cursor de ponteiro */
+    cursor: pointer;
+    /* Redefinindo tamanho explícito (ajustar conforme necessidade) */
+    width: 16px;
+    height: 16px;
+}
+
+/* Estilo da label do checkbox */
+.form-group-checkbox label {
+    /* Peso da fonte normal */
+    font-weight: normal;
+    /* Remove margem inferior padrão de label */
+    margin-bottom: 0;
+    /* Cursor de ponteiro (clicar no label marca/desmarca) */
+    cursor: pointer;
+    /* Tamanho da fonte */
+    font-size: 14px;
+}
+
+/* === ESTILOS DOS BOTÕES DE AÇÃO (Voltar/Continuar) === */
+/* Container dos botões */
+.button-group {
+    /* Usa Flexbox para alinhar botões */
+    display: flex;
+    /* Coloca os botões nas extremidades (Voltar na esquerda, Continuar na direita) */
+    justify-content: space-between;
+    /* Espaço acima do grupo de botões */
+    margin-top: 30px;
+    /* Permite quebra de linha em telas menores */
+    flex-wrap: wrap;
+    /* Espaço entre botões se quebrarem linha */
+    gap: 10px;
+}
+
+/* Estilo base comum para ambos os botões */
+.btn {
+    /* Preenchimento interno */
+    padding: 12px 25px;
+    /* Sem borda (definida especificamente abaixo) */
+    border: none;
+    /* Bordas arredondadas */
+    border-radius: 4px;
+    /* Cursor de ponteiro */
+    cursor: pointer;
+    /* Tamanho da fonte */
+    font-size: 16px;
+    /* Texto em negrito */
+    font-weight: bold;
+    /* Remove sublinhado (caso seja um link estilizado como botão) */
+    text-decoration: none;
+    /* Comportamento de bloco em linha */
+    display: inline-block;
+    /* Alinhamento do texto */
+    text-align: center;
+    /* Transição suave para efeitos hover */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Estilo do Botão Secundário (ex: Voltar) */
+.btn-secondary {
+    /* Fundo transparente */
+    background-color: transparent;
+    /* Cor do texto vermelha */
+    color: #D32F2F;
+    /* Borda vermelha */
+    border: 1px solid #D32F2F;
+}
+
+/* Efeito hover no Botão Secundário */
+.btn-secondary:hover {
+    /* Fundo vermelho */
+    background-color: #D32F2F;
+    /* Texto branco */
+    color: white;
+}
+
+/* Estilo do Botão Primário (ex: Continuar) */
+.btn-primary {
+    /* Fundo verde */
+    background-color: #4CAF50;
+    /* Texto branco */
+    color: white;
+    /* Borda verde (só para garantir consistência) */
+    border: 1px solid #4CAF50;
+}
+
+/* Efeito hover no Botão Primário */
+.btn-primary:hover {
+    /* Fundo verde mais escuro */
+    background-color: #45a049;
+    /* Borda verde mais escura */
+    border-color: #45a049;
+}
+
+/* === COLUNA DIREITA (Resumo da Reserva) === */
+/* Estilo da seção direita que contém o resumo */
+.right-section {
+    /* Ocupa 1 parte do espaço disponível (comparado a 2 do formulário) */
+    flex: 1;
+    /* Posicionamento fixo (sticky) durante a rolagem */
+    position: sticky;
+    /* Distância do topo onde o elemento vai "grudar" */
+    top: 20px;
+    /* Alinha este item ao topo do container flex pai */
+    align-self: flex-start;
+    /* Necessário para sticky funcionar corretamente em alguns contextos */
+    min-width: 0;
+    /* Altura baseada no conteúdo */
+    height: fit-content;
+}
+
+/* Estilo do card de resumo */
+.resumo {
+    /* Cor de fundo cinza clara */
+    background-color: #f9f9f9;
+    /* Preenchimento interno aumentado */
+    padding: 25px;
+    /* Bordas arredondadas */
+    border-radius: 8px;
+    /* Sombra suave */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Usa CSS Grid para alinhar labels e valores */
+    display: grid;
+    /* Define 2 colunas: 1ª auto-ajustável (label), 2ª ocupa o resto (valor) */
+    grid-template-columns: auto 1fr;
+    /* Espaçamento entre linhas (12px) e colunas (15px) */
+    gap: 12px 15px;
+    /* Alinha o texto na base de cada célula */
+    align-items: baseline;
+}
+
+/* Estilo do título H2 dentro do resumo */
+.resumo h2 {
+    /* Ocupa ambas as colunas do grid */
+    grid-column: 1 / -1;
+    /* Remove margem superior */
+    margin-top: 0;
+    /* Margem inferior aumentada */
+    margin-bottom: 20px;
+    /* Alinhamento centralizado */
+    text-align: center;
+    /* Tamanho da fonte */
+    font-size: 1.4em;
+    /* Cor do texto */
+    color: #333;
+    /* Espaço abaixo do texto, antes da borda */
+    padding-bottom: 10px;
+    /* Linha separadora abaixo do título */
+    border-bottom: 1px solid #eee;
+}
+
+/* Estilo para a imagem do carro no resumo */
+.resumo .car-image {
+    /* Ocupa ambas as colunas */
+    grid-column: 1 / -1;
+    /* Largura máxima */
+    max-width: 180px;
+    /* Altura automática */
+    height: auto;
+    /* Comportamento de bloco para centralizar com margem */
+    display: block;
+    /* Centraliza horizontalmente, margem inferior */
+    margin: 0 auto 15px auto;
+    /* Bordas arredondadas */
+    border-radius: 4px;
+}
+
+/* Estilo para o nome do carro (ID do HTML) */
+#nomeCarro {
+    /* Ocupa ambas as colunas */
+    grid-column: 1 / -1;
+    /* Alinhamento centralizado */
+    text-align: center;
+    /* Texto em negrito */
+    font-weight: bold;
+    /* Margem inferior */
+    margin-bottom: 20px;
+    /* Tamanho da fonte */
+    font-size: 1.15em;
+    /* Cor do texto */
+    color: #333;
+}
+
+/* Estilo para os labels (ex: "Retirada:", "Total Diárias:") no resumo */
+.resumo-label {
+    /* Peso da fonte normal */
+    font-weight: normal;
+    /* Alinhamento à esquerda */
+    text-align: left;
+    /* Ocupa a primeira coluna */
+    grid-column: 1 / 2;
+    /* Cor do texto */
+    color: #555;
+    /* Tamanho da fonte */
+    font-size: 0.95em;
+}
+/* Estilo opcional para o label "Total" */
+.resumo-label.total-label {
+    /* Tamanho de fonte maior */
+    font-size: 1.1em;
+    /* Texto em negrito */
+    font-weight: bold;
+    /* Cor do texto */
+    color: #333;
+}
+
+
+/* Estilo para os valores (ex: data, preço) no resumo */
+.resumo-valor {
+    /* Texto em negrito */
+    font-weight: bold;
+    /* Alinhamento à direita */
+    text-align: right;
+    /* Ocupa a segunda coluna */
+    grid-column: 2 / 3;
+    /* Impede quebra de linha */
+    white-space: nowrap;
+    /* Cor do texto */
+    color: #333;
+    /* Tamanho da fonte */
+    font-size: 0.95em;
+}
+
+/* Estilo para o valor final (Total) */
+.resumo-valor.total-final {
+    /* Tamanho de fonte maior */
+    font-size: 1.3em;
+    /* Texto em negrito */
+    font-weight: bold;
+    /* Cor verde */
+    color: #167d3f;
+}
+
+/* Estilo para linhas divisórias (<hr>) dentro do resumo */
+.resumo-divider {
+    /* Ocupa ambas as colunas */
+    grid-column: 1 / -1;
+    /* Remove borda padrão */
+    border: 0;
+    /* Define a linha como uma borda superior */
+    border-top: 1px solid #e0e0e0; /* Linha cinza clara */
+    /* Margem vertical */
+    margin: 5px 0;
+}
+
+/* Estilo para a linha divisória antes do total */
+.resumo-divider.total-divider {
+    /* Linha um pouco mais escura */
+    border-top: 1px solid #ccc;
+    /* Mais espaço acima */
+    margin-top: 10px;
+}
+
+/* === RODAPÉ (footer) === */
+/* Estilização do rodapé */
+footer {
+    /* Fundo cinza escuro */
+    background-color: #333;
+    /* Texto branco */
+    color: white;
+    /* Centraliza texto */
+    text-align: center;
+    /* Preenchimento interno */
+    padding: 15px 10px;
+    /* Garante que fique no final da página (com flex no body) */
+    margin-top: auto;
+    /* Largura total */
+    width: 100%;
+    /* Inclui padding na largura */
+    box-sizing: border-box;
+}
+
+/* Container das informações de localização */
+.location-info {
+    text-align: center;
+    display: block; /* Garante que ocupe a linha */
+    font-size: 0.9em; /* Tamanho da fonte */
+}
+
+/* Estilo do span da temperatura */
+#weather-temp {
+    font-weight: bold; /* Negrito */
+}
+
+/* Estilo do span da descrição do tempo */
+#weather-desc {
+    font-style: italic; /* Itálico */
+    margin-left: 5px; /* Espaço à esquerda */
+}
+
+/* === MEDIA QUERIES (Responsividade) === */
+
+/* Estilos para Tablets e telas menores (<= 1024px) */
+@media (max-width: 1024px) {
+    /* Ajusta o container principal para empilhar as colunas */
+    .container {
+        flex-direction: column; /* Empilha formulário e resumo */
+        width: 90%; /* Aumenta largura relativa */
+        gap: 20px; /* Reduz espaço entre form e resumo */
+    }
+
+    /* Faz formulário e resumo ocuparem 100% da largura quando empilhados */
+    .form-wrapper,
+    .right-section {
+        flex: 1; /* Reseta a proporção flex */
+        width: 100%; /* Largura total */
+        box-sizing: border-box; /* Garante padding correto */
+    }
+
+    /* Remove o comportamento sticky do resumo */
+    .right-section {
+        position: static;
+        margin-top: 0; /* Remove margem quando empilhado */
+        max-height: none; /* Remove altura máxima */
+    }
+
+    /* Ajusta o Cabeçalho para layout de coluna */
+    header.cabecalho {
+        flex-direction: column; /* Empilha logo e menu */
+        padding: 15px; /* Ajusta padding */
+        height: auto; /* Altura automática */
+    }
+    /* Ajusta logo */
+    .logo img {
+        /* Ajusta altura da logo (exemplo) */
+        height: 50px; /* Pode precisar ajustar se o valor original era erro */
+        /* Centraliza e adiciona margem abaixo */
+        margin: 0 auto 15px auto; /* Corrigido para margem auto funcionar */
+    }
+    /* Ajusta menu */
+    nav.menu ul {
+        flex-direction: column; /* Empilha itens */
+        align-items: center; /* Centraliza */
+        padding: 0; /* Remove padding */
+        width: 100%; /* Largura total */
+    }
+    nav.menu li {
+        margin: 8px 0; /* Espaçamento vertical */
+        width: 100%; /* Largura total */
+        text-align: center; /* Centraliza texto */
+    }
+    /* Ajusta dropdown mobile */
+    .dropdown-conteudo {
+        position: static; /* Posicionamento normal */
+        display: none; /* Escondido por padrão (precisa de JS para toggle em clique) */
+        width: 100%;
+        box-shadow: none; /* Remove sombra */
+        background-color: #c22a2a; /* Fundo diferente para destaque */
+    }
+    .dropdown-conteudo a {
+        padding: 10px 15px; /* Ajusta padding */
+        color: white; /* Texto branco */
+        text-align: center; /* Centraliza */
+        border-bottom: 1px solid rgba(255,255,255,0.1); /* Linha sutil */
+    }
+    .dropdown-conteudo a:last-child { border-bottom: none; } /* Remove borda do último */
+    /* Regra de hover ainda funciona, mas clique é melhor para mobile */
+    .dropdown:hover .dropdown-conteudo {
+        display: block;
+    }
+
+    /* Ajusta Barra de Progresso */
+    .progress-bar {
+        width: 90%; /* Barra um pouco mais larga */
+    }
+    /* Reduz fonte do label da barra */
+    .label { font-size: 10px; }
+    /* Reduz tamanho do círculo */
+    .circle { width: 18px; height: 18px; }
+    /* Ajusta posição da linha */
+    .line { top: 18px; }
+}
+
+/* Estilos para Celulares (<= 767px) */
+@media (max-width: 767px) {
+    /* Ajusta linhas do formulário para empilhar campos */
+    .form-row {
+        flex-direction: column; /* Empilha os .form-group */
+        gap: 0; /* Remove gap entre 'colunas' */
+        margin-bottom: 0; /* Remove margem da linha */
+    }
+    /* Cada campo ocupa 100% e tem margem inferior */
+    .form-row .form-group {
+        flex-basis: 100%; /* Garante 100% */
+        margin-bottom: 15px; /* Adiciona margem abaixo de cada campo */
+    }
+    /* Remove margem do último campo da linha */
+    .form-row .form-group:last-child {
+        margin-bottom: 0;
+    }
+    /* Garante espaço antes dos botões se a última linha for só checkbox */
+    /* (Seletor :has pode não ser universalmente suportado) */
+    .form-row:has(.form-group-checkbox) {
+         margin-bottom: 15px;
+    }
+
+    /* Ajusta botões para empilhar */
+    .button-group {
+        flex-direction: column; /* Empilha botões */
+        gap: 15px; /* Espaço entre botões */
+        margin-top: 25px; /* Aumenta espaço acima */
+    }
+    /* Botões ocupam largura total */
+    .btn {
+        width: 100%;
+        box-sizing: border-box; /* Garante padding correto */
+    }
+
+    /* Oculta a barra de progresso */
+    .progress-bar {
+        display: none;
+    }
+
+    /* Ajusta container principal e paddings */
+    .container {
+        width: 95%; /* Container quase tela cheia */
+        margin: 10px auto; /* Reduz margens verticais */
+    }
+    .form-wrapper,
+    .resumo {
+         padding: 20px; /* Reduz padding interno */
+    }
+
+    /* Ajustes gerais de fonte */
+    body { font-size: 14px; } /* Reduz fonte base */
+    input, select, .btn { font-size: 14px; } /* Ajusta fonte de inputs/botões */
+    label { font-size: 13px; } /* Ajusta fonte das labels */
+    #rental-form h2 { font-size: 1.4em; } /* Reduz título do formulário */
+    .resumo h2 { font-size: 1.2em; } /* Reduz título do resumo */
+    .resumo-valor.total-final { font-size: 1.2em; } /* Reduz tamanho do total */
+}

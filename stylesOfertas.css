@@ -1,0 +1,429 @@
+/* === ESTILOS GERAIS === */
+body {
+    font-family: 'Roboto', sans-serif; /* Define a fonte principal (Roboto) */
+    margin: 0;                         /* Remove margens padrão */
+    padding: 0;                        /* Remove preenchimentos padrão */
+    display: flex;                     /* Usa Flexbox para layout principal */
+    flex-direction: column;            /* Organiza header e main em coluna */
+    min-height: 100vh;                 /* Garante altura mínima da tela */
+    box-sizing: border-box;            /* Inclui padding e borda no cálculo do tamanho */
+    background-color: #f8f8f8;         /* Cor de fundo suave */
+}
+
+/* Aplica box-sizing a todos os elementos para consistência */
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* === CABEÇALHO === */
+header.cabecalho { /* Seleciona o header com a classe .cabecalho */
+    background-color: #D32F2F;         /* Cor de fundo vermelha */
+    color: white;                      /* Cor do texto branca */
+    display: flex;                     /* Usa Flexbox para alinhar logo e menu */
+    justify-content: space-between;    /* Espaça logo e menu nas extremidades */
+    align-items: center;               /* Alinha verticalmente logo e menu */
+    padding: 10px 20px;                /* Preenchimento interno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    height: 100px;
+} 
+
+/* --- Logo no Cabeçalho (MODIFICADO) --- */
+header.cabecalho .logo .logo-img {
+    height: 500px !important;     /* Aumentado para 60px */
+    width: auto !important;      /* Mantém a proporção */
+    margin: 10x 0px !important;
+    vertical-align: middle !important;
+    position: relative; /* Adicionado para permitir o ajuste de posição */
+    top: -2px;          /* Adicionado para mover 5px para cima */
+}
+
+/* --- Menu de Navegação --- */
+.menu ul {
+    list-style: none;                  /* Remove marcadores da lista */
+    display: flex;                     /* Coloca itens do menu lado a lado */
+    margin: 0;                         /* Remove margens padrão da lista */
+    padding: 0;                        /* Remove preenchimentos padrão da lista */
+}
+
+.menu li {
+    margin-left: 20px;                 /* Espaçamento entre os itens do menu */
+    position: relative;                /* Necessário para posicionar o dropdown */
+}
+
+.menu a {
+    color: white;                      /* Cor do texto dos links */
+    text-decoration: none;             /* Remove sublinhado dos links */
+    font-size: 16px;                   /* Tamanho da fonte */
+    display: block;                    /* Faz o link ocupar o espaço do item li */
+    padding: 10px 0;                   /* Preenchimento vertical para área de clique maior */
+}
+
+.menu a:hover {
+    text-decoration: underline;        /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* --- Dropdown do Menu --- */
+.dropdown-conteudo {
+    display: none;                     /* Escondido por padrão */
+    position: absolute;                /* Posicionamento relativo ao item li pai (.dropdown) */
+    background-color: white;           /* Fundo branco */
+    min-width: 200px;                  /* Largura mínima */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Sombra */
+    z-index: 10;                       /* Garante que fique acima de outros elementos */
+    right: 0;                          /* Alinha à direita do item pai */
+    margin-top: 5px;                   /* Pequeno espaço abaixo do link "AJUDA" */
+}
+
+/* Remove margem padrão dos itens de lista dentro do dropdown */
+.dropdown-conteudo li {
+    margin: 0;
+}
+
+/* Estilos dos links dentro do dropdown */
+.dropdown-conteudo a {
+    color: #333;                       /* Cor do texto escura */
+    padding: 12px 16px;                /* Preenchimento interno */
+    text-decoration: none;             /* Remove sublinhado */
+    display: block;                    /* Faz o link ocupar a largura total */
+    text-align: left;                  /* Alinha o texto à esquerda */
+}
+
+/* Efeito hover nos links do dropdown */
+.dropdown-conteudo a:hover {
+    background-color: #f1f1f1;         /* Muda a cor de fundo ao passar o mouse */
+}
+
+/* Exibe o dropdown quando o mouse passa sobre o item pai (.dropdown) */
+.dropdown:hover .dropdown-conteudo {
+    display: block;
+}
+
+/* === CONTEÚDO PRINCIPAL === */
+main {
+    width: 100%;                       /* Largura total */
+    display: flex;                     /* Usa Flexbox */
+    flex-direction: column;            /* Organiza seções em coluna */
+    align-items: center;               /* Centraliza o conteúdo horizontalmente */
+    padding: 30px 20px;                /* Preenchimento geral (aumentado) */
+    flex-grow: 1;                      /* Permite que o main ocupe o espaço restante */
+}
+
+/* === SEÇÃO DE TEXTO DA OFERTA (.frota) === */
+.frota {
+    text-align: center;                /* Alinha títulos ao centro */
+    margin-bottom: 40px;               /* Espaço abaixo desta seção */
+    width: 100%;                       /* Largura total */
+    max-width: 900px;                  /* Largura máxima para melhor leitura */
+}
+
+.frota h1 {
+    color: #D32F2F;                    /* Cor vermelha principal */
+    margin-bottom: 15px;               /* Espaço abaixo */
+    font-size: 2.2em;                  /* Tamanho maior */
+}
+
+.frota h2 {
+    font-size: 1.6em;                  /* Tamanho do subtítulo */
+    margin-top: 10px;                  /* Espaço acima */
+    margin-bottom: 20px;               /* Espaço abaixo */
+    color: #333;                       /* Cor escura */
+}
+
+.frota h4 {
+    margin-top: 25px;                  /* Espaço acima (para separar tópicos) */
+    margin-bottom: 10px;               /* Espaço abaixo */
+    color: #555;                       /* Cor cinza escuro */
+    font-size: 1.2em;                  /* Tamanho */
+}
+
+.frota p {
+    text-align: justify;               /* Justifica o texto dos parágrafos */
+    line-height: 1.7;                  /* Espaçamento entre linhas melhorado */
+    color: #444;                       /* Cor de texto suave */
+    margin-bottom: 15px;               /* Espaço entre parágrafos */
+    font-size: 1.05em;                 /* Tamanho de fonte ligeiramente maior */
+}
+
+/* Destaca os textos em negrito dentro dos parágrafos */
+.frota p strong {
+    color: #333;
+}
+
+/* === SEÇÃO DE DETALHES DO CARRO EM OFERTA (.economico) === */
+.economico {
+    display: flex;                     /* Usa Flexbox para layout interno */
+    flex-wrap: wrap;                   /* Permite quebrar em linhas */
+    justify-content: center;           /* Centraliza os blocos (imagem e detalhes) */
+    align-items: center;               /* Alinha verticalmente */
+    max-width: 1100px;                 /* Largura máxima da seção */
+    width: 100%;                       /* Largura total */
+    margin-top: 30px;                  /* Espaço acima */
+    border-top: 2px solid #eee;        /* Linha divisória */
+    padding-top: 40px;                 /* Espaço acima da linha */
+    gap: 30px;                         /* Espaço entre imagem e detalhes (aumentado) */
+}
+
+/* Título da seção (ECONÔMICO) */
+.economico h2 {
+    color: #D32F2F;                    /* Cor vermelha */
+    font-size: 2em;                    /* Tamanho */
+    margin-bottom: 10px;               /* Espaço abaixo */
+    text-align: center;                /* Centralizado */
+    width: 100%;                       /* Ocupa toda a largura */
+    order: -2;                         /* Coloca antes dos blocos flex (imagem/detalhes) */
+}
+
+/* Nome do carro (FIAT CRONOS) */
+/* Seleciona o parágrafo direto dentro de .economico */
+.economico > p {
+    width: 100%;                       /* Largura total */
+    text-align: center;                /* Centralizado */
+    font-weight: bold;                 /* Negrito */
+    font-size: 1.4em;                  /* Tamanho */
+    color: #333;                       /* Cor escura */
+    margin-bottom: 25px;               /* Espaço abaixo */
+    order: -1;                         /* Coloca depois do H2, antes dos blocos */
+}
+
+/* --- Bloco da Imagem do Carro --- */
+.carro {
+    flex: 1 1 500px;                   /* Base flexível, permite crescer/encolher */
+    display: flex;                     /* Flexbox interno para centralizar */
+    justify-content: center;           /* Centraliza horizontalmente */
+    align-items: center;               /* Centraliza verticalmente */
+    padding: 10px;                     /* Preenchimento */
+    min-width: 280px;                  /* Largura mínima */
+}
+
+.carro img {
+    max-width: 80%;                    /* Limita largura da imagem a 80% do container */
+    height: auto;                      /* Mantém proporção */
+    display: block;                    /* Necessário para margem auto */
+    margin: 0 auto;                    /* Centraliza a imagem */
+    border-radius: 5px;                /* Suave arredondamento */
+}
+
+/* --- Bloco de Detalhes do Carro --- */
+.detalhes {
+    flex: 1 1 300px;                   /* Base flexível, permite crescer/encolher */
+    max-width: 380px;                  /* Largura máxima */
+    text-align: left;                  /* Alinha texto à esquerda */
+    padding: 15px;                     /* Preenchimento */
+    min-width: 260px;                  /* Largura mínima */
+    display: flex;                     /* Flexbox interno */
+    flex-direction: column;            /* Empilha itens */
+    justify-content: center;           /* Centraliza verticalmente (se houver espaço) */
+}
+
+/* Estilo do 'badge' GRUPO B */
+.detalhes .grupo {
+    display: inline-block;             /* Comportamento inline-block */
+    background-color: #e0e0e0;         /* Fundo cinza */
+    padding: 6px 12px;                 /* Preenchimento */
+    margin-bottom: 20px;               /* Espaço abaixo */
+    font-weight: bold;                 /* Negrito */
+    border-radius: 4px;                /* Bordas arredondadas */
+    color: #333;                       /* Cor do texto */
+    align-self: flex-start;            /* Alinha à esquerda no container flex */
+    font-size: 0.9em;                  /* Tamanho ligeiramente menor */
+}
+
+/* Lista de características (portas, passageiros, etc.) */
+.detalhes ul {
+    list-style: none;                  /* Remove marcadores */
+    padding: 0;                        /* Remove preenchimento */
+    margin: 0 0 25px 0;                /* Margem (0 topo, 0 dir/esq, 25px baixo) */
+    width: 100%;                       /* Largura total */
+}
+
+.detalhes ul li {
+    margin-bottom: 12px;               /* Espaço entre itens */
+    display: flex;                     /* Usa flex para alinhar ícone e texto */
+    align-items: center;               /* Alinha verticalmente */
+    font-size: 1em;                    /* Tamanho da fonte */
+    color: #444;                       /* Cor do texto */
+}
+/* Último item da lista sem margem inferior */
+.detalhes ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* Ícones na lista de características */
+.detalhes ul li img {
+    width: 22px;                       /* Largura do ícone */
+    margin-right: 10px;                /* Espaço entre ícone e texto */
+    opacity: 0.8;                      /* Leve transparência */
+    vertical-align: middle;            /* Alinha com o texto */
+}
+
+/* --- Botão de Reservar --- */
+#botaoReservar {
+    display: inline-block;             /* Comportamento inline-block */
+    background-color: #4CAF50;         /* Cor de fundo VERDE */
+    color: white;                      /* Texto branco */
+    padding: 14px 28px;                /* Preenchimento (maior) */
+    border: none;                      /* Sem borda */
+    border-radius: 5px;                /* Bordas arredondadas */
+    cursor: pointer;                   /* Cursor de mão */
+    font-size: 1.1em;                  /* Tamanho da fonte */
+    font-weight: bold;                 /* Negrito */
+    text-transform: uppercase;         /* Texto em maiúsculas */
+    margin-top: 20px;                  /* Espaço acima */
+    transition: background-color 0.3s ease, transform 0.1s ease; /* Transições suaves */
+    align-self: flex-start;            /* Alinha à esquerda no container flex */
+    text-align: center;                /* Centraliza texto dentro do botão */
+}
+
+/* Efeito hover no botão */
+#botaoReservar:hover {
+    background-color: #45a049;         /* Verde mais escuro */
+    color: white;
+}
+
+/* Efeito de clique no botão */
+#botaoReservar:active {
+    transform: scale(0.98);            /* Efeito de pressionar */
+}
+
+/* === RODAPÉ === */
+footer {
+    background-color: #333;            /* Fundo cinza escuro */
+    color: white;                      /* Texto branco */
+    text-align: center;                /* Centraliza o conteúdo */
+    padding: 15px 10px;                /* Preenchimento interno */
+    margin-top: auto;                  /* Empurra o rodapé para o fim da página (funciona com body flex) */
+    width: 100%;                       /* Garante que ocupe toda a largura */
+    box-sizing: border-box;            /* Faz o padding ser incluído na largura total */
+}
+
+/* --- Informações de Localização no Rodapé --- */
+.location-info {
+    text-align: center;                /* Centraliza explicitamente (embora o footer já faça) */
+    margin-left: 0;                    /* Reseta margem esquerda (caso haja algum padrão) */
+    display: block;                    /* Garante que ocupe a linha inteira */
+}
+
+/* --- Temperatura no Rodapé --- */
+#weather-temp {
+    font-weight: bold;                 /* Temperatura em negrito */
+}
+
+/* --- Descrição do Clima no Rodapé --- */
+#weather-desc {
+    font-style: italic;                /* Descrição em itálico */
+    margin-left: 5px;                  /* Pequeno espaço antes da descrição */
+}
+
+/* === MEDIA QUERIES PARA RESPONSIVIDADE === */
+
+/* --- Telas Médias (Tablets - ~768px) --- */
+@media (max-width: 768px) {
+    /* Ajusta o cabeçalho */
+    .cabecalho {
+        justify-content: center;       /* Centraliza itens quando quebrar */
+    }
+    .logo {
+        width: 100%;                   /* Logo ocupa largura total */
+        text-align: center;            /* Centraliza */
+        margin-bottom: 10px;           /* Espaço abaixo */
+    }
+    .menu ul {
+        justify-content: center;       /* Centraliza itens do menu */
+        width: 100%;
+    }
+    .menu li {
+        margin-left: 10px;             /* Ajusta espaçamento */
+        margin-right: 10px;
+    }
+    .dropdown-conteudo {
+        min-width: 150px;              /* Reduz largura mínima do dropdown */
+    }
+
+    /* Ajusta seção de texto */
+    .frota h2 {
+        font-size: 1.4em;              /* Reduz tamanho */
+    }
+    .frota p {
+        text-align: left;              /* Alinha parágrafos à esquerda */
+    }
+
+    /* Ajusta seção de detalhes do carro */
+    .economico {
+        padding-top: 30px;             /* Reduz padding */
+        gap: 20px;                     /* Reduz espaço entre blocos */
+    }
+    .economico h2 {
+        font-size: 1.8em;              /* Reduz tamanho */
+    }
+    .economico > p {
+        font-size: 1.2em;              /* Reduz tamanho */
+        margin-bottom: 20px;           /* Ajusta margem */
+    }
+
+    /* Faz imagem e detalhes ocuparem linhas separadas */
+    .carro, .detalhes {
+        flex-basis: 100%;              /* Ocupa toda a largura da linha */
+        max-width: 95%;                /* Limita largura */
+        text-align: center;            /* Centraliza texto (impacta .detalhes) */
+    }
+    /* Centraliza conteúdo dos detalhes */
+    .detalhes {
+        align-items: center;
+    }
+    .detalhes .grupo {
+        align-self: center;            /* Centraliza o badge */
+    }
+    /* Ajusta lista de detalhes para centralizar */
+    .detalhes ul {
+        display: inline-block;         /* Permite centralizar */
+        text-align: left;              /* Mantém texto da lista alinhado */
+        margin-bottom: 25px;           /* Espaço abaixo */
+    }
+    /* Ajusta botão */
+    #botaoReservar {
+        width: 80%;                    /* Largura relativa */
+        max-width: 300px;              /* Largura máxima */
+        padding: 12px 20px;            /* Ajusta padding */
+        font-size: 1em;                /* Ajusta fonte */
+        align-self: center;            /* Centraliza o botão */
+    }
+}
+
+/* --- Telas Pequenas (Celulares - ~480px) --- */
+@media (max-width: 480px) {
+    /* Ajusta menu */
+    .menu li {
+        margin-left: 5px;              /* Reduz mais o espaçamento */
+        margin-right: 5px;
+    }
+    .menu a {
+        font-size: 14px;               /* Reduz fonte */
+        padding: 8px 3px;              /* Ajusta padding */
+    }
+    /* Ajusta títulos da seção de texto */
+    .frota h1 {
+        font-size: 1.8em;
+    }
+    .frota h2 {
+        font-size: 1.3em;
+    }
+    /* Ajusta títulos da seção de detalhes */
+    .economico h2 {
+        font-size: 1.6em;
+    }
+    .economico > p {
+        font-size: 1.1em;
+    }
+    /* Ajusta fonte da lista de detalhes */
+    .detalhes ul li {
+        font-size: 0.9em;
+    }
+    /* Aumenta largura do botão */
+    #botaoReservar {
+        width: 90%;
+    }
+    /* Reduz tamanho da imagem do carro */
+     .carro img {
+        max-width: 70%;
+    }
+}

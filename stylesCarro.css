@@ -1,0 +1,817 @@
+/* === ESTILOS GERAIS === */
+/* Estilos aplicados ao corpo (body) da página */
+body {
+    /* Define a família de fontes principal */
+    font-family: 'Roboto', sans-serif;
+    /* Remove a margem padrão do navegador */
+    margin: 0;
+    /* Remove o preenchimento padrão do navegador */
+    padding: 0;
+    /* Define uma cor de fundo cinza clara */
+    background-color: #f4f4f4;
+    /* Habilita o layout Flexbox */
+    display: flex;
+    /* Organiza os filhos diretos (header, main, footer) em coluna */
+    flex-direction: column;
+    /* Garante que o body tenha no mínimo a altura da janela de visualização (viewport) */
+    /* Ajuda a manter o rodapé no final da página */
+    min-height: 100vh;
+}
+
+/* Estilização da área principal de conteúdo (<main>) */
+main {
+    /* Preenchimento interno */
+    padding: 20px;
+    /* Largura máxima para o conteúdo principal */
+    max-width: 1600px;
+    /* Centraliza o conteúdo horizontalmente na página */
+    margin: 0 auto;
+    /* Garante que ocupe a largura disponível */
+    width: 100%;
+    /* Inclui o padding na largura total, evitando overflow */
+    box-sizing: border-box;
+}
+
+/* === CABEÇALHO === */
+/* Seleciona o elemento <header> com a classe "cabecalho" */
+header.cabecalho {
+    /* Cor de fundo vermelha */
+    background-color: #D32F2F;
+    /* Cor padrão do texto dentro do cabeçalho */
+    color: white;
+    /* Usa Flexbox para alinhar itens internos (logo e menu) */
+    display: flex;
+    /* Distribui o espaço: logo na esquerda, menu na direita */
+    justify-content: space-between;
+    /* Alinha verticalmente o logo e o menu ao centro */
+    align-items: center;
+    /* Preenchimento interno (10px topo/base, 20px laterais) */
+    padding: 10px 20px;
+    /* Sombra suave abaixo do cabeçalho */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Altura fixa do cabeçalho */
+    height: 80px;
+}
+
+/* Estilização da imagem do logo dentro do cabeçalho */
+header.cabecalho .logo .logo-img {
+    /* Define a altura da imagem (valor 500px parece excessivo) */
+    height: 500px !important;
+    /* Largura automática para manter proporção */
+    width: auto !important;
+    /* Margem vertical 10px, horizontal 0px */
+    margin: 10px 0px !important; /* Corrigido de 10x */
+    /* Alinhamento vertical */
+    vertical-align: middle !important;
+    /* Posicionamento relativo para permitir ajuste fino */
+    position: relative;
+    /* Move a imagem 2 pixels para cima */
+    top: -2px;
+}
+
+/* --- Menu de Navegação --- */
+/* Estilização da lista <ul> dentro do menu */
+.menu ul {
+    /* Remove marcadores de lista (bolinhas) */
+    list-style: none;
+    /* Alinha os itens <li> horizontalmente */
+    display: flex;
+    /* Remove margem padrão */
+    margin: 0;
+    /* Remove preenchimento padrão */
+    padding: 0;
+}
+
+/* Estilização dos itens <li> do menu */
+.menu li {
+    /* Espaçamento à esquerda entre os itens */
+    margin-left: 20px;
+    /* Necessário para posicionar o submenu dropdown */
+    position: relative;
+}
+
+/* Estilização dos links <a> do menu */
+.menu a {
+    /* Cor do texto branca */
+    color: white;
+    /* Remove sublinhado */
+    text-decoration: none;
+    /* Tamanho da fonte */
+    font-size: 16px;
+    /* Faz o link ocupar o espaço do <li> (melhora área clicável) */
+    display: block;
+    /* Preenchimento vertical para aumentar área clicável */
+    padding: 10px 0;
+}
+
+/* Efeito ao passar o mouse sobre o link do menu */
+.menu a:hover {
+    /* Adiciona sublinhado */
+    text-decoration: underline;
+}
+
+/* --- Dropdown do Menu --- */
+/* Container do submenu */
+.dropdown-conteudo {
+    /* Escondido por padrão */
+    display: none;
+    /* Posicionamento absoluto em relação ao <li> pai */
+    position: absolute;
+    /* Fundo branco */
+    background-color: white;
+    /* Largura mínima */
+    min-width: 200px;
+    /* Sombra projetada */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /* Garante que fique sobre outros elementos */
+    z-index: 10;
+    /* Alinha à direita do item pai */
+    right: 0;
+    /* Espaço abaixo do link "AJUDA" */
+    margin-top: 5px;
+}
+
+/* Remove margem dos itens <li> dentro do dropdown */
+.dropdown-conteudo li {
+    margin: 0;
+}
+
+/* Estilos dos links <a> dentro do dropdown */
+.dropdown-conteudo a {
+    /* Cor do texto escura */
+    color: #333;
+    /* Preenchimento interno */
+    padding: 12px 16px;
+    /* Remove sublinhado */
+    text-decoration: none;
+    /* Faz o link ocupar toda a largura */
+    display: block;
+    /* Alinha texto à esquerda */
+    text-align: left;
+}
+
+/* Efeito hover nos links do dropdown */
+.dropdown-conteudo a:hover {
+    /* Muda cor de fundo ao passar o mouse */
+    background-color: #f1f1f1;
+}
+
+/* Exibe o dropdown quando o mouse passa sobre o item <li> pai com classe 'dropdown' */
+.dropdown:hover .dropdown-conteudo {
+    display: block;
+}
+/* === FIM CABEÇALHO E MENU === */
+
+
+/* === CONTEÚDO PRINCIPAL (main) - PÁGINA DE SELEÇÃO DE VEÍCULO === */
+
+/* Estilização da Barra de Progresso */
+.progress-bar {
+    /* Habilita Flexbox para alinhar os passos */
+    display: flex;
+    /* Alinha verticalmente os itens (círculos e labels) */
+    align-items: center;
+    /* Posicionamento relativo para a linha absoluta */
+    position: relative;
+    /* Preenchimento interno */
+    padding: 10px;
+    /* Fundo branco */
+    background-color: white;
+    /* Bordas arredondadas */
+    border-radius: 8px;
+    /* Sombra suave */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Margem inferior separando da próxima seção */
+    margin-bottom: 20px;
+    /* Ocupa a largura total disponível */
+    width: 100%;
+    /* Inclui padding na largura total */
+    box-sizing: border-box;
+}
+
+/* Estilização de cada Passo na barra de progresso */
+.step {
+    /* Usa Flexbox para organizar círculo e label verticalmente */
+    display: flex;
+    flex-direction: column;
+    /* Centraliza círculo e label horizontalmente */
+    align-items: center;
+    /* Posicionamento relativo para controle de z-index */
+    position: relative;
+    /* Garante que fique acima da linha de conexão */
+    z-index: 1;
+    /* Permite que cada passo ocupe espaço igual na barra */
+    flex-grow: 1;
+    /* Centraliza o texto do label */
+    text-align: center;
+}
+
+/* Estilização do Círculo indicador do passo */
+.circle {
+    /* Largura e altura do círculo */
+    width: 20px;
+    height: 20px;
+    /* Borda padrão cinza */
+    border: 2px solid #ccc;
+    /* Forma circular */
+    border-radius: 50%;
+    /* Fundo branco */
+    background-color: white;
+    /* Espaço abaixo do círculo, antes do label */
+    margin-bottom: 5px;
+    /* Inclui a borda no tamanho total do elemento */
+    box-sizing: border-box;
+}
+
+/* Estilização do Círculo do passo ativo */
+.step.active .circle {
+    /* Muda a cor da borda para verde */
+    border-color: #008000;
+    /* Muda o fundo para verde */
+    background-color: #008000;
+}
+
+/* Estilização do Texto (Label) abaixo de cada círculo */
+.label {
+    /* Tamanho da fonte */
+    font-size: 12px;
+    /* Cor padrão do texto */
+    color: #333;
+    /* Impede que o texto quebre em várias linhas */
+    white-space: nowrap;
+}
+
+/* Estilização do Label do passo ativo */
+.step.active .label {
+    /* Muda a cor do texto para verde */
+    color: #008000;
+    /* Aplica negrito */
+    font-weight: bold;
+}
+
+/* Estilização da Linha que conecta os passos */
+.line {
+    /* Posicionamento absoluto em relação ao .progress-bar */
+    position: absolute;
+    /* Largura calculada para conectar os centros dos círculos (ajustar conforme padding/tamanho do círculo) */
+    width: calc(100% - 40px);
+    /* Altura/espessura da linha */
+    height: 2px;
+    /* Cor da linha */
+    background-color: #ccc;
+    /* Posição vertical para alinhar com o centro dos círculos */
+    top: 19px; /* Ajuste fino pode ser necessário */
+    /* Posição horizontal (começa após o primeiro círculo) */
+    left: 20px; /* Ajuste fino pode ser necessário */
+    /* Garante que a linha fique atrás dos círculos */
+    z-index: 0;
+}
+
+/* Estilização do Título da Seção (ex: "Escolha o seu veículo") */
+h2 {
+    /* Margem inferior */
+    margin-bottom: 20px;
+    /* Alinhamento centralizado */
+    text-align: center;
+    /* Cor do texto */
+    color: #333;
+    /* Tamanho da fonte */
+    font-size: 1.5em;
+}
+
+/* Grid Container para as Opções de Veículos e Resumo */
+.vehicle-options {
+    /* Habilita CSS Grid */
+    display: grid;
+    /* Define as colunas: 3 colunas flexíveis (1fr) e 1 coluna fixa de 280px para o resumo */
+    grid-template-columns: repeat(3, 1fr) 280px;
+    /* Espaçamento entre as células do grid (cards) */
+    gap: 20px;
+}
+
+/* Estilização do Card Individual de Veículo */
+.vehicle-card {
+    /* Fundo branco */
+    background-color: #fff;
+    /* Bordas arredondadas */
+    border-radius: 8px;
+    /* Sombra suave */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Preenchimento interno */
+    padding: 15px;
+    /* Usa Flexbox para organizar o conteúdo interno verticalmente */
+    display: flex;
+    flex-direction: column;
+    /* Borda inicial transparente (para criar espaço antes da seleção) */
+    border: 2px solid transparent;
+    /* Transição suave para a cor da borda e sombra */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    /* Cursor de ponteiro indica que é clicável */
+    cursor: pointer;
+}
+
+/* Efeito ao passar o mouse sobre o card */
+.vehicle-card:hover {
+    /* Aumenta a sombra */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo do card quando selecionado (classe .selected adicionada via JS) */
+.vehicle-card.selected {
+    /* Muda a cor da borda para vermelho */
+    border-color: #D32F2F;
+    /* Adiciona uma sombra vermelha sutil */
+    box-shadow: 0 0 10px rgba(211, 47, 47, 0.4);
+}
+
+/* Estilo da imagem do veículo dentro do card */
+.vehicle-card img {
+    /* Largura total do container da imagem */
+    width: 100%;
+    /* Largura máxima da imagem */
+    max-width: 180px;
+    /* Altura fixa */
+    height: 110px;
+    /* Garante que a imagem caiba sem distorcer, mantendo proporção */
+    object-fit: contain;
+    /* Centraliza a imagem horizontalmente dentro do seu espaço */
+    align-self: center;
+    /* Margem abaixo da imagem */
+    margin-bottom: 10px;
+}
+
+/* Estilo do título (nome da categoria/grupo) do veículo */
+.vehicle-card h3 {
+    /* Remove margens padrão e define margem inferior */
+    margin: 0 0 4px 0;
+    /* Tamanho da fonte */
+    font-size: 1.1em;
+    /* Texto em negrito */
+    font-weight: bold;
+    /* Altura da linha */
+    line-height: 1.3;
+    /* Cor do texto */
+    color: #333;
+}
+
+/* Estilo do parágrafo com o modelo específico do carro (ex: "Fiat Cronos ou similar") */
+/* Seleciona o primeiro parágrafo <p> filho direto de .vehicle-card */
+.vehicle-card > p:nth-of-type(1) {
+    /* Remove margens padrão e define margem inferior */
+    margin: 0 0 8px 0;
+    /* Tamanho da fonte */
+    font-size: 0.85em;
+    /* Cor do texto */
+    color: #555;
+    /* Define uma altura mínima para ajudar a alinhar verticalmente os cards */
+    min-height: 2.5em; /* Ajustar conforme necessário */
+}
+
+/* Estilo da seção de características do veículo */
+.vehicle-card .features {
+    /* Habilita CSS Grid */
+    display: grid;
+    /* Cria colunas responsivas: cada coluna tem no mínimo 110px, ocupando o espaço restante */
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    /* Espaçamento entre as linhas (5px) e colunas (10px) das características */
+    gap: 5px 10px;
+    /* Margem vertical */
+    margin: 10px 0;
+    /* Tamanho da fonte */
+    font-size: 0.8em;
+    /* Cor do texto */
+    color: #444;
+    /* Linha divisória acima */
+    border-top: 1px solid #eee;
+    /* Linha divisória abaixo */
+    border-bottom: 1px solid #eee;
+    /* Preenchimento vertical */
+    padding: 8px 0;
+}
+
+/* Estilo de cada item de característica (ícone + texto) */
+.vehicle-card .features > div {
+    /* Usa Flexbox para alinhar ícone e texto */
+    display: flex;
+    align-items: center;
+    /* Espaço entre o ícone e o texto */
+    gap: 5px;
+}
+
+/* Estilo dos ícones das características (Font Awesome) */
+.vehicle-card .features i {
+    /* Tamanho da fonte do ícone */
+    font-size: 1em;
+    /* Cor do ícone */
+    color: #666;
+    /* Largura fixa para alinhar ícones verticalmente */
+    width: 16px;
+    /* Centraliza o ícone dentro da largura fixa */
+    text-align: center;
+}
+
+/* Container do preço (usado para empurrar para baixo) */
+.price-container {
+    /* Empurra este container e seu conteúdo para o final do card flexível */
+    margin-top: auto;
+    /* Espaço acima da seção de preço */
+    padding-top: 10px;
+}
+
+/* Estilo do preço atual */
+.vehicle-card .price {
+    /* Tamanho da fonte */
+    font-size: 1.2em;
+    /* Texto em negrito */
+    font-weight: bold;
+    /* Cor verde */
+    color: #167d3f;
+    /* Margem vertical */
+    margin: 2px 0;
+}
+
+/* Estilo para preço antigo/promocional (opcional) */
+.vehicle-card .old-price {
+    /* Texto riscado */
+    text-decoration: line-through;
+    /* Cor cinza claro */
+    color: #999;
+    /* Tamanho da fonte */
+    font-size: 0.8em;
+    /* Remove margem */
+    margin: 0;
+}
+
+/* Estilo para texto de aviso (ex: "Preço por dia") */
+.vehicle-card .disclaimer {
+    /* Tamanho da fonte */
+    font-size: 0.7em;
+    /* Cor do texto */
+    color: #777;
+    /* Margem superior */
+    margin: 2px 0 0;
+}
+
+/* Estilo do Botão "Continuar" (pode estar dentro do card ou no resumo) */
+.continue-button {
+    /* Fundo verde */
+    background-color: #4CAF50;
+    /* Texto branco */
+    color: white;
+    /* Sem borda */
+    border: none;
+    /* Bordas arredondadas */
+    border-radius: 4px;
+    /* Preenchimento interno */
+    padding: 10px 15px;
+    /* Tamanho da fonte */
+    font-size: 0.95em;
+    /* Texto em negrito */
+    font-weight: bold;
+    /* Cursor de ponteiro */
+    cursor: pointer;
+    /* Ocupa 100% da largura do container pai */
+    width: 100%;
+    /* Margem acima do botão */
+    margin-top: 10px;
+    /* Transição suave da cor de fundo */
+    transition: background-color 0.2s;
+}
+
+/* Efeito hover no botão "Continuar" */
+.continue-button:hover {
+    /* Cor de fundo verde mais escura */
+    background-color: #45a049;
+}
+
+
+/* --- ESTILOS DO CARD DE RESUMO LATERAL --- */
+/* Estilização do container do resumo */
+.resume-card {
+    /* Posiciona o card na 4ª coluna do grid .vehicle-options */
+    grid-column: 4 / 5;
+    /* Faz o card ocupar da 1ª até a 3ª linha do grid (ajustar se necessário) */
+    grid-row: 1 / 4;
+    /* Cor de fundo levemente diferente */
+    background-color: #f9f9f9;
+    /* Bordas arredondadas */
+    border-radius: 8px;
+    /* Sombra suave */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Borda sutil */
+    border: 1px solid #e0e0e0;
+    /* Preenchimento interno */
+    padding: 20px;
+    /* Usa Flexbox para organizar seções internas */
+    display: flex;
+    flex-direction: column;
+    /* Alinha o card no topo do seu espaço no grid */
+    align-self: start;
+    /* Fixa o card na tela durante a rolagem */
+    position: sticky;
+    /* Distância do topo da viewport onde o card vai "grudar" */
+    top: 20px;
+    /* Altura máxima para evitar que ocupe toda a tela (viewport height - margem) */
+    max-height: calc(100vh - 40px);
+    /* Adiciona barra de rolagem vertical se o conteúdo exceder a altura máxima */
+    overflow-y: auto;
+}
+
+/* Estilo do título dentro do resumo */
+.resume-card h3 {
+    /* Remove margem do topo */
+    margin-top: 0;
+    /* Tamanho da fonte */
+    font-size: 1.3em;
+    /* Cor do texto */
+    color: #333;
+    /* Linha divisória abaixo */
+    border-bottom: 1px solid #ddd;
+    /* Espaço abaixo da linha */
+    padding-bottom: 10px;
+    /* Margem inferior */
+    margin-bottom: 15px;
+}
+
+/* Estilo de cada seção dentro do resumo (Retirada, Devolução, Vantagens) */
+.resume-section {
+    /* Margem inferior separando seções */
+    margin-bottom: 15px;
+    /* Espaço abaixo da linha divisória */
+    padding-bottom: 15px;
+    /* Linha divisória entre seções */
+    border-bottom: 1px solid #eee;
+    /* Usa Flexbox para alinhar itens internos (label, texto, link editar) */
+    display: flex;
+    /* Permite quebra de linha se os itens não couberem */
+    flex-wrap: wrap;
+    /* Alinha itens verticalmente */
+    align-items: center;
+}
+
+/* Remove a borda inferior da última seção */
+.resume-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Estilo dos parágrafos dentro das seções do resumo */
+.resume-section p {
+    /* Tamanho da fonte */
+    font-size: 0.9em;
+    /* Cor do texto */
+    color: #444;
+    /* Margem vertical pequena */
+    margin: 2px 0;
+}
+
+/* Estilo do título/label de cada informação no resumo */
+.resume-section .label {
+    /* Texto em negrito */
+    font-weight: bold;
+    /* Cor do texto */
+    color: #222;
+    /* Margem inferior */
+    margin-bottom: 3px;
+    /* Tamanho da fonte */
+    font-size: 1em;
+    /* Ocupa toda a largura da linha */
+    width: 100%;
+}
+
+/* Estilos específicos para os parágrafos de data/hora de retirada e devolução */
+.resume-section p#retirada-info,
+.resume-section p#devolucao-info {
+    /* Peso da fonte normal */
+    font-weight: normal;
+    /* Cor do texto */
+    color: #555;
+    /* Ocupa o espaço restante na linha */
+    flex-grow: 1;
+    /* Espaço à direita antes do link 'Editar' */
+    margin-right: 10px;
+}
+
+/* Estilo dos links 'Editar' dentro do resumo */
+.resume-card a {
+    /* Tamanho da fonte */
+    font-size: 0.85em;
+    /* Cor vermelha */
+    color: #D32F2F;
+    /* Sem sublinhado */
+    text-decoration: none;
+    /* Peso da fonte */
+    font-weight: 500;
+    /* Transição suave da cor */
+    transition: color 0.2s ease;
+    /* Impede quebra de linha */
+    white-space: nowrap;
+}
+
+/* Efeito hover no link 'Editar' */
+.resume-card a:hover {
+    /* Cor vermelha mais escura */
+    color: #a02424;
+    /* Adiciona sublinhado */
+    text-decoration: underline;
+}
+
+/* Estilos para a seção de Vantagens no Resumo */
+/* Título da seção Vantagens */
+.resume-advantages h4 {
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+/* Parágrafos dentro da seção Vantagens */
+.resume-advantages p {
+    font-size: 0.85em;
+    color: #555;
+    margin: 5px 0;
+    /* Usa Flexbox para alinhar ícone e texto */
+    display: flex;
+    align-items: center;
+    /* Espaço entre ícone e texto */
+    gap: 8px;
+    /* Ocupa largura total */
+    width: 100%;
+}
+
+/* Ícones dentro da seção Vantagens */
+.resume-advantages i {
+    /* Cor verde */
+    color: #4CAF50;
+    font-size: 1em;
+    /* Largura fixa para alinhamento */
+    width: 16px;
+    text-align: center;
+}
+
+/* === RODAPÉ (footer) === */
+/* Estilização do rodapé */
+footer {
+    /* Cor de fundo escura */
+    background-color: #333;
+    /* Cor do texto clara */
+    color: white; /* Alterado de #eee para white para consistência */
+    /* Centraliza o texto */
+    text-align: center;
+    /* Preenchimento interno */
+    padding: 15px 10px;
+    /* Empurra para o fim da página (requer flex no body) */
+    margin-top: auto;
+    /* Garante largura total */
+    width: 100%;
+    /* Inclui padding na largura total */
+    box-sizing: border-box;
+}
+
+/* Container das informações de localização no rodapé */
+.location-info {
+    /* Centraliza (redundante, mas garante) */
+    text-align: center;
+    /* Garante que ocupe a linha */
+    display: block;
+}
+
+/* Estilo do span da temperatura */
+#weather-temp {
+    font-weight: bold; /* Temperatura em negrito */
+}
+
+/* Estilo do span da descrição do tempo */
+#weather-desc {
+    font-style: italic; /* Descrição em itálico */
+    margin-left: 5px; /* Pequeno espaço à esquerda */
+}
+
+
+/* === MEDIA QUERIES (Ajustes para Responsividade) === */
+
+/* Telas Grandes (Ex: ~1200px) - Ajusta grid para 2 colunas de carros + resumo */
+@media (max-width: 1200px) {
+    .vehicle-options {
+        /* Muda para 2 colunas flexíveis + 1 coluna fixa (menor) */
+        grid-template-columns: repeat(2, 1fr) 260px;
+    }
+    .resume-card {
+        /* Move o resumo para a 3ª coluna */
+        grid-column: 3 / 4;
+        /* Permite que o resumo ocupe mais linhas se necessário */
+        grid-row: 1 / 5; /* Ajustar valor conforme conteúdo */
+    }
+}
+
+/* Telas Médias (Ex: ~992px) - Ajustes gerais de espaçamento */
+@media (max-width: 992px) {
+    .vehicle-options {
+        gap: 15px; /* Reduz espaçamento entre cards */
+    }
+    .resume-card {
+        padding: 15px; /* Reduz padding do resumo */
+    }
+    /* Outros ajustes podem ser necessários aqui (ex: tamanho de fonte) */
+}
+
+/* Telas Pequenas (Ex: Tablets ~768px) - Layout de 1 coluna, resumo movido */
+@media (max-width: 768px) {
+    /* Ajusta padding do conteúdo principal */
+    main {
+        padding: 15px;
+    }
+    /* Oculta a barra de progresso em telas menores */
+    .progress-bar {
+        display: none;
+    }
+    /* Reduz tamanho do título principal da seção */
+    h2 {
+        font-size: 1.3em;
+    }
+
+    /* Muda o grid de veículos para apenas 1 coluna */
+    .vehicle-options {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* Garante que o card de veículo ocupe a coluna única */
+    .vehicle-card {
+        grid-column: 1 / 2;
+        padding: 10px; /* Reduz padding interno */
+    }
+
+    /* Reduz tamanho da imagem do veículo */
+    .vehicle-card img {
+        height: 100px;
+        max-width: 160px;
+    }
+
+    /* Move o Card de Resumo para baixo dos cards de veículo */
+    .resume-card {
+        grid-column: 1 / 2; /* Ocupa a coluna única */
+        grid-row: auto; /* Posição automática na linha após os cards */
+        position: static; /* Remove o comportamento 'sticky' */
+        max-height: none; /* Remove altura máxima */
+        margin-top: 20px; /* Adiciona espaço acima do resumo */
+        width: 100%; /* Ocupa largura total */
+        box-sizing: border-box; /* Garante padding correto */
+    }
+}
+
+/* Telas Muito Pequenas (Ex: Celulares ~600px) - Ajustes finos */
+@media (max-width: 600px) {
+    /* Herda a maioria dos estilos de 768px */
+
+    /* Ajustes no Cabeçalho para layout mobile empilhado */
+    header.cabecalho {
+        flex-direction: column; /* Empilha logo e menu */
+        padding: 10px; /* Ajusta padding */
+        height: auto; /* Altura automática */
+    }
+    .logo img {
+        margin: 5px 0; /* Ajusta margem do logo */
+        /* Considerar reduzir a altura aqui se o valor 500px for mantido */
+        /* height: 40px !important; */
+    }
+    nav.menu ul {
+        flex-direction: column; /* Empilha itens do menu */
+        align-items: center; /* Centraliza itens */
+        width: 100%; /* Largura total */
+        margin-top: 10px; /* Espaço acima do menu */
+    }
+    nav.menu li {
+        margin: 5px 0; /* Espaçamento vertical entre itens */
+        width: 100%; /* Largura total */
+        text-align: center; /* Centraliza texto do link */
+    }
+
+    /* Ajustes no Dropdown para mobile */
+    .dropdown-conteudo {
+        position: static; /* Remove posicionamento absoluto */
+        box-shadow: none; /* Remove sombra */
+        width: 100%; /* Largura total */
+        background-color: #c22a2a; /* Fundo vermelho mais escuro para destacar */
+        margin-top: 0; /* Remove margem */
+    }
+    .dropdown-conteudo a {
+        text-align: center; /* Centraliza texto */
+        color: white; /* Texto branco */
+        border-bottom: 1px solid rgba(255,255,255,0.1); /* Linha divisória sutil */
+        padding: 10px 15px; /* Ajusta padding */
+    }
+    .dropdown-conteudo a:last-child {
+        border-bottom: none; /* Remove borda do último item */
+    }
+    .dropdown-conteudo a:hover {
+        background-color: #b02626; /* Fundo mais escuro no hover */
+    }
+    .dropdown:hover .dropdown-conteudo {
+        /* O :hover pode não ser ideal em mobile, mas funciona com toque longo */
+        /* Uma solução com clique via JS pode ser melhor */
+        display: block;
+    }
+}

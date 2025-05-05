@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações do Condutor - Mobiloca</title> <link rel="stylesheet" href="stylesCondutor.css"> <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <img src="imagens/logo.png" alt="Logo da Empresa" classs="logo-img">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">INÍCIO</a></li>
+                <li><a href="ofertas.html">OFERTAS</a></li>
+                <li><a href="politica.html">POLÍTICA DE PRIVACIDADE</a></li>
+                <li><a href="mobiloca.html">A MOBILOCA</a></li>
+                <li class="dropdown">
+                    <a href="#">AJUDA &#9662;</a>
+                    <div class="dropdown-conteudo">
+                        <a href="ajuda.html">DÚVIDAS FREQUENTES</a>
+                        <a href="contato.html">FALA CONOSCO</a>
+                        <a href="sinistro.html">SINISTROS E MANUTENÇÃO</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="progress-bar">
+        <div class="step"> <span class="circle"></span> <span class="label">Data</span> </div>
+        <div class="step"> <span class="circle"></span> <span class="label">Veículo</span> </div>
+        <div class="step"> <span class="circle"></span> <span class="label">Proteção e Opcionais</span> </div>
+        <div class="step active"> <span class="circle"></span> <span class="label">Condutor</span> </div> <div class="step"> <span class="circle"></span> <span class="label">Pagamento</span> </div>
+        <div class="step"> <span class="circle"></span> <span class="label">Confirmação</span> </div>
+        <div class="line"></div>
+    </div>
+
+    <div class="container">
+        <div class="form-wrapper">
+            <form id="rental-form">
+                <h2>Informações do Titular</h2>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" required>
+                        <span class="error-message" id="nome-error"></span> </div>
+                    <div class="form-group">
+                        <label for="ultimo-nome">Último nome</label>
+                        <input type="text" id="ultimo-nome" name="ultimo-nome" required>
+                        <span class="error-message" id="ultimo-nome-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width"> <label for="nascimento">Nascimento</label>
+                        <input type="text" id="nascimento" name="nascimento" placeholder="dd/mm/aaaa" required>
+                        <span class="error-message" id="nascimento-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nacionalidade">Nacionalidade</label>
+                        <select id="nacionalidade" name="nacionalidade">
+                            <option value="brasileiro">Brasileiro</option>
+                            </select>
+                        </div>
+                    <div class="form-group">
+                        <label for="ddi">DDI</label>
+                        <select id="ddi" name="ddi">
+                            <option value="brasil">+55 (Brasil)</option>
+                            </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" required>
+                        <span class="error-message" id="telefone-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" name="cpf" required>
+                        <span class="error-message" id="cpf-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep" name="cep" required>
+                        <span class="error-message" id="cep-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-message" id="email-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="email-confirm">Confirme o e-mail</label>
+                        <input type="email" id="email-confirm" name="email-confirm" required>
+                        <span class="error-message" id="email-confirm-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group-checkbox">
+                        <input type="checkbox" id="ofertas" name="ofertas">
+                        <label for="ofertas">Gostaria de receber as melhores ofertas da Mobiloca.</label> </div>
+                </div>
+
+                <div class="button-group">
+                    <a href="reservasOpcionais.html" class="btn btn-secondary">Voltar</a> <button type="submit" class="btn btn-primary">Continuar</button> </div>
+            </form>
+        </div> <aside class="right-section">
+            <div class="resumo">
+                <h2>Resumo</h2>
+                <img src="placeholder_car.png" alt="Carro Selecionado" class="car-image" id="resumoImagemCarro">
+                <div id="nomeCarro" class="resumo-valor" style="grid-column: 1 / -1; text-align: center; font-weight: bold; margin-bottom: 20px; font-size: 1.15em; color: #333;">Carregando...</div>
+
+                <div class="resumo-label">Entrega:</div>
+                <div class="resumo-valor" id="dataEntrega">--/--/----</div>
+                <div class="resumo-label">Devolução:</div>
+                <div class="resumo-valor" id="dataDevolucao">--/--/----</div>
+
+                <hr class="resumo-divider"> <div class="resumo-label">Subtotal (Diárias):</div>
+                <div class="resumo-valor">R$ <span id="subtotal">0,00</span></div>
+                <div class="resumo-label">Proteção:</div>
+                <div class="resumo-valor">R$ <span id="valorProtecao">0,00</span></div>
+                <div class="resumo-label">Opcionais:</div>
+                <div class="resumo-valor">R$ <span id="valorOpcionais">0,00</span></div>
+                <div class="resumo-label">Taxa de Conveniência:</div>
+                <div class="resumo-valor">R$ <span id="taxaConveniencia">0,00</span></div>
+                <div class="resumo-label">Descontos:</div>
+                <div class="resumo-valor">R$ <span id="descontos">0,00</span></div>
+
+                <hr class="resumo-divider total-divider"> <div class="resumo-label total-label">Total:</div> <div class="resumo-valor total-final">R$ <span id="total">0,00</span></div>
+            </div> </aside> </div> <footer>
+        <div class="location-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <span id="weather-temp">--</span>°C <span id="weather-desc">Carregando...</span> <span> - Santo Amaro, São Paulo</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.9/jquery.inputmask.min.js" integrity="sha512-F5Ul1uuyFlGnIT1dk2c4kB4DBdi5wnBJjVhL7gQlGh46Xn0VhvD8kgxLtjdZ5YN83gybk/aASUAlpdoWUjRR3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script5.js"></script>
+    </body>
+</html>

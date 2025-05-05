@@ -1,0 +1,296 @@
+/* Estilos gerais aplicados ao corpo da página */
+body {
+    font-family: 'Roboto', sans-serif; /* Define a fonte padrão para Roboto */
+    margin: 0; /* Remove margens externas padrão */
+    padding: 0; /* Remove preenchimentos internos padrão */
+    background-color: #f4f4f4; /* Define uma cor de fundo cinza clara */
+    display: flex; /* Utiliza Flexbox para organizar os elementos filhos diretos */
+    flex-direction: column; /* Organiza os filhos (header, main, footer) em coluna */
+    min-height: 100vh; /* Garante que o body tenha no mínimo a altura total da viewport, ajudando a fixar o footer no final */
+}
+
+/* --- CABEÇALHO --- */
+/* Estiliza o elemento header que possui a classe .cabecalho */
+header.cabecalho {
+    background-color: #D32F2F; /* Define a cor de fundo vermelha */
+    color: white; /* Define a cor do texto como branca */
+    display: flex; /* Usa Flexbox para alinhar os itens internos */
+    justify-content: space-between; /* Espaça o logo e o menu nas extremidades opostas */
+    align-items: center; /* Alinha verticalmente o logo e o menu ao centro */
+    padding: 10px 20px; /* Define preenchimento interno (10px topo/base, 20px laterais) */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave abaixo do cabeçalho */
+    height: 80px; /* Define uma altura fixa para o cabeçalho */
+}
+
+/* --- Logo no Cabeçalho --- */
+/* Estiliza a imagem do logo dentro do cabeçalho */
+header.cabecalho .logo .logo-img {
+    height: 40px !important; /* Define a altura da imagem do logo como 40px e força a aplicação com !important */
+    width: auto !important; /* Define a largura automaticamente para manter a proporção e força a aplicação */
+    margin: 10px 20px !important; /* Define margens (10px topo/base, 20px laterais) e força a aplicação */
+    vertical-align: middle !important; /* Alinha verticalmente a imagem com elementos adjacentes e força a aplicação */
+}
+
+/* --- Menu de Navegação --- */
+/* Estiliza a lista não ordenada (ul) dentro do elemento com classe .menu */
+.menu ul {
+    list-style: none; /* Remove os marcadores de lista (bolinhas) */
+    display: flex; /* Coloca os itens da lista (li) lado a lado */
+    margin: 0; /* Remove margens padrão da lista */
+    padding: 0; /* Remove preenchimentos padrão da lista */
+}
+
+/* Estiliza os itens da lista (li) dentro do menu */
+.menu li {
+    margin-left: 20px; /* Adiciona espaçamento à esquerda de cada item do menu */
+    position: relative; /* Define um contexto de posicionamento para o submenu dropdown */
+}
+
+/* Estiliza os links (a) dentro do menu */
+.menu a {
+    color: white; /* Define a cor do texto dos links */
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    font-size: 16px; /* Define o tamanho da fonte */
+    display: block; /* Faz o link ocupar todo o espaço do item li, melhorando a área clicável */
+    padding: 10px 0; /* Adiciona preenchimento vertical para aumentar a área clicável */
+}
+
+/* Estiliza os links do menu quando o mouse passa sobre eles */
+.menu a:hover {
+    text-decoration: underline; /* Adiciona um sublinhado ao passar o mouse */
+}
+
+/* --- Dropdown do Menu --- */
+/* Estiliza o contêiner do submenu dropdown */
+.dropdown-conteudo {
+    display: none; /* Esconde o dropdown por padrão */
+    position: absolute; /* Posiciona o dropdown de forma absoluta em relação ao item pai (.menu li) */
+    background-color: white; /* Define a cor de fundo branca */
+    min-width: 200px; /* Define uma largura mínima */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Adiciona uma sombra */
+    z-index: 10; /* Garante que o dropdown fique acima de outros elementos */
+    right: 0; /* Alinha o dropdown à direita do item pai */
+    margin-top: 5px; /* Adiciona um pequeno espaço abaixo do link principal do dropdown */
+}
+
+/* Estiliza os itens de lista dentro do dropdown */
+.dropdown-conteudo li {
+    margin: 0; /* Remove margens que possam ter sido herdadas */
+}
+
+/* Estiliza os links dentro do dropdown */
+.dropdown-conteudo a {
+    color: #333; /* Define a cor do texto escura */
+    padding: 12px 16px; /* Define o preenchimento interno */
+    text-decoration: none; /* Remove o sublinhado */
+    display: block; /* Faz o link ocupar toda a largura disponível */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+/* Estiliza os links do dropdown quando o mouse passa sobre eles */
+.dropdown-conteudo a:hover {
+    background-color: #f1f1f1; /* Muda a cor de fundo para um cinza claro */
+}
+
+/* Exibe o dropdown quando o mouse passa sobre o item pai que tem a classe .dropdown */
+.dropdown:hover .dropdown-conteudo {
+    display: block; /* Torna o dropdown visível */
+}
+
+/* --- Conteúdo Principal (MAIN) --- */
+/* Estiliza a área principal do conteúdo */
+main {
+    flex-grow: 1; /* Faz com que a seção main ocupe o espaço vertical restante */
+    width: 100%; /* Ocupa toda a largura disponível */
+    padding: 30px 0; /* Adiciona preenchimento vertical (topo e base) */
+    box-sizing: border-box; /* Inclui padding na largura/altura total */
+    display: flex; /* Usa Flexbox para permitir centralização do conteúdo filho */
+    justify-content: center; /* Centraliza horizontalmente o container filho (.conteudo-pagina) */
+}
+
+/* Container específico para limitar a largura do conteúdo desta página */
+.conteudo-pagina {
+    width: 100%; /* Ocupa a largura do pai (main) inicialmente */
+    max-width: 1100px; /* Define uma largura máxima para o conteúdo */
+    padding: 0 20px; /* Adiciona espaçamento lateral interno */
+    box-sizing: border-box; /* Inclui padding na largura total */
+}
+
+
+/* ==================== ESTILOS ESPECÍFICOS PARA SINISTRO.CSS ==================== */
+
+/* Estiliza o Título Principal (H1) dentro do .conteudo-pagina */
+.conteudo-pagina h1 {
+    text-align: center; /* Centraliza o texto */
+    color: #333; /* Define a cor do texto */
+    font-size: 1.6em; /* Define o tamanho da fonte */
+    margin-bottom: 40px; /* Adiciona espaço abaixo do título */
+    font-weight: bold; /* Deixa o texto em negrito */
+    line-height: 1.4; /* Define a altura da linha para melhor legibilidade */
+}
+
+/* Estiliza o bloco que contém uma dica (imagem + texto) */
+.dica-block {
+    display: flex; /* Usa Flexbox para colocar imagem e texto lado a lado */
+    align-items: flex-start; /* Alinha os itens (imagem e texto) no topo */
+    margin-bottom: 40px; /* Adiciona espaço abaixo de cada bloco de dica */
+    padding: 25px; /* Adiciona preenchimento interno ao bloco */
+    background-color: #ffffff; /* Define um fundo branco para destacar o bloco */
+    border-radius: 8px; /* Adiciona bordas arredondadas */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08); /* Adiciona uma sombra sutil */
+    overflow: hidden; /* Garante que o conteúdo interno não ultrapasse as bordas arredondadas */
+}
+
+/* Estiliza o container da imagem dentro do bloco de dica */
+.dica-imagem {
+    flex-basis: 30%; /* Define a largura inicial (base) do container da imagem */
+    flex-shrink: 0; /* Impede que o container da imagem encolha */
+    margin-right: 25px; /* Adiciona espaço à direita da imagem, separando-a do texto */
+}
+
+/* Estiliza a imagem dentro do container .dica-imagem */
+.dica-imagem img {
+    display: block; /* Remove espaço extra que imagens inline podem ter abaixo delas */
+    width: 100%; /* Faz a imagem ocupar toda a largura do seu container (.dica-imagem) */
+    max-width: 100%; /* Garante que a imagem não exceda a largura do container */
+    height: auto; /* Mantém a proporção da imagem ajustando a altura automaticamente */
+    border-radius: 6px; /* Adiciona bordas arredondadas à própria imagem */
+}
+
+/* Estiliza o container do texto dentro do bloco de dica */
+.dica-texto {
+    flex-grow: 1; /* Permite que o container do texto ocupe o espaço restante na linha */
+}
+
+/* Estiliza os subtítulos (H2) dentro do texto da dica */
+.dica-texto h2 {
+    font-size: 1.3em; /* Define o tamanho da fonte */
+    color: #D32F2F; /* Usa a cor vermelha do tema */
+    margin-top: 0; /* Remove margem superior padrão */
+    margin-bottom: 15px; /* Adiciona espaço abaixo do subtítulo */
+}
+
+/* Estiliza parágrafos (p) e itens de lista (li) dentro do texto da dica */
+.dica-texto p,
+.dica-texto li {
+    font-size: 0.9em; /* Define o tamanho da fonte */
+    line-height: 1.6; /* Define a altura da linha para melhor legibilidade */
+    color: #555; /* Define uma cor de texto cinza escura */
+    margin-bottom: 10px; /* Adiciona espaço abaixo */
+}
+
+/* Estiliza listas ordenadas (ol) e não ordenadas (ul) dentro do texto da dica */
+.dica-texto ul,
+.dica-texto ol {
+    padding-left: 20px; /* Adiciona indentação à esquerda para os itens da lista */
+    margin-top: 5px; /* Adiciona um pequeno espaço acima da lista */
+}
+
+/* Estiliza itens de lista (li) individualmente */
+.dica-texto li {
+    margin-bottom: 8px; /* Adiciona espaço abaixo de cada item da lista */
+}
+
+/* Remove a margem inferior do último elemento (parágrafo ou lista) dentro do .dica-texto */
+.dica-texto p:last-child,
+.dica-texto ul:last-child,
+.dica-texto ol:last-child {
+    margin-bottom: 0;
+}
+
+/* --- AJUSTES RESPONSIVOS --- */
+/* Estilos aplicados quando a largura da tela for no máximo 768px (tablets e celulares em modo paisagem/retrato) */
+@media (max-width: 768px) {
+    /* Ajusta o tamanho e margem do título principal */
+    .conteudo-pagina h1 {
+        font-size: 1.4em;
+        margin-bottom: 30px;
+    }
+
+    /* Ajusta o bloco de dica para empilhar imagem e texto */
+    .dica-block {
+        flex-direction: column; /* Coloca imagem acima do texto */
+        padding: 20px; /* Reduz o preenchimento interno */
+    }
+
+    /* Ajusta o container da imagem */
+    .dica-imagem {
+        flex-basis: auto; /* Reseta a largura base */
+        width: 100%; /* Faz a imagem ocupar toda a largura */
+        margin-right: 0; /* Remove a margem lateral */
+        margin-bottom: 20px; /* Adiciona espaço abaixo da imagem */
+    }
+
+    /* Ajusta o tamanho do subtítulo */
+    .dica-texto h2 {
+        font-size: 1.2em;
+    }
+
+    /* Ajusta o tamanho do texto de parágrafos e listas */
+    .dica-texto p,
+    .dica-texto li {
+        font-size: 0.85em;
+    }
+
+    /* Ajustes responsivos do cabeçalho para consistência */
+    header.cabecalho { /* Seleciona especificamente o header */
+        flex-direction: column; /* Empilha logo e menu */
+        align-items: flex-start; /* Alinha itens à esquerda */
+        padding: 15px; /* Ajusta o preenchimento */
+        height: auto; /* Altura automática para acomodar conteúdo empilhado */
+    }
+    /* Ajustes responsivos do menu */
+    .menu ul {
+        margin-top: 10px; /* Espaço entre logo e menu */
+        flex-direction: column; /* Empilha os itens do menu */
+        width: 100%; /* Ocupa toda a largura */
+    }
+    .menu li {
+        margin-left: 0; /* Remove margem esquerda */
+        width: 100%; /* Ocupa toda a largura */
+    }
+    .menu a {
+        padding: 10px; /* Ajusta o preenchimento dos links */
+        border-bottom: 1px solid #b71c1c; /* Adiciona linha divisória entre itens */
+    }
+    .menu li:last-child a { border-bottom: none; } /* Remove a linha do último item */
+    /* Ajusta o posicionamento do dropdown em telas menores */
+    .dropdown:hover .dropdown-conteudo { position: static; box-shadow: none; border-top: 1px solid #eee; }
+    .dropdown-conteudo { min-width: 100%; margin-top: 0; }
+}
+
+/* Estilos aplicados quando a largura da tela for no máximo 480px (celulares em modo retrato) */
+@media (max-width: 480px) {
+    /* Reduz ainda mais o tamanho do título principal */
+    .conteudo-pagina h1 { font-size: 1.2em; }
+    /* Reduz o preenchimento do bloco de dica */
+    .dica-block { padding: 15px; }
+    /* Reduz o espaço abaixo da imagem */
+    .dica-imagem { margin-bottom: 15px; }
+    /* Reduz o tamanho do subtítulo */
+    .dica-texto h2 { font-size: 1.1em; }
+    /* Reduz o tamanho do texto de parágrafos e listas */
+    .dica-texto p,
+    .dica-texto li { font-size: 0.8em; }
+}
+
+/* Estilos do rodapé */
+footer {
+    background-color: #333; /* Cor de fundo escura */
+    color: white; /* Cor do texto branca */
+    text-align: center; /* Centraliza o texto */
+    padding: 15px 10px; /* Preenchimento interno */
+    margin-top: auto; /* Garante que o rodapé seja empurrado para o final da página */
+    width: 100%; /* Ocupa toda a largura */
+}
+
+/* Estilos para informações de localização no rodapé */
+.location-info {
+    text-align: center; /* Garante centralização */
+    margin-left: 0; /* Remove qualquer margem esquerda que possa ter sido herdada */
+    display: block; /* Garante que ocupe a linha inteira */
+}
+/* Estiliza a temperatura no rodapé */
+#weather-temp { font-weight: bold; }
+/* Estiliza a descrição do tempo no rodapé */
+#weather-desc { font-style: italic; margin-left: 5px; }

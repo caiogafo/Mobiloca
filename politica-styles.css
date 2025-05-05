@@ -1,0 +1,241 @@
+/* === ESTILOS GERAIS === */
+body {
+    font-family: 'Roboto', sans-serif; /* Define a fonte principal */
+    margin: 0;                         /* Remove margens padrão */
+    padding: 0;                        /* Remove preenchimentos padrão */
+    background-color: #f4f4f4;       /* Cor de fundo leve */
+    display: flex;                     /* Usa Flexbox para layout */
+    flex-direction: column;            /* Organiza itens em coluna (header, section, footer) */
+    min-height: 100vh;                 /* Garante que o body ocupe pelo menos a altura da tela */
+}
+
+/* === CABEÇALHO === */
+header.cabecalho { /* Seleciona o header com a classe .cabecalho */
+    background-color: #D32F2F;         /* Cor de fundo vermelha */
+    color: white;                      /* Cor do texto branca */
+    display: flex;                     /* Usa Flexbox para alinhar logo e menu */
+    justify-content: space-between;    /* Espaça logo e menu nas extremidades */
+    align-items: center;               /* Alinha verticalmente logo e menu */
+    padding: 10px 20px;                /* Preenchimento interno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    height: 80px;
+} 
+
+/* --- Logo no Cabeçalho (MODIFICADO) --- */
+header.cabecalho .logo .logo-img {
+    height: 40px !important;         /* Diminui a altura para 40 pixels e dá prioridade */
+    width: auto !important;          /* Mantém a proporção e dá prioridade */
+    /* width: 80px !important;      /* Se quiser definir largura fixa, use isso */
+    margin: 10px 20px !important;    /* Ajusta margens e dá prioridade */
+    vertical-align: middle !important; /* Mantém alinhamento vertical e dá prioridade */
+}
+
+/* --- Menu de Navegação --- */
+.menu ul {
+    list-style: none;                  /* Remove marcadores da lista */
+    display: flex;                     /* Coloca itens do menu lado a lado */
+    margin: 0;                         /* Remove margens padrão da lista */
+    padding: 0;                        /* Remove preenchimentos padrão da lista */
+}
+
+.menu li {
+    margin-left: 20px;                 /* Espaçamento entre os itens do menu */
+    position: relative;                /* Necessário para posicionar o dropdown */
+}
+
+.menu a {
+    color: white;                      /* Cor do texto dos links */
+    text-decoration: none;             /* Remove sublinhado dos links */
+    font-size: 16px;                   /* Tamanho da fonte */
+    display: block;                    /* Faz o link ocupar o espaço do item li */
+    padding: 10px 0;                   /* Preenchimento vertical para área de clique maior */
+}
+
+.menu a:hover {
+    text-decoration: underline;        /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* --- Dropdown do Menu --- */
+.dropdown-conteudo {
+    display: none;                     /* Escondido por padrão */
+    position: absolute;                /* Posicionamento relativo ao item li pai (.dropdown) */
+    background-color: white;           /* Fundo branco */
+    min-width: 200px;                  /* Largura mínima */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Sombra */
+    z-index: 10;                       /* Garante que fique acima de outros elementos */
+    right: 0;                          /* Alinha à direita do item pai */
+    margin-top: 5px;                   /* Pequeno espaço abaixo do link "AJUDA" */
+}
+
+/* Remove margem padrão dos itens de lista dentro do dropdown */
+.dropdown-conteudo li {
+    margin: 0;
+}
+
+/* Estilos dos links dentro do dropdown */
+.dropdown-conteudo a {
+    color: #333;                       /* Cor do texto escura */
+    padding: 12px 16px;                /* Preenchimento interno */
+    text-decoration: none;             /* Remove sublinhado */
+    display: block;                    /* Faz o link ocupar a largura total */
+    text-align: left;                  /* Alinha o texto à esquerda */
+}
+
+/* Efeito hover nos links do dropdown */
+.dropdown-conteudo a:hover {
+    background-color: #f1f1f1;         /* Muda a cor de fundo ao passar o mouse */
+}
+
+/* Exibe o dropdown quando o mouse passa sobre o item pai (.dropdown) */
+.dropdown:hover .dropdown-conteudo {
+    display: block;
+}
+
+/* ===== ESTILOS PARA O CONTEÚDO PRINCIPAL (main) ===== */
+main {
+    width: 100%;
+    padding: 40px 20px; /* Mais padding vertical */
+    flex-grow: 1;
+    background-color: #ffffff; /* Fundo branco para o conteúdo */
+}
+
+.container-conteudo {
+    max-width: 900px; /* Largura máxima do conteúdo */
+    margin: 0 auto;   /* Centraliza o container */
+    background-color: #ffffff; /* Garante fundo branco se main for diferente */
+    padding: 0 15px; /* Padding interno horizontal opcional */
+}
+
+/* Estilo do Título Principal */
+.container-conteudo h1 {
+    font-size: 2.2em; /* Tamanho do título principal */
+    color: #333; /* Cor do título principal (pode ser #D32F2F também) */
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: bold; /* Ou normal, ajuste conforme a página */
+}
+
+/* Estilo da Linha Horizontal */
+hr.titulo-hr {
+    border: 0;
+    height: 2px; /* Espessura da linha */
+    background-color: #e0e0e0; /* Cor da linha */
+    width: 120px; /* Largura da linha */
+    margin: 0 auto 40px auto; /* Centraliza e adiciona espaço abaixo */
+}
+
+/* Estilo das Seções */
+.secao-politica {
+    margin-bottom: 40px; /* Espaço entre as seções */
+}
+
+/* Estilo dos Subtítulos (H2) */
+.secao-politica h2 {
+    font-size: 1.6em; /* Tamanho dos subtítulos H2 */
+    color: #333;
+    margin-top: 0; /* Remove margem superior se for o primeiro elemento da seção */
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee; /* Linha sutil abaixo do H2 */
+    font-weight: bold;
+}
+
+/* Estilo dos Subtítulos (H3) - se usar */
+.secao-politica h3 {
+    font-size: 1.3em;
+    color: #444;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Estilo dos Parágrafos */
+.secao-politica p {
+    font-size: 1em; /* Tamanho padrão do texto */
+    color: #444; /* Cor do texto */
+    margin-bottom: 15px;
+    text-align: justify; /* Texto justificado como na página Foco */
+}
+
+/* Estilo das Listas */
+.secao-politica ul,
+.secao-politica ol {
+    margin-left: 0; /* Remove margem padrão */
+    padding-left: 25px; /* Adiciona padding para os marcadores */
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.secao-politica li {
+    margin-bottom: 8px; /* Espaço entre itens da lista */
+}
+
+/* Estilo para Texto em Negrito dentro das listas ou parágrafos */
+.secao-politica strong {
+    color: #333; /* Cor ligeiramente mais escura para destaque */
+    font-weight: bold; /* Garante negrito */
+}
+
+/* Estilo para Links dentro do texto */
+.secao-politica a {
+    color: #D32F2F; /* Cor vermelha Foco para links */
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.secao-politica a:hover {
+    color: #a02525; /* Vermelho mais escuro no hover */
+    text-decoration: none;
+}
+
+/* Estilo para texto de "Última atualização" */
+.secao-politica p em {
+    font-style: italic;
+    color: #777;
+    font-size: 0.9em;
+}
+
+/* ===== FIM DOS ESTILOS DO CONTEÚDO PRINCIPAL ===== */
+
+/* Exemplo (COLE AS REGRAS COMPLETAS DO SEU ARQUIVO ANTERIOR AQUI): */
+footer {
+    background-color: #333;
+    color: #eee;
+    text-align: center;
+    padding: 15px 10px;
+    margin-top: auto;
+    width: 100%;
+    font-size: 0.9em;
+    box-sizing: border-box;
+}
+.location-info { text-align: center; }
+.location-info i { margin-right: 8px; color: #ccc; }
+#weather-temp { font-weight: bold; }
+#weather-desc { font-style: italic; margin-left: 5px; }
+/* --- FIM RODAPÉ --- */
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 992px) {
+    .container-conteudo { max-width: 800px; }
+    .container-conteudo h1 { font-size: 2em; }
+    .secao-politica h2 { font-size: 1.4em; }
+}
+
+@media (max-width: 768px) {
+    /* Ajustes do cabeçalho já devem ter sido copiados */
+    main { padding: 30px 15px; }
+    .container-conteudo { max-width: 100%; padding: 0 10px; }
+    .container-conteudo h1 { font-size: 1.8em; }
+    hr.titulo-hr { width: 100px; margin-bottom: 30px;}
+    .secao-politica h2 { font-size: 1.3em; }
+    .secao-politica p, .secao-politica li { font-size: 0.95em; text-align: left;} /* Alinha à esquerda em mobile */
+}
+
+@media (max-width: 480px) {
+    .container-conteudo h1 { font-size: 1.6em; }
+    hr.titulo-hr { width: 80px; margin-bottom: 25px;}
+    .secao-politica h2 { font-size: 1.2em; }
+    .secao-politica p, .secao-politica li { font-size: 0.9em; }
+    footer { font-size: 0.8em; }
+}

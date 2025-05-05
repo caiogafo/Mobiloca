@@ -1,0 +1,355 @@
+/* === ESTILOS GERAIS === */
+body {
+    font-family: 'Roboto', sans-serif;   /* Fonte principal */
+    margin: 0;                           /* Remove margens padrão */
+    padding: 0;                          /* Remove preenchimentos padrão */
+    background-color: #f4f4f4;           /* Cor de fundo suave */
+    display: flex;                       /* Usa Flexbox para layout */
+    flex-direction: column;              /* Organiza header, container, footer em coluna */
+    min-height: 100vh;                   /* Garante altura mínima da tela */
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+/* === CABEÇALHO (Reutilizado) === */
+header.cabecalho { /* Seleciona o header com a classe .cabecalho */
+    background-color: #D32F2F;         /* Cor de fundo vermelha */
+    color: white;                      /* Cor do texto branca */
+    display: flex;                     /* Usa Flexbox para alinhar logo e menu */
+    justify-content: space-between;    /* Espaça logo e menu nas extremidades */
+    align-items: center;               /* Alinha verticalmente logo e menu */
+    padding: 10px 20px;                /* Preenchimento interno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    height: 100px;
+} 
+
+/* --- Logo no Cabeçalho (MODIFICADO) --- */
+header.cabecalho .logo .logo-img {
+    height: 40px !important;         /* Diminui a altura para 40 pixels e dá prioridade */
+    width: auto !important;          /* Mantém a proporção e dá prioridade */
+    /* width: 80px !important;      /* Se quiser definir largura fixa, use isso */
+    margin: 10px 20px !important;    /* Ajusta margens e dá prioridade */
+    vertical-align: middle !important; /* Mantém alinhamento vertical e dá prioridade */
+}
+
+.menu ul {
+    list-style: none;                  /* Remove marcadores da lista */
+    display: flex;                     /* Coloca itens do menu lado a lado */
+    margin: 0;                         /* Remove margens padrão da lista */
+    padding: 0;                        /* Remove preenchimentos padrão da lista */
+}
+
+.menu li {
+    margin-left: 20px;                 /* Espaçamento entre os itens do menu */
+    position: relative;                /* Necessário para posicionar o dropdown */
+}
+
+.menu a {
+    color: white;                      /* Cor do texto dos links */
+    text-decoration: none;             /* Remove sublinhado dos links */
+    font-size: 16px;                   /* Tamanho da fonte */
+    display: block;                    /* Faz o link ocupar o espaço do item li */
+    padding: 10px 0;                   /* Preenchimento vertical para área de clique maior */
+}
+
+.menu a:hover {
+    text-decoration: underline;        /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* --- Dropdown do Menu --- */
+.dropdown-conteudo {
+    display: none;                       /* Escondido por padrão */
+    position: absolute;                  /* Posicionamento absoluto */
+    background-color: white;             /* Fundo branco */
+    min-width: 200px;                    /* Largura mínima */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Sombra */
+    z-index: 10;                         /* Sobreposição */
+    right: 0;                            /* Alinhado à direita */
+    margin-top: 5px;                     /* Espaço acima */
+}
+
+.dropdown-conteudo li {
+    margin: 0;                           /* Sem margem interna */
+}
+
+.dropdown-conteudo a {
+    color: #333;                         /* Cor escura */
+    padding: 12px 16px;                  /* Preenchimento */
+    text-decoration: none;               /* Sem sublinhado */
+    display: block;                      /* Ocupa largura */
+    text-align: left;                    /* Alinhamento */
+}
+
+.dropdown-conteudo a:hover {
+    background-color: #f1f1f1;           /* Fundo claro no hover */
+}
+
+.dropdown:hover .dropdown-conteudo {
+    display: block;                      /* Exibe no hover */
+}
+
+/* === CONTAINER PRINCIPAL DA RESERVA === */
+.container {
+    width: 80%;                          /* Largura do container original */
+    margin: 20px auto;                   /* Margem original */
+    background-color: #fff;              /* Fundo branco */
+    border-radius: 8px;                  /* Bordas arredondadas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra original */
+    overflow: hidden;                    /* Importante para bordas arredondadas */
+}
+
+/* === BARRA DE PROGRESSO (ESTILOS ORIGINAIS PRESERVADOS) === */
+/* Container da barra de progresso */
+.progress-bar {
+    display: flex;                       /* Layout flexível para os passos */
+    align-items: center;                 /* Alinha verticalmente os passos */
+    position: relative;                  /* Necessário para posicionar a linha */
+    padding: 10px;                       /* Preenchimento interno */
+    background-color: white;             /* Fundo branco */
+    border-radius: 8px;                  /* Bordas arredondadas (herdado container?)*/
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+    margin-bottom: 20px;                 /* Espaço abaixo da barra */
+}
+
+/* Cada passo individual na barra */
+.step {
+    display: flex;                       /* Layout interno */
+    flex-direction: column;              /* Círculo acima do label */
+    align-items: center;                 /* Centraliza círculo e label */
+    position: relative;                  /* Para z-index funcionar */
+    z-index: 1;                          /* Fica acima da linha */
+    margin-right: 0px;                   /* Margem direita (original era 0px) */
+    flex-grow: 1;                        /* Distribui espaço igualmente */
+    text-align: center;                  /* Centraliza o label */
+}
+
+/* Círculo de cada passo */
+.circle {
+    width: 20px;                         /* Largura original */
+    height: 20px;                        /* Altura original */
+    border: 2px solid #ccc;              /* Borda cinza padrão */
+    border-radius: 50%;                  /* Forma circular */
+    background-color: white;             /* Fundo branco */
+    margin-bottom: 5px;                  /* Espaço abaixo do círculo */
+}
+
+/* Estilo do círculo no passo ATIVO */
+.step.active .circle {
+    border-color: #008000;               /* Borda verde (ativo) */
+    background-color: #008000;           /* Fundo verde (ativo) */
+}
+
+/* Label de cada passo */
+.label {
+    font-size: 12px;                     /* Tamanho da fonte original */
+    color: #333;                         /* Cor padrão original */
+    white-space: nowrap;                 /* Impede quebra de linha no label */
+}
+
+/* Estilo do label no passo ATIVO */
+.step.active .label {
+    color: #008000;                      /* Cor verde (ativo) */
+}
+
+/* Linha conectora entre os círculos */
+.line {
+    position: absolute;                  /* Posicionamento absoluto */
+    width: calc(100% - 40px);            /* Largura calculada original */
+    height: 2px;                         /* Espessura original */
+    background-color: #ccc;              /* Cor cinza padrão */
+    top: 20px;                           /* Posição vertical original */
+    left: 20px;                          /* Posição horizontal original */
+    z-index: 0;                          /* Fica abaixo dos círculos */
+}
+
+/* === CONTEÚDO PRINCIPAL (DENTRO DO CONTAINER) === */
+main {
+    display: flex;                       /* Layout flexível para formulário e anúncio */
+    justify-content: space-between;      /* Distribui espaço entre as seções */
+    padding: 20px;                       /* Preenchimento interno */
+}
+
+/* === SEÇÃO DO FORMULÁRIO (.trip-details) === */
+.trip-details {
+    flex: 2;                             /* Ocupa 2 partes do espaço */
+}
+
+.trip-details h2 {
+    margin-bottom: 20px;                 /* Espaço abaixo do título original */
+    margin-top: 0;                       /* Garante sem margem superior */
+}
+
+/* Grid para organizar os campos do formulário */
+.trip-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas fixas original */
+    gap: 15px;                           /* Espaçamento original */
+}
+
+/* Grupo de label + input */
+.form-group {
+    display: flex;
+    flex-direction: column;              /* Label acima do input */
+}
+
+.form-group label {
+    margin-bottom: 5px;                  /* Espaço original */
+}
+
+/* Estilo padrão para inputs e select (baseado no original) */
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="time"],
+.form-group select {
+    padding: 8px;                        /* Padding original */
+    border: 1px solid #ddd;              /* Borda original */
+    border-radius: 4px;                  /* Raio original */
+}
+
+/* Estilos adicionais para campos de hora (do final do CSS original) */
+.form-group input[type="time"] {
+    padding: 10px;                       /* Padding específico original */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;                     /* Fonte específica original */
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="time"]:focus {
+    border-color: #4CAF50;               /* Cor de foco original */
+    outline: none;                       /* Remove contorno padrão */
+}
+
+/* Estilos adicionais para labels (do final do CSS original) */
+.form-group label { /* Reaplica pois a regra anterior era mais específica */
+    font-size: 16px;                     /* Tamanho específico original */
+    margin-bottom: 8px;                  /* Margem específica original */
+    color: #333;
+}
+
+
+/* Botão de Continuar */
+.continue-button {
+    background-color: #4CAF50;           /* Cor de fundo verde original */
+    color: white;                        /* Texto branco original */
+    padding: 10px 15px;                  /* Padding original */
+    border: none;                        /* Sem borda original */
+    border-radius: 5px;                  /* Raio original */
+    cursor: pointer;                     /* Cursor de mão original */
+    grid-column: 1 / 3;                  /* Ocupa as duas colunas original */
+}
+
+.continue-button:hover {
+    background-color: #45a049;           /* Cor hover original */
+}
+
+
+/* === SEÇÃO DO ANÚNCIO LATERAL (.trip-ad) === */
+.trip-ad {
+    flex: 1;                             /* Ocupa 1 parte do espaço */
+    text-align: center;                  /* Centraliza conteúdo */
+}
+
+.trip-ad img {
+    /* Ajustes baseados no CSS original fornecido */
+    width: 80%;                          /* Largura relativa original */
+    max-width: 280px;                    /* Largura máxima original */
+    display: block;                      /* Necessário para margem auto */
+    margin-left: auto;                   /* Centraliza horizontalmente */
+    margin-right: auto;                  /* Centraliza horizontalmente */
+    margin-bottom: 15px;                 /* Espaço abaixo original */
+    height: auto;                        /* Mantém proporção */
+    border-radius: 10px;                 /* Raio original */
+}
+
+.trip-ad .ad-text {
+    background-color: #f9f9f9;           /* Fundo original */
+    padding: 15px;                       /* Padding original */
+    border-radius: 5px;                  /* Raio original */
+}
+
+.trip-ad .ad-text p span {
+    font-size: 1.5em;                    /* Tamanho original */
+    font-weight: bold;                   /* Negrito original */
+}
+
+/* === RODAPÉ (Reutilizado) === */
+footer {
+    background-color: #333;              /* Fundo escuro */
+    color: white;                        /* Texto branco */
+    text-align: center;                  /* Centralizado */
+    padding: 15px 10px;                  /* Preenchimento */
+    margin-top: auto;                    /* Empurra para o fim da página */
+    width: 100%;                         /* Largura total */
+    box-sizing: border-box;
+}
+
+.location-info {
+    text-align: center;
+    margin-left: 0;
+    display: block;                      /* Garante que ocupe a linha */
+}
+#weather-temp {
+    font-weight: bold;                   /* Temperatura em negrito */
+}
+#weather-desc {
+    font-style: italic;                  /* Descrição em itálico */
+    margin-left: 5px;                    /* Espaço antes da descrição */
+}
+
+@media (max-width: 600px) {
+    /* Herda estilos de 768px */
+
+    /* Ajustes no Cabeçalho para Mobile */
+    header.cabecalho {
+        flex-direction: column; /* Logo e menu empilhados */
+        padding: 10px;
+    }
+    .logo img {
+        margin: 5px 0; /* Ajusta margem da logo */
+    }
+    nav.menu ul {
+        flex-direction: column; /* Itens do menu empilhados */
+        align-items: center; /* Centraliza itens */
+        width: 100%;
+        margin-top: 10px;
+    }
+    nav.menu li {
+        margin: 5px 0; /* Espaçamento vertical */
+        width: 100%;
+        text-align: center; /* Centraliza texto do link */
+    }
+
+    /* Ajustes Dropdown Mobile */
+    .dropdown-conteudo {
+        position: static; /* Remove posicionamento absoluto */
+        box-shadow: none; /* Remove sombra */
+        width: 100%; /* Ocupa largura total */
+        background-color: #c22a2a; /* Fundo levemente diferente para destacar */
+        margin-top: 0;
+    }
+    .dropdown-conteudo a {
+        text-align: center;
+        color: white; /* Texto branco no dropdown mobile */
+        border-bottom: 1px solid rgba(255,255,255,0.1); /* Linha divisória sutil */
+        padding: 10px 15px;
+    }
+    .dropdown-conteudo a:last-child {
+        border-bottom: none; /* Remove borda do último item */
+    }
+    .dropdown-conteudo a:hover {
+        background-color: #b02626; /* Fundo mais escuro no hover */
+    }
+    /* Esconde dropdown ao clicar fora (pode ser necessário JS adicional se não for desejado) */
+    .dropdown:hover .dropdown-conteudo {
+        /* Em mobile, pode ser melhor controlar com clique via JS,
+           mas o :hover ainda funciona se o usuário mantiver pressionado */
+        display: block;
+    }
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proteção e Opcionais - Mobiloca</title> <link rel="stylesheet" href="stylesOpcionais.css"> <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> </head>
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <img src="imagens/logo.png" alt="Logo da Empresa" classs="logo-img">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">INÍCIO</a></li>
+                <li><a href="ofertas.html">OFERTAS</a></li>
+                <li><a href="politica.html">POLÍTICA DE PRIVACIDADE</a></li>
+                <li><a href="mobiloca.html">A MOBILOCA</a></li>
+                <li class="dropdown">
+                    <a href="#">AJUDA &#9662;</a>
+                    <div class="dropdown-conteudo">
+                        <a href="ajuda.html">DÚVIDAS FREQUENTES</a>
+                        <a href="contato.html">FALA CONOSCO</a>
+                        <a href="sinistro.html">SINISTROS E MANUTENÇÃO</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main>
+            <div class="progress-bar">
+                <div class="step"> <span class="circle"></span> <span class="label">Data</span> </div>
+                <div class="step"> <span class="circle"></span> <span class="label">Veículo</span> </div>
+                <div class="step active"> <span class="circle"></span> <span class="label">Proteção e Opcionais</span> </div> <div class="step"> <span class="circle"></span> <span class="label">Condutor</span> </div>
+                <div class="step"> <span class="circle"></span> <span class="label">Pagamento</span> </div>
+                <div class="step"> <span class="circle"></span> <span class="label">Confirmação</span> </div>
+                <div class="line"></div>
+            </div>
+        </main>
+
+        <section class="main-content">
+
+            <aside class="left-section">
+
+                <h2>Proteções</h2>
+                <div class="protecoes-cards">
+                    <div class="protecao-card">
+                        <div class="protecao-header">
+                            <span class="icon">🛡️</span>
+                            <h3>Proteção Básica</h3>
+                        </div>
+                        <ul class="protecao-lista">
+                            <li><span>✓</span> Cobertura parcial para roubos, furtos e avarias</li>
+                            <li><span class="nao-incluso">✘</span> Proteção para vidros e pneus</li> <li><span class="nao-incluso">✘</span> Proteção contra danos materiais a terceiros até R$50 mil</li>
+                            <li><span class="nao-incluso">✘</span> Isento de coparticipação</li>
+                            <li><span class="nao-incluso">✘</span> Serviço de reboque e isenção de lucros cessantes</li>
+                            <li><span class="nao-incluso">✘</span> Redutor de 50% na caução</li>
+                        </ul>
+                        <div class="protecao-selecao">
+                            <input type="radio" id="protecaoBasicaCheck" name="protecao" value="0" checked> <label for="protecaoBasicaCheck">Eu aceito os riscos.<br>Continuar sem Proteção Especial</label>
+                        </div>
+                    </div>
+
+                    <div class="protecao-card protecao-card-especial">
+                        <div class="protecao-header">
+                            <span class="icon">🛡️</span>
+                            <h3>Proteção Especial</h3>
+                            <span class="recomendado">Recomendado</span>
+                        </div>
+                        <ul class="protecao-lista">
+                            <li><span>✓</span> Cobertura para roubos, furtos e avarias</li>
+                            <li><span>✓</span> Proteção para vidros e pneus</li>
+                            <li><span>✓</span> Proteção contra danos materiais a terceiros até R$50 mil</li>
+                            <li><span>✓</span> Isento de coparticipação</li>
+                            <li><span>✓</span> Serviço de reboque e isenção de lucros cessantes</li>
+                            <li><span>✓</span> Redutor de 50% na caução</li>
+                        </ul>
+                        <div class="protecao-preco">
+                            <span class="desconto">10% OFF</span> <span class="preco">R$ 58,90 / diária</span>
+                        </div>
+                        <div class="protecao-selecao">
+                            <input type="radio" id="protecaoEspecialCheck" name="protecao" value="58.90"> <label for="protecaoEspecialCheck">Continuar com<br>Proteção Especial</label>
+                        </div>
+                    </div>
+                </div> <div class="opcionais">
+                    <h2>Opcionais</h2>
+                    <ul>
+                        <li>
+                            <div class="opcao">
+                                <img src="imagens/bebeConforto.jpg" alt="Bebê Conforto">
+                                <div class="opcao-info">
+                                    <h3>Bebê Conforto</h3>
+                                    <p>Para crianças de até 12 meses</p>
+                                </div>
+                                <div class="opcao-preco">
+                                    <span>R$ 25,00 / dia</span>
+                                    <div class="contador">
+                                        <button class="btn-menos" aria-label="Diminuir quantidade de Bebê Conforto">-</button>
+                                        <input type="text" value="0" class="quantidade" data-preco="25.00" data-item="bebe-conforto" readonly aria-live="polite">
+                                        <button class="btn-mais" aria-label="Aumentar quantidade de Bebê Conforto">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="opcao">
+                                <img src="imagens/cadeiraBebe.jpg" alt="Cadeira de bebê">
+                                <div class="opcao-info">
+                                    <h3>Cadeira de bebê</h3>
+                                    <p>Para crianças de 1 a 4 anos com até 36kg</p>
+                                </div>
+                                <div class="opcao-preco">
+                                    <span>R$ 25,00 / dia</span>
+                                    <div class="contador">
+                                        <button class="btn-menos" aria-label="Diminuir quantidade de Cadeira de bebê">-</button>
+                                        <input type="text" value="0" class="quantidade" data-preco="25.00" data-item="cadeira-bebe" readonly aria-live="polite">
+                                        <button class="btn-mais" aria-label="Aumentar quantidade de Cadeira de bebê">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="opcao">
+                                <img src="imagens/elevacao.jpg" alt="Assento de Elevação">
+                                <div class="opcao-info">
+                                    <h3>Assento de Elevação</h3>
+                                    <p>Transporte de crianças de 4 a 7 anos</p>
+                                </div>
+                                <div class="opcao-preco">
+                                    <span>R$ 25,00 / dia</span>
+                                    <div class="contador">
+                                        <button class="btn-menos" aria-label="Diminuir quantidade de Assento de Elevação">-</button>
+                                        <input type="text" value="0" class="quantidade" data-preco="25.00" data-item="assento-elevacao" readonly aria-live="polite">
+                                        <button class="btn-mais" aria-label="Aumentar quantidade de Assento de Elevação">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="opcao">
+                                <img src="imagens/adicional.jpg" alt="Condutor Adicional">
+                                <div class="opcao-info">
+                                    <h3>Condutor Adicional</h3>
+                                    <p>Permite que outra pessoa dirija o veículo</p>
+                                </div>
+                                <div class="opcao-preco">
+                                    <span>R$ 11,99 / dia</span>
+                                    <div class="contador">
+                                        <button class="btn-menos" aria-label="Diminuir quantidade de Condutor Adicional">-</button>
+                                        <input type="text" value="0" class="quantidade" data-preco="11.99" data-item="condutor-adicional" readonly aria-live="polite">
+                                        <button class="btn-mais" aria-label="Aumentar quantidade de Condutor Adicional">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                         <li>
+                            <div class="opcao">
+                                 <img src="imagens/gps.jpg" alt="GPS">
+                                 <div class="opcao-info">
+                                      <h3>GPS</h3>
+                                      <p>Navegação GPS para sua viagem</p>
+                                 </div>
+                                 <div class="opcao-preco">
+                                      <span>R$ 20,00 / dia</span>
+                                      <div class="contador">
+                                           <button class="btn-menos" aria-label="Diminuir quantidade de GPS">-</button>
+                                           <input type="text" value="0" class="quantidade" data-preco="20.00" data-item="gps" readonly aria-live="polite">
+                                           <button class="btn-mais" aria-label="Aumentar quantidade de GPS">+</button>
+                                      </div>
+                                 </div>
+                            </div>
+                       </li>
+                    </ul>
+                </div> </aside> <aside class="right-section">
+                <div class="resumo">
+                    <h2>Resumo</h2>
+                    <img src="placeholder_car.png" alt="Carro" class="car-image" id="resumoImagemCarro">
+                    <div id="nomeCarro" class="resumo-valor" style="grid-column: 1 / -1; text-align: center; font-weight: bold; margin-bottom: 10px;">Carregando...</div>
+
+                    <hr style="grid-column: 1 / -1; border: 0; border-top: 1px solid #eee; margin: 5px 0;">
+
+                    <div class="resumo-label">Entrega:</div>
+                    <div class="resumo-valor" id="dataEntrega">--/--/----</div> <div class="resumo-label">Devolução:</div>
+                    <div class="resumo-valor" id="dataDevolucao">--/--/----</div> <hr style="grid-column: 1 / -1; border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+
+                    <div class="resumo-label">Diárias:</div>
+                    <div class="resumo-valor">R$ <span id="valorDiarias">0,00</span></div>
+
+                    <div class="resumo-label">Proteção:</div>
+                    <div class="resumo-valor">R$ <span id="valorProtecaoDetalhe">0,00</span></div>
+
+                    <div class="resumo-label">Opcionais:</div>
+                    <div class="resumo-valor">R$ <span id="valorOpcionaisDetalhe">0,00</span></div>
+
+                    <div class="resumo-label">Taxa de Conveniência:</div>
+                    <div class="resumo-valor">R$ <span id="taxaConveniencia">0,00</span></div>
+
+                    <div class="resumo-label">Descontos:</div>
+                    <div class="resumo-valor">R$ <span id="descontos">0,00</span></div>
+
+                    <hr style="grid-column: 1 / -1; border: 0; border-top: 1px solid #ccc; margin: 10px 0;">
+
+                    <div class="resumo-label" style="font-size: 1.1em;">Total Previsto:</div>
+                    <div class="resumo-valor" style="font-size: 1.2em; font-weight: bold; color: #167d3f;">R$ <span id="total">0,00</span></div>
+                </div> <div class="resumo-actions">
+                    <button class="cancelar">Voltar</button> <button class="continuar">Continuar</button> </div> </aside> </section> </div> <footer>
+        <div class="location-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <span id="weather-temp">--</span>°C <span id="weather-desc">Carregando...</span> <span> - Santo Amaro, São Paulo</span> </div>
+    </footer>
+
+    <script src="script4.js"></script>
+    </body>
+</html>

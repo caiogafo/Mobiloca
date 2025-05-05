@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Locadora de Veículos</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <img src="imagens/logo.png" alt="Logo da Empresa" classs="logo-img">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">INÍCIO</a></li>
+                <li><a href="ofertas.html">OFERTAS</a></li>
+                <li><a href="politica.html">POLÍTICA DE PRIVACIDADE</a></li>
+                <li><a href="mobiloca.html">A MOBILOCA</a></li>
+                <li class="dropdown">
+                    <a href="#">AJUDA &#9662;</a> <div class="dropdown-conteudo">
+                        <a href="ajuda.html">DÚVIDAS FREQUENTES</a>
+                        <a href="contato.html">FALA CONOSCO</a>
+                        <a href="sinistro.html">SINISTROS E MANUTENÇÃO</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="veiculos">
+        <div class="veiculo" data-nome="Carro Sedan">
+            <img src="https://www.kovi.com.br/hubfs/Fotos%20Sedan%20Premium/Cronos.png" alt="Fiat Cronos" class="dynamic-image">
+            <h1>Fiat Cronos</h1>
+            <p>A partir de:</p>
+            <h4>R$ 170,31<small>/dia</small></h4>
+            <a href="reservasData.html" class="botao-principal" data-carro="Carros Sedan" data-preco="170.31" data-imagem="https://www.kovi.com.br/hubfs/Fotos%20Sedan%20Premium/Cronos.png">Reservar</a>
+        </div>
+
+        <div class="veiculo" data-nome="SUV Luxo">
+            <img src="https://production.autoforce.com/uploads/version/profile_image/9083/model_main_webp_comprar-xr_9c4b21a12e.png.webp" alt="Corolla Cross" class="dynamic-image">
+            <h2>Corolla Cross</h2>
+            <p>A partir de:</p>
+            <h4>R$ 350<small>/dia</small></h4>
+            <a href="reservasData.html" class="botao-principal" data-carro="SUV Luxo" data-preco="350" data-imagem="https://production.autoforce.com/uploads/version/profile_image/9083/model_main_webp_comprar-xr_9c4b21a12e.png.webp">Reservar</a>
+        </div>
+
+        <div class="veiculo" data-nome="Hatch Compacto">
+            <img src="https://www.webmotors.com.br/imagens/prod/379452/HYUNDAI_HB20_1.0_TGDI_FLEX_COMFORT_PLUS_AUTOMATICO_37945216442560131.webp?s=fill&w=170&h=125&t=true" alt="Hyundai HB20" class="dynamic-image">
+            <h2>Hyundai HB20</h2>
+            <p>A partir de:</p>
+            <h4>R$ 101<small>/dia</small></h4>
+            <a href="reservasData.html" class="botao-principal" data-carro="Hatch Compacto" data-preco="101.00" data-imagem="https://www.webmotors.com.br/imagens/prod/379452/HYUNDAI_HB20_1.0_TGDI_FLEX_COMFORT_PLUS_AUTOMATICO_37945216442560131.webp?s=fill&w=170&h=125&t=true">Reservar</a>
+        </div>
+
+        <div class="veiculo" data-nome="Pequeno">
+            <img src="https://content.r9cdn.net/rimg/car-images/generic/40_hatchback_blue.png?width=286&height=180" alt="Volkswagen Polo" class="dynamic-image">
+            <h2>Volkswagen Polo</h2>
+            <p>A partir de:</p>
+            <h4>R$ 86<small>/dia</small></h4>
+            <a href="reservasData.html" class="botao-principal" data-carro="Pequeno" data-preco="86.00" data-imagem="https://content.r9cdn.net/rimg/car-images/generic/40_hatchback_blue.png?width=286&height=180">Reservar</a>
+        </div>
+
+        <div class="veiculo" data-nome="suv similar">
+            <img src="https://content.r9cdn.net/rimg/car-images/generic/05_suv-small_white.png?width=286&height=180" alt="Volkswagen Nivus" class="dynamic-image">
+            <h2>Volkswagen Nivus</h2>
+            <p>A partir de:</p>
+            <h4>R$ 144<small>/dia</small></h4>
+            <a href="reservasData.html" class="botao-principal" data-carro="SUV Compacto" data-preco="144.00" data-imagem="https://content.r9cdn.net/rimg/car-images/generic/05_suv-small_white.png?width=286&height=180">Reservar</a>
+        </div>
+
+        <div class="veiculo" data-nome="caminhonete similar">
+            <img src="https://content.r9cdn.net/rimg/car-images/generic/12_truck_white.png?width=286&height=180" alt="Fiat Toro" class="dynamic-image">
+            <h2>Fiat Toro</h2>
+            <p>A partir de:</p>
+            <h4>R$ 255<small>/dia</small></h4>
+            <a href="reservasData.html" class="botao-principal" data-carro="Caminhonete" data-preco="255.00" data-imagem="https://content.r9cdn.net/rimg/car-images/generic/12_truck_white.png?width=286&height=180">Reservar</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="location-info">
+            <i class="fas fa-map-marker-alt"></i> <span id="weather-temp">--</span>°C <span id="weather-desc">Carregando...</span> <span> - Santo Amaro, São Paulo</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

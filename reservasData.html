@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sua Viagem - Seleção de Datas - Locadora</title>
+
+    <link rel="stylesheet" href="stylesReservas.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <img src="imagens/logo.png" alt="Logo da Empresa" classs="logo-img">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">INÍCIO</a></li>
+                <li><a href="ofertas.html">OFERTAS</a></li>
+                <li><a href="politica.html">POLÍTICA DE PRIVACIDADE</a></li>
+                <li><a href="mobiloca.html">A MOBILOCA</a></li>
+                <li class="dropdown">
+                    <a href="#">AJUDA &#9662;</a> <div class="dropdown-conteudo">
+                        <a href="ajuda.html">DÚVIDAS FREQUENTES</a>
+                        <a href="contato.html">FALA CONOSCO</a>
+                        <a href="sinistro.html">SINISTROS E MANUTENÇÃO</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="progress-bar">
+            <div class="step active">
+                <span class="circle"></span>
+                <span class="label">Data</span>
+            </div>
+            <div class="step">
+                <span class="circle"></span>
+                <span class="label">Veículo</span>
+            </div>
+            <div class="step">
+                <span class="circle"></span>
+                <span class="label">Proteção e Opcionais</span>
+            </div>
+            <div class="step">
+                <span class="circle"></span>
+                <span class="label">Condutor</span>
+            </div>
+            <div class="step">
+                <span class="circle"></span>
+                <span class="label">Pagamento</span>
+            </div>
+            <div class="step">
+                <span class="circle"></span>
+                <span class="label">Confirmação</span>
+            </div>
+            <div class="line"></div>
+        </div>
+
+        <main>
+            <section class="trip-details">
+                <h2>Sua Viagem</h2>
+                <div class="trip-form">
+                    <div class="form-group">
+                        <label for="data-retirada">Data da Retirada</label>
+                        <input type="date" id="data-retirada" placeholder="dd/mm/aaaa">
+                    </div>
+                     <div class="form-group">
+                        <label for="hora-retirada">Hora da Retirada</label>
+                        <input type="time" id="hora-retirada" value="12:00"> </div>
+                     <div class="form-group">
+                        <label for="data-devolucao">Data da Devolução</label>
+                        <input type="date" id="data-devolucao" placeholder="dd/mm/aaaa">
+                    </div>
+                     <div class="form-group">
+                        <label for="hora-devolucao">Hora da Devolução</label>
+                        <input type="time" id="hora-devolucao" value="12:00"> </div>
+
+                    <button class="continue-button">Continuar</button>
+                </div>
+            </section>
+
+            <aside class="trip-ad">
+                <img src="imagens/30off.jpg" alt="Anúncio: Até 30% OFF no pagamento antecipado">
+                <div class="ad-text">
+                    <p>Acelere, consumidor!</p>
+                    <p>Aproveite até</p>
+                    <p><span>30% OFF</span> no pagamento antecipado</p>
+                    <p>MELHORES RUMOS</p>
+                </div>
+            </aside>
+        </main>
+    </div> <footer>
+        <div class="location-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <span id="weather-temp">--</span>°C <span id="weather-desc">Carregando...</span> <span> - Santo Amaro, São Paulo</span>
+        </div>
+    </footer>
+
+    <script src="script2.js" defer></script>
+</body>
+</html>

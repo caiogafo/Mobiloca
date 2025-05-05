@@ -1,0 +1,398 @@
+/* Estilos aplicados ao corpo inteiro da página */
+body {
+    /* Define a família de fontes principal para o texto */
+    font-family: 'Roboto', sans-serif;
+    /* Remove as margens padrão que navegadores aplicam ao body */
+    margin: 0;
+    /* Remove o preenchimento padrão que navegadores aplicam ao body */
+    padding: 0;
+    /* Define uma cor de fundo cinza clara para a página */
+    background-color: #f4f4f4;
+    /* Habilita o layout Flexbox para o body */
+    display: flex;
+    /* Define a direção principal do Flexbox como coluna (elementos empilhados verticalmente) */
+    flex-direction: column;
+    /* Garante que o body tenha pelo menos a altura total da janela de visualização (viewport) */
+    min-height: 100vh;
+}
+
+/* Estilização específica para o elemento header com a classe 'cabecalho' */
+header.cabecalho {
+    /* Define a cor de fundo do cabeçalho como vermelho */
+    background-color: #D32F2F;
+    /* Define a cor do texto padrão dentro do cabeçalho como branco */
+    color: white;
+    /* Habilita o layout Flexbox para alinhar os itens internos (logo, menu) */
+    display: flex;
+    /* Distribui o espaço entre os itens flex: logo à esquerda, menu à direita */
+    justify-content: space-between;
+    /* Alinha os itens flex verticalmente ao centro */
+    align-items: center;
+    /* Adiciona preenchimento interno (10px superior/inferior, 20px laterais) */
+    padding: 10px 20px;
+    /* Adiciona uma sombra sutil abaixo do cabeçalho */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Define uma altura fixa para o cabeçalho */
+    height: 80px;
+}
+
+/* Estilização da imagem do logo dentro do cabeçalho */
+/* Atenção: Uso excessivo de !important pode dificultar a manutenção. Use com cautela. */
+header.cabecalho .logo .logo-img {
+    /* Define a altura da imagem do logo. !important força a aplicação desta regra. */
+    height: 40px !important;
+    /* Define a largura para 'auto' para manter a proporção. !important força. */
+    width: auto !important;
+    /* Adiciona margens ao redor do logo. !important força. */
+    margin: 10px 20px !important;
+    /* Alinha verticalmente a imagem com o texto ao redor (se houver). !important força. */
+    vertical-align: middle !important;
+}
+
+/* Estilização da lista não ordenada (ul) dentro do menu de navegação */
+.menu ul {
+    /* Remove os marcadores (bolinhas) padrão da lista */
+    list-style: none;
+    /* Habilita o layout Flexbox para os itens da lista (li) */
+    display: flex;
+    /* Remove a margem padrão da lista */
+    margin: 0;
+    /* Remove o preenchimento padrão da lista */
+    padding: 0;
+}
+
+/* Estilização dos itens da lista (li) dentro do menu */
+.menu li {
+    /* Adiciona uma margem à esquerda de cada item, criando espaçamento */
+    margin-left: 20px;
+    /* Define o posicionamento relativo, necessário para posicionar o dropdown absoluto */
+    position: relative;
+}
+
+/* Estilização dos links (a) dentro do menu */
+.menu a {
+    /* Define a cor do texto dos links como branco */
+    color: white;
+    /* Remove o sublinhado padrão dos links */
+    text-decoration: none;
+    /* Define o tamanho da fonte dos links */
+    font-size: 16px;
+    /* Faz com que o link ocupe todo o espaço do 'li', melhorando a área clicável */
+    display: block;
+    /* Adiciona preenchimento vertical para aumentar a área clicável */
+    padding: 10px 0;
+}
+
+/* Estilização dos links do menu ao passar o mouse sobre eles (hover) */
+.menu a:hover {
+    /* Adiciona um sublinhado ao link quando o mouse está sobre ele */
+    text-decoration: underline;
+}
+
+/* Estilização do container do conteúdo do dropdown */
+.dropdown-conteudo {
+    /* Esconde o conteúdo do dropdown por padrão */
+    display: none;
+    /* Define o posicionamento absoluto em relação ao 'li' pai com position: relative */
+    position: absolute;
+    /* Define a cor de fundo do dropdown como branco */
+    background-color: white;
+    /* Define uma largura mínima para o dropdown */
+    min-width: 200px;
+    /* Adiciona uma sombra ao dropdown */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /* Garante que o dropdown fique acima de outros elementos na página */
+    z-index: 10;
+    /* Alinha o dropdown à direita do item 'li' pai */
+    right: 0;
+    /* Adiciona uma pequena margem acima do dropdown, separando-o do link 'AJUDA' */
+    margin-top: 5px;
+}
+
+/* Remove a margem padrão dos itens de lista dentro do dropdown-conteudo */
+.dropdown-conteudo li {
+    margin: 0;
+}
+
+/* Estilização dos links (a) dentro do dropdown */
+.dropdown-conteudo a {
+    /* Define a cor do texto dos links como cinza escuro */
+    color: #333;
+    /* Adiciona preenchimento interno aos links */
+    padding: 12px 16px;
+    /* Remove o sublinhado padrão */
+    text-decoration: none;
+    /* Faz com que cada link ocupe toda a largura do dropdown */
+    display: block;
+    /* Alinha o texto dos links à esquerda */
+    text-align: left;
+}
+
+/* Estilização dos links do dropdown ao passar o mouse (hover) */
+.dropdown-conteudo a:hover {
+    /* Muda a cor de fundo do link para cinza claro */
+    background-color: #f1f1f1;
+}
+
+/* Regra para exibir o dropdown: quando o mouse passa sobre o 'li' com classe 'dropdown' */
+.dropdown:hover .dropdown-conteudo {
+    /* Torna o conteúdo do dropdown visível */
+    display: block;
+}
+
+
+/* --- Estilos para o conteúdo principal (geralmente a seção <main>) --- */
+main {
+    /* Faz o conteúdo principal ocupar toda a largura disponível */
+    width: 100%;
+    /* Adiciona preenchimento interno (30px superior/inferior, 20px laterais) */
+    padding: 30px 20px;
+    /* Permite que o 'main' cresça para ocupar o espaço restante no body (efeito sticky footer) */
+    flex-grow: 1;
+    /* Define a cor de fundo do conteúdo principal como branco */
+    background-color: #ffffff;
+}
+
+/* Container específico para a seção de FAQ */
+.container-conteudo.faq-container {
+    /* Define uma largura máxima para o container */
+    max-width: 900px;
+    /* Centraliza o container horizontalmente */
+    margin: 0 auto;
+    /* Define a cor de fundo (embora já herdada do main) */
+    background-color: #ffffff;
+    /* Remove preenchimento padrão, se houver */
+    padding: 0;
+}
+
+/* Estilização do texto introdutório da seção FAQ */
+.intro-text {
+    /* Alinha o texto à esquerda */
+    text-align: left;
+    /* Define a cor do texto como cinza */
+    color: #555;
+    /* Adiciona margem inferior */
+    margin-bottom: 25px;
+    /* Define o tamanho da fonte */
+    font-size: 1em;
+    /* Adiciona preenchimento lateral */
+    padding: 0 10px;
+}
+
+/* Estilização da lista de FAQ com um estilo "flat" (sem bordas extras) */
+.faq-list.flat-list {
+    /* Remove qualquer borda que possa ter sido definida anteriormente */
+    border: none;
+}
+
+/* Estilização de cada item individual da FAQ (bloco pergunta + resposta) */
+.faq-item {
+    /* Adiciona uma linha cinza clara na parte inferior para separar os itens */
+    border-bottom: 1px solid #e0e0e0;
+}
+/* Remove a linha separadora do último item da lista */
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+/* Estilização do botão/link que contém a pergunta ou o link para termos */
+.faq-question, .faq-link {
+    /* Habilita Flexbox para alinhar o texto e o ícone */
+    display: flex;
+    /* Distribui o espaço: texto à esquerda, ícone à direita */
+    justify-content: space-between;
+    /* Alinha verticalmente o texto e o ícone */
+    align-items: center;
+    /* Faz o elemento ocupar toda a largura disponível */
+    width: 100%;
+    /* Remove o fundo padrão (se for um botão) */
+    background: none;
+    /* Remove a borda padrão (se for um botão) */
+    border: none;
+    /* Adiciona preenchimento interno */
+    padding: 15px 10px;
+    /* Alinha o texto à esquerda */
+    text-align: left;
+    /* Define o tamanho da fonte */
+    font-size: 1em;
+    /* Define o peso da fonte (semi-negrito) */
+    font-weight: 500;
+    /* Define a cor do texto como vermelho (combinando com o header) */
+    color: #D32F2F;
+    /* Muda o cursor para indicar que é clicável */
+    cursor: pointer;
+    /* Adiciona uma transição suave para a mudança de cor de fundo */
+    transition: background-color 0.2s;
+    /* Remove o sublinhado caso seja um link (classe .faq-link) */
+    text-decoration: none;
+}
+/* Estilos aplicados ao passar o mouse ou focar no botão/link da pergunta */
+.faq-question:hover, .faq-question:focus,
+.faq-link:hover, .faq-link:focus {
+    /* Muda a cor de fundo para um vermelho muito claro */
+    background-color: #fef0f0;
+    /* Remove a borda de foco padrão do navegador */
+    outline: none;
+}
+
+/* Estilização do span que contém o texto da pergunta ou o próprio link */
+.faq-question span, .faq-link {
+    /* Permite que o texto ocupe o espaço restante */
+    flex-grow: 1;
+    /* Adiciona uma margem à direita para separar do ícone */
+    margin-right: 10px;
+}
+
+/* Estilização do ícone (seta/check) no final da pergunta */
+.faq-icon {
+    /* Define a cor do ícone como vermelho */
+    color: #D32F2F;
+    /* Define o tamanho da fonte do ícone */
+    font-size: 0.9em;
+    /* Define uma largura fixa para o container do ícone */
+    width: 1em;
+    /* Centraliza o ícone dentro do seu container */
+    text-align: center;
+    /* Impede que o ícone encolha se o texto for muito longo */
+    flex-shrink: 0;
+    /* Adiciona uma transição suave para a rotação/troca do ícone */
+    transition: transform 0.3s ease-out;
+}
+/* Define o conteúdo do ícone usando a pseudo-classe ::before e Font Awesome */
+.faq-icon::before {
+    /* Especifica a família da fonte Font Awesome (versão 5 ou 6) */
+    font-family: "Font Awesome 5 Free"; /* Ou 6 */
+    /* Especifica o peso da fonte para ícones sólidos */
+    font-weight: 900; /* Solid */
+    /* Define o caractere unicode do ícone (seta para a direita) */
+    content: "\f054"; /* > (fa-chevron-right) */
+}
+
+/* Estilização do ícone de link externo (usado ao lado do .faq-link) */
+.faq-link-icon {
+     /* Define a cor do ícone como vermelho */
+     color: #D32F2F;
+     /* Define o tamanho da fonte */
+     font-size: 0.9em;
+     /* Adiciona uma pequena margem à esquerda */
+     margin-left: 5px;
+}
+
+
+/* Estilos aplicados quando um item da FAQ está aberto (classe .is-open) */
+.faq-item.is-open .faq-question {
+    /* Muda o fundo da pergunta para um vermelho mais claro */
+    background-color: #fdeeee;
+    /* Torna o texto da pergunta em negrito */
+    font-weight: bold;
+}
+/* Muda o ícone quando o item está aberto */
+.faq-item.is-open .faq-icon::before {
+    /* Define o caractere unicode do ícone de check (✓) */
+    content: "\f00c"; /* ✔ (fa-check) */
+    /* Alternativa: seta para baixo */
+    /* content: "\f078"; */ /* ▼ (fa-chevron-down) */
+}
+
+
+/* Estilização do container da resposta da FAQ */
+.faq-answer {
+    /* Adiciona preenchimento lateral (vertical controlado pela animação) */
+    padding: 0 20px;
+    /* Define a cor de fundo como branco */
+    background-color: #fff;
+    /* Define o tamanho da fonte da resposta */
+    font-size: 0.95em;
+    /* Define a cor do texto da resposta */
+    color: #444;
+    /* Define a altura máxima inicial como 0 para esconder o conteúdo */
+    max-height: 0;
+    /* Esconde o conteúdo que transborda */
+    overflow: hidden;
+    /* Define a transição suave para a altura máxima e o preenchimento ao abrir/fechar */
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+/* Estilos aplicados à resposta quando o item está aberto */
+.faq-item.is-open .faq-answer {
+    /* Define uma altura máxima grande o suficiente para caber qualquer conteúdo */
+    max-height: 1000px;
+    /* Adiciona preenchimento superior quando aberto */
+    padding-top: 15px;
+    /* Adiciona preenchimento inferior quando aberto */
+    padding-bottom: 20px;
+}
+
+/* Estilização de elementos específicos dentro da resposta */
+.faq-answer h3 { font-size: 0.9em; color: #555; font-weight: bold; text-transform: uppercase; margin-top: 10px; margin-bottom: 5px; }
+.faq-answer h3:first-child { margin-top: 0; } /* Remove margem superior do primeiro H3 */
+.faq-answer p { margin-bottom: 10px; text-align: left; } /* Parágrafos */
+.faq-answer p.possessions-intro { margin-bottom: 5px; font-style: italic; color: #666; } /* Parágrafo introdutório específico */
+.faq-answer ul { list-style-type: none; padding-left: 10px; margin-top: 5px; margin-bottom: 15px; } /* Listas */
+.faq-answer li { margin-bottom: 5px; padding-left: 15px; position: relative; } /* Itens da lista */
+
+
+/* Estilização do rodapé da página */
+footer {
+    /* Define a cor de fundo como cinza escuro */
+    background-color: #333;
+    /* Define a cor do texto como branco */
+    color: white;
+    /* Centraliza o texto dentro do rodapé */
+    text-align: center;
+    /* Adiciona preenchimento interno */
+    padding: 15px 10px;
+    /* Empurra o rodapé para o final da página (funciona com body flex e flex-grow no main) */
+    margin-top: auto;
+    /* Garante que o rodapé ocupe toda a largura da página */
+    width: 100%;
+    /* Inclui padding e borda na largura total do elemento */
+    box-sizing: border-box;
+}
+
+/* Estilização do container de informações de localização no rodapé */
+.location-info {
+    /* Centraliza o texto (redundante, pois o footer já centraliza) */
+    text-align: center;
+    /* Reseta a margem esquerda */
+    margin-left: 0;
+    /* Garante que ocupe a linha inteira, comportando-se como um bloco */
+    display: block;
+}
+
+/* Estilização do span que exibe a temperatura */
+#weather-temp {
+    /* Deixa o texto da temperatura em negrito */
+    font-weight: bold;
+}
+
+/* Estilização do span que exibe a descrição do clima */
+#weather-desc {
+    /* Deixa o texto da descrição em itálico */
+    font-style: italic;
+    /* Adiciona um pequeno espaço à esquerda, separando da temperatura */
+    margin-left: 5px;
+}
+
+
+/* --- MEDIA QUERIES (Regras para Design Responsivo) --- */
+/* Aplica estilos quando a largura da tela é no máximo 992px (tablets maiores, laptops pequenos) */
+@media (max-width: 992px) {
+    .container-conteudo.faq-container { max-width: 800px; } /* Reduz a largura máxima do container FAQ */
+}
+/* Aplica estilos quando a largura da tela é no máximo 768px (tablets) */
+@media (max-width: 768px) {
+    main { padding: 20px 10px; } /* Reduz o preenchimento do conteúdo principal */
+    .container-conteudo.faq-container { max-width: 100%; padding: 0; } /* Container FAQ ocupa largura total, sem padding */
+    .intro-text { padding: 0 15px; font-size: 0.95em; } /* Ajusta padding e fonte do texto introdutório */
+    .faq-question, .faq-link { padding: 12px 15px; font-size: 0.95em; } /* Ajusta padding e fonte da pergunta/link */
+    .faq-answer { padding: 0 15px; font-size: 0.9em; } /* Ajusta padding e fonte da resposta */
+    .faq-item.is-open .faq-answer { padding-top: 10px; padding-bottom: 15px; } /* Ajusta padding vertical da resposta aberta */
+}
+/* Aplica estilos quando a largura da tela é no máximo 480px (smartphones) */
+@media (max-width: 480px) {
+    .intro-text { font-size: 0.9em; } /* Reduz fonte do texto introdutório */
+    .faq-question, .faq-link { padding: 10px; font-size: 0.9em; } /* Reduz padding e fonte da pergunta/link */
+    .faq-answer { font-size: 0.85em; } /* Reduz fonte da resposta */
+    .faq-answer h3 { font-size: 0.8em; } /* Reduz fonte dos H3 na resposta */
+    footer { font-size: 0.8em; } /* Reduz fonte do rodapé */
+}
